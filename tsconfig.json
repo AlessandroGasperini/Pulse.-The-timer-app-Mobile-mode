@@ -9,6 +9,10 @@
     "moduleResolution": "node",
     "target": "es5",
     "allowJs": true,
+    "lib": ["ESNext", "DOM"],
+    "jsx": "react",
+    "typeRoots": ["node_modules/@types"],
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "./src/**/*"

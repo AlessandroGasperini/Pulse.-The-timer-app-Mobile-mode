@@ -33095,15 +33095,15 @@ require("./App.css");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return _react.default.createElement("div", {
     className: "App"
-  }, /*#__PURE__*/_react.default.createElement("header", {
+  }, _react.default.createElement("header", {
     className: "App-header"
-  }, /*#__PURE__*/_react.default.createElement("img", {
+  }, _react.default.createElement("img", {
     src: _logo.default,
     className: "App-logo",
     alt: "logo"
-  }), /*#__PURE__*/_react.default.createElement("p", null, "Edit ", /*#__PURE__*/_react.default.createElement("code", null, "src/App.tsx"), " and save to reload."), /*#__PURE__*/_react.default.createElement("a", {
+  }), _react.default.createElement("p", null, "Edit ", _react.default.createElement("code", null, "src/App.tsx"), " and save to reload."), _react.default.createElement("a", {
     className: "App-link",
     href: "https://reactjs.org",
     target: "_blank",
@@ -33128,7 +33128,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var root = _client.default.createRoot(document.getElementById('root'));
 
-root.render( /*#__PURE__*/_react.default.createElement(_react.default.StrictMode, null, /*#__PURE__*/_react.default.createElement(_App.default, null)));
+root.render(_react.default.createElement(_react.default.StrictMode, null, _react.default.createElement(_App.default, null)));
 },{"react":"../node_modules/react/index.js","react-dom/client":"../node_modules/react-dom/client.js","./index.css":"index.css","./App":"App.tsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -33157,7 +33157,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52502" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52629" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
