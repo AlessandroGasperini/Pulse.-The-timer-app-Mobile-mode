@@ -4,7 +4,7 @@ import React from "react";
 function Analog() {
     return (
         <section>
-            <h1>Analog</h1>
+            <h1>Analo</h1>
 
         </section>
     );
