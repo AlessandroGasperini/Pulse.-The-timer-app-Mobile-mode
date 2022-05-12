@@ -8,19 +8,15 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.1",
     "@types/node": "^16.11.34",
-    "@types/react": "^18.0.9",
-    "@types/react-dom": "^18.0.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
-    "typescript": "^4.6.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "clean": "rm dist/bundle.js",
+    "start": "parcel src/index.tsx",
+    "build-prod": "parcel build src/index.tsx"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +35,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/node-sass": "^4.11.2",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.3",
+    "node-sass": "^7.0.1",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.5",
+    "typescript": "^4.6.4"
   }
 }
