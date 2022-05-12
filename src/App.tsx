@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import Menu from './pages/Menu';
+import SetTimer from './pages/SetTimer';
+import Analog from './pages/Analog';
+import Digital from './pages/Digital';
+import Hourglass from './pages/Hourglass';
+import TextTimer from './pages/TextTimer';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <main>
+          <Link to="/"></Link>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/Menu" element={<Menu />} />
+            <Route path="/SetTimer" element={<SetTimer />} />
+            <Route path="/Analog" element={<Analog />} />
+            <Route path="/Digital" element={<Digital />} />
+            <Route path="/Hourglass" element={<Hourglass />} />
+            <Route path="/TextTimer" element={<TextTimer />} />
+          </Routes>
+        </main>
+      </Router>
     </div>
   );
 }
