@@ -9,7 +9,6 @@ function LandingPage() {
     return (
         <Link to={"/SetTimer"}>
             <section>
-
                 <h1>LandingPage</h1>
                 <img src="" alt="bildlp" />
             </section>

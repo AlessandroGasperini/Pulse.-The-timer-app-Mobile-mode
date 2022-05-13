@@ -1,9 +1,11 @@
 import React from "react";
+import logo from "../assets/img/pulse logo.png"
 
 function Header() {
     return (
         <section>
-            <h1>Header</h1>
+            <img src={logo} alt="" />
+            <h1>.pulSe</h1>
         </section>
     );
 }
