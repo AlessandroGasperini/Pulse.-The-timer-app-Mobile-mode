@@ -11,7 +11,7 @@ function LandingPage() {
             <section>
 
                 <h1>LandingPage</h1>
-                <img src="" alt="bild" />
+                <img src="" alt="bildlp" />
             </section>
         </Link>
     );
