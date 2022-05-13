@@ -5,14 +5,10 @@ import EasyTimer from "../Components/EasyTimer";
 function Analog() {
 
     const location = useLocation()
-
-
     const time: any = location.state
 
-    if (time.seconds === 0) {
-        console.log("hej")
 
-    }
+
     return (
         <section>
             <h1>Analo</h1>

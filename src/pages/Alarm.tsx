@@ -1,13 +1,14 @@
 import React from "react";
 
+function Alarm() {
 
 
-function Menu() {
     return (
         <section>
-            <h1>Menu</h1>
+            <h1>Alarm</h1>
+
         </section>
     );
 }
 
-export default Menu;
+export default Alarm;

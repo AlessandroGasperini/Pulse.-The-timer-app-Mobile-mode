@@ -1,13 +1,13 @@
 import React from "react";
 
 
-function Hourglass() {
+
+function Text() {
     return (
         <section>
-            <h1>HourGlass</h1>
-
+            <h1>Text</h1>
         </section>
     );
 }
 
-export default Hourglass;
+export default Text;
