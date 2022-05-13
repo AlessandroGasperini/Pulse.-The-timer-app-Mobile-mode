@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import arrowUp from "../assets/img/up.png"
-import arrowDown from "../assets/img/down.png"
+import left from "../assets/img/left.png"
+import right from "../assets/img/right.png"
 import Header from "../Components/Header";
 
 function setTimer() {
     // Start values
-    const [days, setDays] = useState(0)
     const [hours, setHours] = useState(0)
     const [minutes, setMinutes] = useState(0)
     const [seconds, setSeconds] = useState(0)
@@ -23,7 +22,6 @@ function setTimer() {
 
 
     const allSettings: object = {
-        days: days,
         hours: hours,
         minutes: minutes,
         seconds: seconds,
@@ -42,32 +40,25 @@ function setTimer() {
             <h1>SetTimer</h1>
 
             <section>
-
-                <article>
-                    <h4>Days</h4>
-                    <img onClick={() => setDays(days + 1)} src={arrowUp} alt="" />
-                    <p>{days}</p>
-                    <img onClick={() => setDays(days - 1)} src={arrowDown} alt="" />
-                </article>
                 <article>
                     <h4>Hours</h4>
-                    <img onClick={() => setHours(hours + 1)} src={arrowUp} alt="" />
+                    <img onClick={() => setHours(hours - 1)} src={left} alt="" />
                     <p>{hours}</p>
-                    <img onClick={() => setHours(hours - 1)} src={arrowDown} alt="" />
+                    <img onClick={() => setHours(hours + 1)} src={right} alt="" />
                 </article>
 
                 <article>
                     <h4>Minutes</h4>
-                    <img onClick={() => setMinutes(minutes + 1)} src={arrowUp} alt="" />
+                    <img onClick={() => setMinutes(minutes - 1)} src={left} alt="" />
                     <p>{minutes}</p>
-                    <img onClick={() => setMinutes(minutes - 1)} src={arrowDown} alt="" />
+                    <img onClick={() => setMinutes(minutes + 1)} src={right} alt="" />
                 </article>
 
                 <article>
                     <h4>Seconds</h4>
-                    <img onClick={() => setSeconds(seconds + 1)} src={arrowUp} alt="" />
+                    <img onClick={() => setSeconds(seconds - 1)} src={left} alt="" />
                     <p>{seconds}</p>
-                    <img onClick={() => setSeconds(seconds - 1)} src={arrowDown} alt="" />
+                    <img onClick={() => setSeconds(seconds + 1)} src={right} alt="" />
                 </article>
 
             </section>

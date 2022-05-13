@@ -7,7 +7,6 @@ import { useEffect } from "react";
 
 
 interface allTimes {
-    days: number,
     hours: number,
     minutes: number,
     seconds: number,
@@ -27,13 +26,11 @@ const Text: React.FC<allTimes> = () => {
 
     const [timer, isTargetAchieved] = useTimer({
         startValues: {
-            days: time.days,
             hours: time.hours,
             minutes: time.minutes,
             seconds: time.seconds
         },
         target: {
-            days: time.targetDays,
             hours: time.targetHours,
             minutes: time.targetMinutes,
             seconds: time.targetSeconds
@@ -487,8 +484,6 @@ const Text: React.FC<allTimes> = () => {
 
     return (
         <section>
-            <div>{timer.getTimeValues().toString()}</div>
-
             <h3>{hours} {hoursText}</h3>
             <h3>{minutes} {minutesText}</h3>
             <h3>{seconds} {secondsText}</h3>
