@@ -1,12 +1,14 @@
-import React from "react";
 
 import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-
+import React from "react";
+import hitSpin from "../assets/img/hitSpin.png"
+import hitRest from "../assets/img/hitRest.png"
 
 interface allTimes {
+    days: number,
     hours: number,
     minutes: number,
     seconds: number,
@@ -18,7 +20,7 @@ interface allTimes {
     updateWhenTargetAchieved: boolean
 }
 
-const Digital: React.FC<allTimes> = () => {
+const Hit: React.FC<allTimes> = () => {
 
     const location: any = useLocation();
 
@@ -54,25 +56,34 @@ const Digital: React.FC<allTimes> = () => {
 
 
     function reset() {
-        timer.reset();
+        window.location.reload()
     };
 
+    const theTime = timer.getTimeValues().toString()
 
+    console.log(theTime);
 
     return (
         <section>
-            <div>{timer.getTimeValues().toString()}</div>
 
-            <button onClick={() => start()}>start</button>
+            <h1>hit</h1>
 
-            <button onClick={() => pause()}>pause</button>
+            <img className="spin" src={hitSpin} alt="" />
 
-            <button onClick={() => stop()}>stop</button>
+            <section>
+                <button onClick={() => start()}>start</button>
 
-            <button onClick={() => reset()}>reset</button>
+                <button onClick={() => pause()}>pause</button>
+
+                <button onClick={() => stop()}>stop</button>
+
+                <button onClick={() => reset()}>reset</button>
+
+            </section>
+
         </section>
 
     )
 };
 
-export default Digital
+export default Hit

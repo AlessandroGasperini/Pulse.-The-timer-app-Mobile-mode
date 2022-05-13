@@ -2,7 +2,8 @@ import React from "react";
 
 import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 
 interface allTimes {
@@ -18,57 +19,68 @@ interface allTimes {
     updateWhenTargetAchieved: boolean
 }
 
-const EasyTimer: React.FC<allTimes> = ({ days, hours, minutes, seconds, targetDays, targetHours, targetMinutes, targetSeconds, countdown, updateWhenTargetAchieved }) => {
+const StopWatch: React.FC<allTimes> = () => {
 
+    const location: any = useLocation();
 
-    /* The hook returns an EasyTimer instance and a flag to see if the target has been achieved */
+    const time = location.state;
+
     const [timer, isTargetAchieved] = useTimer({
-        /* Hook configuration */
         startValues: {
-            days: days,
-            hours: hours,
-            minutes: minutes,
-            seconds: seconds
+            hours: 0,
+            minutes: 0,
+            seconds: 0
         },
         target: {
-            days: targetDays,
-            hours: targetHours,
-            minutes: targetMinutes,
-            seconds: targetSeconds
+            days: 10,
+            hours: 0,
+            minutes: 0,
+            seconds: 0
         },
-        countdown: countdown,
-        updateWhenTargetAchieved: updateWhenTargetAchieved
-
+        countdown: false,
+        updateWhenTargetAchieved: false
     });
-
-
 
 
     function start() {
         timer.start();
-    }
+    };
 
     function pause() {
         timer.pause();
-    }
+    };
 
     function stop() {
         timer.stop();
-    }
+    };
 
 
     function reset() {
-        timer.reset();
-    }
+        window.location.reload()
+    };
 
-    if (timer.getTimeValues().toString() === "00:00:00") {
-        console.log("hej");
 
-    }
+    const [allLaps, setAllLaps]: Array<string> | any = useState([])
+
+    function lap() {
+        let newLap: any = timer.getTimeValues().toString()
+        allLaps.push(newLap)
+    };
 
     return (
         <section>
             <div>{timer.getTimeValues().toString()}</div>
+
+
+
+            <ul>
+                {allLaps.map((lap: string, id: number) => (
+                    <p key={id}>{lap}</p>
+                ))}
+            </ul>
+
+            <Link to={"/AnalogStopWatch"}>analog</Link>
+
 
             <button onClick={() => start()}>start</button>
 
@@ -78,9 +90,10 @@ const EasyTimer: React.FC<allTimes> = ({ days, hours, minutes, seconds, targetDa
 
             <button onClick={() => reset()}>reset</button>
 
+            <button onClick={() => lap()}>lap</button>
         </section>
 
     )
 };
 
-export default EasyTimer
+export default StopWatch
