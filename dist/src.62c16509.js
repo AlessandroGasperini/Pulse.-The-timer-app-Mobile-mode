@@ -35505,7 +35505,7 @@ function createSearchParams(init) {
     return memo.concat(Array.isArray(value) ? value.map(v => [key, v]) : [[key, value]]);
   }, []));
 }
-},{"react":"../node_modules/react/index.js","history":"../node_modules/history/index.js","react-router":"../node_modules/react-router/index.js"}],"../src/pages/LandingPage.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","history":"../node_modules/history/index.js","react-router":"../node_modules/react-router/index.js"}],"../src/pages/LandingPage.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35515,15 +35515,22 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _reactRouterDom = require("react-router-dom");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function LandingPage() {
-  return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement("h1", null, "LandingPage"));
+  return _react.default.createElement(_reactRouterDom.Link, {
+    to: "/SetTimer"
+  }, _react.default.createElement("section", null, _react.default.createElement("h1", null, "LandingPage"), _react.default.createElement("img", {
+    src: "",
+    alt: "bild"
+  })));
 }
 
 var _default = LandingPage;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../src/pages/Menu.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js"}],"../src/pages/Menu.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35536,12 +35543,783 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Menu() {
-  return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement("h1", null, "Menu"));
+  return _react.default.createElement("section", null, _react.default.createElement("h1", null, "Menu"));
 }
 
 var _default = Menu;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../src/pages/SetTimer.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"../src/pages/SetTimer.tsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function setTimer() {
+  // Start values
+  var _a = (0, _react.useState)(0),
+      days = _a[0],
+      setDays = _a[1];
+
+  var _b = (0, _react.useState)(0),
+      hours = _b[0],
+      setHours = _b[1];
+
+  var _c = (0, _react.useState)(0),
+      minutes = _c[0],
+      setMinutes = _c[1];
+
+  var _d = (0, _react.useState)(0),
+      seconds = _d[0],
+      setSeconds = _d[1]; // Target values
+
+
+  var _e = (0, _react.useState)(0),
+      targetDays = _e[0],
+      setTargetDays = _e[1];
+
+  var _f = (0, _react.useState)(0),
+      targetHours = _f[0],
+      setTargetHours = _f[1];
+
+  var _g = (0, _react.useState)(0),
+      targetMinutes = _g[0],
+      setTargetMinutes = _g[1];
+
+  var _h = (0, _react.useState)(0),
+      targetSeconds = _h[0],
+      setTargetSeconds = _h[1];
+
+  var _j = (0, _react.useState)(true),
+      countdown = _j[0],
+      setCountdown = _j[1];
+
+  var _k = (0, _react.useState)(false),
+      updateWhenTargetAchieved = _k[0],
+      setUpdateWhenTargetAchieved = _k[1];
+
+  var allSettings = {
+    days: days,
+    hours: hours,
+    minutes: minutes,
+    seconds: seconds,
+    targetDays: targetDays,
+    targetHours: targetHours,
+    targetMinutes: targetMinutes,
+    targetSeconds: targetSeconds,
+    countdown: countdown,
+    updateWhenTargetAchieved: updateWhenTargetAchieved
+  };
+  return _react.default.createElement("section", null, _react.default.createElement("h1", null, "SetTimer"), _react.default.createElement("input", {
+    type: "number",
+    onChange: function (e) {
+      return setSeconds(parseInt(e.target.value));
+    }
+  }), _react.default.createElement(_reactRouterDom.Link, {
+    state: allSettings,
+    to: "/Analog"
+  }, _react.default.createElement("h1", null, "Analog klocka")));
+}
+
+var _default = setTimer;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js"}],"../node_modules/easytimer.js/dist/easytimer.js":[function(require,module,exports) {
+var define;
+var global = arguments[3];
+/**
+ * easytimer.js
+ * Generated: 2022-02-12
+ * Version: 4.5.3
+ */
+
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.easytimer = {}));
+})(this, (function (exports) { 'use strict';
+
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      enumerableOnly && (symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      })), keys.push.apply(keys, symbols);
+    }
+
+    return keys;
+  }
+
+  function _objectSpread2(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = null != arguments[i] ? arguments[i] : {};
+      i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+
+    return target;
+  }
+
+  function _typeof(obj) {
+    "@babel/helpers - typeof";
+
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+      return typeof obj;
+    } : function (obj) {
+      return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    }, _typeof(obj);
+  }
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
+  function leftPadding(string, padLength, character) {
+    var i;
+    var characters = '';
+    string = typeof string === 'number' ? String(string) : string;
+
+    if (string.length > padLength) {
+      return string;
+    }
+
+    for (i = 0; i < padLength; i = i + 1) {
+      characters += String(character);
+    }
+
+    return (characters + string).slice(-characters.length);
+  }
+
+  function TimeCounter() {
+    this.reset();
+  }
+  /**
+   * [toString convert the counted values on a string]
+   * @param  {array} units           [array with the units to display]
+   * @param  {string} separator       [separator of the units]
+   * @param  {number} leftZeroPadding [number of zero padding]
+   * @return {string}                 [result string]
+   */
+
+
+  TimeCounter.prototype.toString = function () {
+    var units = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['hours', 'minutes', 'seconds'];
+    var separator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ':';
+    var leftZeroPadding = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 2;
+    units = units || ['hours', 'minutes', 'seconds'];
+    separator = separator || ':';
+    leftZeroPadding = leftZeroPadding || 2;
+    var arrayTime = [];
+    var i;
+
+    for (i = 0; i < units.length; i = i + 1) {
+      if (this[units[i]] !== undefined) {
+        if (units[i] === 'secondTenths') {
+          arrayTime.push(this[units[i]]);
+        } else {
+          arrayTime.push(leftPadding(this[units[i]], leftZeroPadding, '0'));
+        }
+      }
+    }
+
+    return arrayTime.join(separator);
+  };
+  /**
+   * [reset reset counter]
+   */
+
+
+  TimeCounter.prototype.reset = function () {
+    this.secondTenths = 0;
+    this.seconds = 0;
+    this.minutes = 0;
+    this.hours = 0;
+    this.days = 0;
+  };
+
+  function EventEmitter() {
+    this.events = {};
+  }
+
+  EventEmitter.prototype.on = function (event, listener) {
+    var _this = this;
+
+    if (!Array.isArray(this.events[event])) {
+      this.events[event] = [];
+    }
+
+    this.events[event].push(listener);
+    return function () {
+      return _this.removeListener(event, listener);
+    };
+  };
+
+  EventEmitter.prototype.removeListener = function (event, listener) {
+    if (Array.isArray(this.events[event])) {
+      var eventIndex = this.events[event].indexOf(listener);
+
+      if (eventIndex > -1) {
+        this.events[event].splice(eventIndex, 1);
+      }
+    }
+  };
+
+  EventEmitter.prototype.removeAllListeners = function (event) {
+    if (!event) {
+      this.events = {};
+    } else if (Array.isArray(this.events[event])) {
+      this.events[event] = [];
+    }
+  };
+
+  EventEmitter.prototype.emit = function (event) {
+    var _this2 = this;
+
+    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    if (Array.isArray(this.events[event])) {
+      this.events[event].forEach(function (listener) {
+        return listener.apply(_this2, args);
+      });
+    }
+  };
+
+  /*
+   * General functions, variables and constants
+   */
+
+  var SECOND_TENTHS_PER_SECOND = 10;
+  var SECONDS_PER_MINUTE = 60;
+  var MINUTES_PER_HOUR = 60;
+  var HOURS_PER_DAY = 24;
+  var SECOND_TENTHS_POSITION = 0;
+  var SECONDS_POSITION = 1;
+  var MINUTES_POSITION = 2;
+  var HOURS_POSITION = 3;
+  var DAYS_POSITION = 4;
+  var SECOND_TENTHS = 'secondTenths';
+  var SECONDS = 'seconds';
+  var MINUTES = 'minutes';
+  var HOURS = 'hours';
+  var DAYS = 'days';
+  var VALID_INPUT_VALUES = [SECOND_TENTHS, SECONDS, MINUTES, HOURS, DAYS];
+  var unitsInMilliseconds = {
+    secondTenths: 100,
+    seconds: 1000,
+    minutes: 60000,
+    hours: 3600000,
+    days: 86400000
+  };
+  var groupedUnits = {
+    secondTenths: SECOND_TENTHS_PER_SECOND,
+    seconds: SECONDS_PER_MINUTE,
+    minutes: MINUTES_PER_HOUR,
+    hours: HOURS_PER_DAY
+  };
+
+  function mod(number, module) {
+    return (number % module + module) % module;
+  }
+  /**
+   * [Timer Timer/Chronometer/Countdown compatible with AMD and NodeJS.
+   * Can update time values with different time intervals: tenth of seconds,
+   * seconds, minutes and hours.]
+   */
+
+
+  function Timer() {
+    var defaultParams = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    /*
+    * PRIVATE variables and Functions
+    */
+    var counters = new TimeCounter();
+    var totalCounters = new TimeCounter();
+    var intervalId;
+    var eventEmitter = new EventEmitter();
+    var running = false;
+    var paused = false;
+    var precision;
+    var timerTypeFactor;
+    var customCallback;
+    var timerConfig = {};
+    var currentParams;
+    var targetValues;
+    var startValues;
+    var countdown;
+    var startingDate;
+    var targetDate;
+    var eventData = {
+      detail: {
+        timer: this
+      }
+    };
+    setParams(defaultParams);
+
+    function updateCounters(precision, roundedValue) {
+      var unitsPerGroup = groupedUnits[precision];
+      totalCounters[precision] = roundedValue;
+
+      if (precision === DAYS) {
+        counters[precision] = Math.abs(roundedValue);
+      } else if (roundedValue >= 0) {
+        counters[precision] = mod(roundedValue, unitsPerGroup);
+      } else {
+        counters[precision] = mod(unitsPerGroup - mod(roundedValue, unitsPerGroup), unitsPerGroup);
+      }
+    }
+
+    function updateDays(value) {
+      return updateUnitByPrecision(value, DAYS);
+    }
+
+    function updateHours(value) {
+      return updateUnitByPrecision(value, HOURS);
+    }
+
+    function updateMinutes(value) {
+      return updateUnitByPrecision(value, MINUTES);
+    }
+
+    function updateSeconds(value) {
+      return updateUnitByPrecision(value, SECONDS);
+    }
+
+    function updateSecondTenths(value) {
+      return updateUnitByPrecision(value, SECOND_TENTHS);
+    }
+
+    function updateUnitByPrecision(value, precision) {
+      var previousValue = totalCounters[precision];
+      updateCounters(precision, calculateIntegerUnitQuotient(value, unitsInMilliseconds[precision]));
+      return totalCounters[precision] !== previousValue;
+    }
+
+    function stopTimerAndResetCounters() {
+      stopTimer();
+      resetCounters();
+    }
+
+    function stopTimer() {
+      clearInterval(intervalId);
+      intervalId = undefined;
+      running = false;
+      paused = false;
+    }
+
+    function setParamsAndStartTimer(params) {
+      if (!isPaused()) {
+        setParams(params);
+      } else {
+        startingDate = calculateStartingDate();
+        targetValues = setTarget(currentParams.target);
+      }
+
+      startTimer();
+    }
+
+    function startTimer() {
+      var interval = unitsInMilliseconds[precision];
+
+      if (isTargetAchieved(roundTimestamp(Date.now()))) {
+        return;
+      }
+
+      intervalId = setInterval(updateTimerAndDispatchEvents, interval);
+      running = true;
+      paused = false;
+    }
+
+    function calculateStartingDate() {
+      return roundTimestamp(Date.now()) - totalCounters.secondTenths * unitsInMilliseconds[SECOND_TENTHS] * timerTypeFactor;
+    }
+
+    function updateTimerAndDispatchEvents() {
+      var currentTime = roundTimestamp(Date.now());
+      var valuesUpdated = updateTimer();
+      dispatchEvents(valuesUpdated);
+      customCallback(eventData.detail.timer);
+
+      if (isTargetAchieved(currentTime)) {
+        stop();
+        dispatchEvent('targetAchieved', eventData);
+      }
+    }
+
+    function updateTimer() {
+      var currentTime = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : roundTimestamp(Date.now());
+      var elapsedTime = timerTypeFactor > 0 ? currentTime - startingDate : startingDate - currentTime;
+      var valuesUpdated = {};
+      valuesUpdated[SECOND_TENTHS] = updateSecondTenths(elapsedTime);
+      valuesUpdated[SECONDS] = updateSeconds(elapsedTime);
+      valuesUpdated[MINUTES] = updateMinutes(elapsedTime);
+      valuesUpdated[HOURS] = updateHours(elapsedTime);
+      valuesUpdated[DAYS] = updateDays(elapsedTime);
+      return valuesUpdated;
+    }
+
+    function roundTimestamp(timestamp) {
+      return Math.floor(timestamp / unitsInMilliseconds[precision]) * unitsInMilliseconds[precision];
+    }
+
+    function dispatchEvents(valuesUpdated) {
+      if (valuesUpdated[SECOND_TENTHS]) {
+        dispatchEvent('secondTenthsUpdated', eventData);
+      }
+
+      if (valuesUpdated[SECONDS]) {
+        dispatchEvent('secondsUpdated', eventData);
+      }
+
+      if (valuesUpdated[MINUTES]) {
+        dispatchEvent('minutesUpdated', eventData);
+      }
+
+      if (valuesUpdated[HOURS]) {
+        dispatchEvent('hoursUpdated', eventData);
+      }
+
+      if (valuesUpdated[DAYS]) {
+        dispatchEvent('daysUpdated', eventData);
+      }
+    }
+
+    function isTargetAchieved(currentDate) {
+      return targetValues instanceof Array && currentDate >= targetDate;
+    }
+
+    function resetCounters() {
+      counters.reset();
+      totalCounters.reset();
+    }
+
+    function setParams(params) {
+      params = params || {};
+      precision = checkPrecision(params.precision);
+      customCallback = typeof params.callback === 'function' ? params.callback : function () {};
+      countdown = params.countdown === true;
+      timerTypeFactor = countdown === true ? -1 : 1;
+
+      if (_typeof(params.startValues) === 'object') {
+        setStartValues(params.startValues);
+      } else {
+        startValues = null;
+      }
+
+      startingDate = calculateStartingDate();
+      updateTimer();
+
+      if (_typeof(params.target) === 'object') {
+        targetValues = setTarget(params.target);
+      } else if (countdown) {
+        params.target = {
+          seconds: 0
+        };
+        targetValues = setTarget(params.target);
+      } else {
+        targetValues = null;
+      }
+
+      timerConfig = {
+        precision: precision,
+        callback: customCallback,
+        countdown: _typeof(params) === 'object' && params.countdown === true,
+        target: targetValues,
+        startValues: startValues
+      };
+      currentParams = params;
+    }
+
+    function checkPrecision(precision) {
+      precision = typeof precision === 'string' ? precision : SECONDS;
+
+      if (!isValidInputValue(precision)) {
+        throw new Error("Error in precision parameter: ".concat(precision, " is not a valid value"));
+      }
+
+      return precision;
+    }
+
+    function isValidInputValue(value) {
+      return VALID_INPUT_VALUES.indexOf(value) >= 0;
+    }
+
+    function configInputValues(inputValues) {
+      var values;
+
+      if (_typeof(inputValues) === 'object') {
+        if (inputValues instanceof Array) {
+          if (inputValues.length !== 5) {
+            throw new Error('Array size not valid');
+          }
+
+          values = inputValues;
+        } else {
+          for (var value in inputValues) {
+            if (VALID_INPUT_VALUES.indexOf(value) < 0) {
+              throw new Error("Error in startValues or target parameter: ".concat(value, " is not a valid input value"));
+            }
+          }
+
+          values = [inputValues.secondTenths || 0, inputValues.seconds || 0, inputValues.minutes || 0, inputValues.hours || 0, inputValues.days || 0];
+        }
+      }
+
+      values = values.map(function (value) {
+        return parseInt(value, 10);
+      });
+      var secondTenths = values[SECOND_TENTHS_POSITION];
+      var seconds = values[SECONDS_POSITION] + calculateIntegerUnitQuotient(secondTenths, SECOND_TENTHS_PER_SECOND);
+      var minutes = values[MINUTES_POSITION] + calculateIntegerUnitQuotient(seconds, SECONDS_PER_MINUTE);
+      var hours = values[HOURS_POSITION] + calculateIntegerUnitQuotient(minutes, MINUTES_PER_HOUR);
+      var days = values[DAYS_POSITION] + calculateIntegerUnitQuotient(hours, HOURS_PER_DAY);
+      values[SECOND_TENTHS_POSITION] = secondTenths % SECOND_TENTHS_PER_SECOND;
+      values[SECONDS_POSITION] = seconds % SECONDS_PER_MINUTE;
+      values[MINUTES_POSITION] = minutes % MINUTES_PER_HOUR;
+      values[HOURS_POSITION] = hours % HOURS_PER_DAY;
+      values[DAYS_POSITION] = days;
+      return values;
+    }
+
+    function calculateIntegerUnitQuotient(unit, divisor) {
+      var quotient = unit / divisor;
+      return quotient < 0 ? Math.ceil(quotient) : Math.floor(quotient);
+    }
+
+    function setTarget(inputTarget) {
+      if (!inputTarget) {
+        return;
+      }
+
+      targetValues = configInputValues(inputTarget);
+      var targetCounter = calculateTotalCounterFromValues(targetValues);
+      targetDate = startingDate + targetCounter.secondTenths * unitsInMilliseconds[SECOND_TENTHS] * timerTypeFactor;
+      return targetValues;
+    }
+
+    function setStartValues(inputStartValues) {
+      startValues = configInputValues(inputStartValues);
+      counters.secondTenths = startValues[SECOND_TENTHS_POSITION];
+      counters.seconds = startValues[SECONDS_POSITION];
+      counters.minutes = startValues[MINUTES_POSITION];
+      counters.hours = startValues[HOURS_POSITION];
+      counters.days = startValues[DAYS_POSITION];
+      totalCounters = calculateTotalCounterFromValues(startValues, totalCounters);
+    }
+
+    function calculateTotalCounterFromValues(values, outputCounter) {
+      var total = outputCounter || {};
+      total.days = values[DAYS_POSITION];
+      total.hours = total.days * HOURS_PER_DAY + values[HOURS_POSITION];
+      total.minutes = total.hours * MINUTES_PER_HOUR + values[MINUTES_POSITION];
+      total.seconds = total.minutes * SECONDS_PER_MINUTE + values[SECONDS_POSITION];
+      total.secondTenths = total.seconds * SECOND_TENTHS_PER_SECOND + values[[SECOND_TENTHS_POSITION]];
+      return total;
+    }
+    /*
+     * PUBLIC functions
+     */
+
+    /**
+     * [stop stops the timer and resets the counters. Dispatch stopped event]
+     */
+
+
+    function stop() {
+      stopTimerAndResetCounters();
+      dispatchEvent('stopped', eventData);
+    }
+    /**
+     * [stop stops and starts the timer. Dispatch stopped event]
+     */
+
+
+    function reset() {
+      stopTimerAndResetCounters();
+      setParamsAndStartTimer(currentParams);
+      dispatchEvent('reset', eventData);
+    }
+    /**
+     * [start starts the timer configured by the params object. Dispatch started event]
+     * @param  {object} params [Configuration parameters]
+     */
+
+
+    function start() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      params = _objectSpread2(_objectSpread2({}, defaultParams), params);
+
+      if (isRunning()) {
+        return;
+      }
+
+      setParamsAndStartTimer(params);
+      dispatchEvent('started', eventData);
+    }
+    /**
+     * [pause stops the timer without resetting the counters. The timer it can be restarted with start function.
+     * Dispatch paused event]
+     * @return {type} [description]
+     */
+
+
+    function pause() {
+      stopTimer();
+      paused = true;
+      dispatchEvent('paused', eventData);
+    }
+    /**
+     * [addEventListener Adds event listener to the timer]
+     * @param {string} eventType      [event to listen]
+     * @param {function} listener   [the event listener function]
+     */
+
+
+    function addEventListener(eventType, listener) {
+      eventEmitter.on(eventType, listener);
+    }
+    /**
+     * [removeEventListener Removes event listener to the timer]
+     * @param  {string} eventType    [event to remove listener]
+     * @param  {function} listener [listener to remove]
+     */
+
+
+    function removeEventListener(eventType, listener) {
+      eventEmitter.removeListener(eventType, listener);
+    }
+    /**
+     * [removeAllEventListeners Removes all events listeners for the given type, no type to remove all types]
+     * @param  {string} [eventType]  [event to remove listener]
+     */
+
+
+    function removeAllEventListeners(eventType) {
+      eventEmitter.removeAllListeners(eventType);
+    }
+    /**
+     * [dispatchEvent dispatches an event]
+     * @param  {string} eventType [event to dispatch]
+     * @param data
+     */
+
+
+    function dispatchEvent(eventType, data) {
+      eventEmitter.emit(eventType, data);
+    }
+    /**
+     * [isRunning return true if the timer is running]
+     * @return {Boolean}
+     */
+
+
+    function isRunning() {
+      return running;
+    }
+    /**
+     * [isPaused returns true if the timer is paused]
+     * @return {Boolean}
+     */
+
+
+    function isPaused() {
+      return paused;
+    }
+    /**
+     * [getTimeValues returns the counter with the current timer values]
+     * @return {TimeCounter}
+     */
+
+
+    function getTimeValues() {
+      return counters;
+    }
+    /**
+     * [getTotalTimeValues returns the counter with the current timer total values]
+     * @return {TimeCounter}
+     */
+
+
+    function getTotalTimeValues() {
+      return totalCounters;
+    }
+    /**
+     * [getConfig returns the configuration parameters]
+     * @return {type}
+     */
+
+
+    function getConfig() {
+      return timerConfig;
+    }
+    /**
+     * Public API
+     * Definition of Timer instance public functions
+     */
+
+
+    if (typeof this !== 'undefined') {
+      this.start = start;
+      this.pause = pause;
+      this.stop = stop;
+      this.reset = reset;
+      this.isRunning = isRunning;
+      this.isPaused = isPaused;
+      this.getTimeValues = getTimeValues;
+      this.getTotalTimeValues = getTotalTimeValues;
+      this.getConfig = getConfig;
+      this.addEventListener = addEventListener;
+      this.on = addEventListener;
+      this.removeEventListener = removeEventListener;
+      this.removeAllEventListeners = removeAllEventListeners;
+      this.off = removeEventListener;
+    }
+  }
+
+  exports.Timer = Timer;
+  exports["default"] = Timer;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+}));
+
+},{}],"../node_modules/easytimer-react-hook/dist/index.min.js":[function(require,module,exports) {
+var define;
+/**
+ * easytimer-react-hook
+ * Generated: 2022-02-12
+ * Version: 2.0.0
+ */
+
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports,require("react"),require("easytimer.js")):"function"==typeof define&&define.amd?define(["exports","react","easytimer.js"],t):t((e="undefined"!=typeof globalThis?globalThis:e||self)["easytimer-react-hook"]={},e.React,e.easytimer)}(this,(function(e,t,n){"use strict";e.default=function(e){var o=void 0===e?{}:e,r=o.startValues,i=o.target,s=o.precision,u=o.countdown,a=o.updateWhenTargetAchieved,f=["days","hours","minutes","seconds","secondTenths"],c=function(e){m(e.getTimeValues().toString(f))},d=function(e){c(e.detail.timer),T(!1)},l=function(){return T(!0)},p=function(){g.off("started",d),g.off("reset",d),g.off("targetAchieved",l)},g=t.useState(new n.Timer({startValues:r,target:i,precision:s,countdown:u,callback:c}))[0],m=t.useState(g.getTimeValues().toString(f))[1],h=t.useState(!1),y=h[0],T=h[1];return t.useEffect((function(){return g.on("started",d),g.on("reset",d),a&&g.on("targetAchieved",l),function(){return p()}}),[a]),t.useEffect((function(){return function(){g.stop(),p()}}),[]),[g,y]},Object.defineProperty(e,"__esModule",{value:!0})}));
+
+},{"react":"../node_modules/react/index.js","easytimer.js":"../node_modules/easytimer.js/dist/easytimer.js"}],"../src/Components/EasyTimer.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35550,21 +36328,86 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _easytimerReactHook = _interopRequireDefault(require("easytimer-react-hook"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function SetTimer() {
-  require(['lib/easytimer/dist/easytimer.min.js'], function (easytimer) {
-    var timer = new easytimer.Timer();
-    console.log(timer);
-  });
+var EasyTimer = function (_a) {
+  var days = _a.days,
+      hours = _a.hours,
+      minutes = _a.minutes,
+      seconds = _a.seconds,
+      targetDays = _a.targetDays,
+      targetHours = _a.targetHours,
+      targetMinutes = _a.targetMinutes,
+      targetSeconds = _a.targetSeconds,
+      countdown = _a.countdown,
+      updateWhenTargetAchieved = _a.updateWhenTargetAchieved;
+  /* The hook returns an EasyTimer instance and a flag to see if the target has been achieved */
 
-  return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement("h1", null, "SetTimer"));
-}
+  var _b = (0, _easytimerReactHook.default)({
+    /* Hook configuration */
+    startValues: {
+      days: days,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds
+    },
+    target: {
+      days: targetDays,
+      hours: targetHours,
+      minutes: targetMinutes,
+      seconds: targetSeconds
+    },
+    countdown: countdown,
+    updateWhenTargetAchieved: updateWhenTargetAchieved
+  }),
+      timer = _b[0],
+      isTargetAchieved = _b[1];
 
-var _default = SetTimer;
+  function start() {
+    timer.start();
+  }
+
+  function pause() {
+    timer.pause();
+  }
+
+  function stop() {
+    timer.stop();
+  }
+
+  function reset() {
+    timer.reset();
+  }
+
+  if (timer.getTimeValues().toString() === "00:00:00") {
+    console.log("hej");
+  }
+
+  return _react.default.createElement("section", null, _react.default.createElement("div", null, timer.getTimeValues().toString()), _react.default.createElement("button", {
+    onClick: function () {
+      return start();
+    }
+  }, "start"), _react.default.createElement("button", {
+    onClick: function () {
+      return pause();
+    }
+  }, "pause"), _react.default.createElement("button", {
+    onClick: function () {
+      return stop();
+    }
+  }, "stop"), _react.default.createElement("button", {
+    onClick: function () {
+      return reset();
+    }
+  }, "reset"));
+};
+
+var _default = EasyTimer;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../src/pages/Analog.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js"}],"../src/pages/Analog.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35573,16 +36416,38 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _EasyTimer = _interopRequireDefault(require("../Components/EasyTimer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Analog() {
-  return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement("h1", null, "Analog"));
+  var location = (0, _reactRouterDom.useLocation)();
+  var time = location.state;
+
+  if (time.seconds === 0) {
+    console.log("hej");
+  }
+
+  return _react.default.createElement("section", null, _react.default.createElement("h1", null, "Analo"), _react.default.createElement(_EasyTimer.default, {
+    days: time.days,
+    hours: time.hours,
+    minutes: time.minutes,
+    seconds: time.seconds,
+    targetDays: time.targetDays,
+    targetHours: time.targetHours,
+    targetMinutes: time.targetMinutes,
+    targetSeconds: time.targetSeconds,
+    countdown: time.countdown,
+    updateWhenTargetAchieved: time.updateWhenTargetAchieved
+  }));
 }
 
 var _default = Analog;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../src/pages/Digital.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/EasyTimer":"../src/Components/EasyTimer.tsx"}],"../src/pages/Digital.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35595,12 +36460,12 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Digital() {
-  return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement("h1", null, "Digital"));
+  return _react.default.createElement("section", null, _react.default.createElement("h1", null, "Digital"));
 }
 
 var _default = Digital;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../src/pages/Hourglass.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"../src/pages/Hourglass.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35613,28 +36478,10 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Hourglass() {
-  return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement("h1", null, "HourGlass"));
+  return _react.default.createElement("section", null, _react.default.createElement("h1", null, "HourGlass"));
 }
 
 var _default = Hourglass;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../src/pages/TextTimer.jsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function TextTimer() {
-  return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement("h1", null, "TextTimer"));
-}
-
-var _default = TextTimer;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js"}],"../src/App.tsx":[function(require,module,exports) {
 "use strict";
@@ -35662,8 +36509,6 @@ var _Digital = _interopRequireDefault(require("./pages/Digital"));
 
 var _Hourglass = _interopRequireDefault(require("./pages/Hourglass"));
 
-var _TextTimer = _interopRequireDefault(require("./pages/TextTimer"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
@@ -35689,15 +36534,12 @@ function App() {
   }), _react.default.createElement(_reactRouterDom.Route, {
     path: "/Hourglass",
     element: _react.default.createElement(_Hourglass.default, null)
-  }), _react.default.createElement(_reactRouterDom.Route, {
-    path: "/TextTimer",
-    element: _react.default.createElement(_TextTimer.default, null)
   })))));
 }
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./App.css":"../src/App.css","react-router-dom":"../node_modules/react-router-dom/index.js","./pages/LandingPage":"../src/pages/LandingPage.jsx","./pages/Menu":"../src/pages/Menu.jsx","./pages/SetTimer":"../src/pages/SetTimer.jsx","./pages/Analog":"../src/pages/Analog.jsx","./pages/Digital":"../src/pages/Digital.jsx","./pages/Hourglass":"../src/pages/Hourglass.jsx","./pages/TextTimer":"../src/pages/TextTimer.jsx"}],"../src/index.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./App.css":"../src/App.css","react-router-dom":"../node_modules/react-router-dom/index.js","./pages/LandingPage":"../src/pages/LandingPage.tsx","./pages/Menu":"../src/pages/Menu.tsx","./pages/SetTimer":"../src/pages/SetTimer.tsx","./pages/Analog":"../src/pages/Analog.tsx","./pages/Digital":"../src/pages/Digital.tsx","./pages/Hourglass":"../src/pages/Hourglass.tsx"}],"../src/index.tsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -35741,7 +36583,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61346" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56594" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

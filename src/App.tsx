@@ -7,7 +7,6 @@ import SetTimer from './pages/SetTimer';
 import Analog from './pages/Analog';
 import Digital from './pages/Digital';
 import Hourglass from './pages/Hourglass';
-import TextTimer from './pages/TextTimer';
 
 
 function App() {
@@ -23,7 +22,6 @@ function App() {
             <Route path="/Analog" element={<Analog />} />
             <Route path="/Digital" element={<Digital />} />
             <Route path="/Hourglass" element={<Hourglass />} />
-            <Route path="/TextTimer" element={<TextTimer />} />
           </Routes>
         </main>
       </Router>
