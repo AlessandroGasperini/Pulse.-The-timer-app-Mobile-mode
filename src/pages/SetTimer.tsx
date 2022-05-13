@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import EasyTimer from "../Components/EasyTimer";
 import { useState } from "react";
-import useTimer from 'easytimer-react-hook';
 
 function setTimer() {
     // Start values
@@ -21,7 +20,7 @@ function setTimer() {
     const [updateWhenTargetAchieved, setUpdateWhenTargetAchieved] = useState(false)
 
 
-    const allSettings = {
+    const allSettings: object = {
         days: days,
         hours: hours,
         minutes: minutes,

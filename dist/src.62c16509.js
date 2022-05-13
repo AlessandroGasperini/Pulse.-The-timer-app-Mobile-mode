@@ -35524,7 +35524,7 @@ function LandingPage() {
     to: "/SetTimer"
   }, _react.default.createElement("section", null, _react.default.createElement("h1", null, "LandingPage"), _react.default.createElement("img", {
     src: "",
-    alt: "bild"
+    alt: "bildlp"
   })));
 }
 
