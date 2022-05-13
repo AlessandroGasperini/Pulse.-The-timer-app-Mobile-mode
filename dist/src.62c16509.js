@@ -35687,28 +35687,6 @@ function Analog() {
 
 var _default = Analog;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js"}],"../src/pages/Digital.tsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactRouterDom = require("react-router-dom");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Digital() {
-  var location = (0, _reactRouterDom.useLocation)();
-  var time = location.state;
-  return _react.default.createElement("section", null, _react.default.createElement("h1", null, "Digital"));
-}
-
-var _default = Digital;
-exports.default = _default;
 },{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js"}],"../node_modules/easytimer.js/dist/easytimer.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
@@ -36396,7 +36374,88 @@ var define;
 
 !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports,require("react"),require("easytimer.js")):"function"==typeof define&&define.amd?define(["exports","react","easytimer.js"],t):t((e="undefined"!=typeof globalThis?globalThis:e||self)["easytimer-react-hook"]={},e.React,e.easytimer)}(this,(function(e,t,n){"use strict";e.default=function(e){var o=void 0===e?{}:e,r=o.startValues,i=o.target,s=o.precision,u=o.countdown,a=o.updateWhenTargetAchieved,f=["days","hours","minutes","seconds","secondTenths"],c=function(e){m(e.getTimeValues().toString(f))},d=function(e){c(e.detail.timer),T(!1)},l=function(){return T(!0)},p=function(){g.off("started",d),g.off("reset",d),g.off("targetAchieved",l)},g=t.useState(new n.Timer({startValues:r,target:i,precision:s,countdown:u,callback:c}))[0],m=t.useState(g.getTimeValues().toString(f))[1],h=t.useState(!1),y=h[0],T=h[1];return t.useEffect((function(){return g.on("started",d),g.on("reset",d),a&&g.on("targetAchieved",l),function(){return p()}}),[a]),t.useEffect((function(){return function(){g.stop(),p()}}),[]),[g,y]},Object.defineProperty(e,"__esModule",{value:!0})}));
 
-},{"react":"../node_modules/react/index.js","easytimer.js":"../node_modules/easytimer.js/dist/easytimer.js"}],"../src/pages/StopWatch.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","easytimer.js":"../node_modules/easytimer.js/dist/easytimer.js"}],"../src/pages/Digital.tsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _easytimerReactHook = _interopRequireDefault(require("easytimer-react-hook"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Digital = function () {
+  var location = (0, _reactRouterDom.useLocation)();
+  var time = location.state;
+
+  var _a = (0, _easytimerReactHook.default)({
+    startValues: {
+      hours: time.hours,
+      minutes: time.minutes,
+      seconds: time.seconds
+    },
+    target: {
+      hours: time.targetHours,
+      minutes: time.targetMinutes,
+      seconds: time.targetSeconds
+    },
+    countdown: time.countdown,
+    updateWhenTargetAchieved: time.updateWhenTargetAchieved
+  }),
+      timer = _a[0],
+      isTargetAchieved = _a[1];
+
+  function start() {
+    timer.start();
+  }
+
+  ;
+
+  function pause() {
+    timer.pause();
+  }
+
+  ;
+
+  function stop() {
+    timer.stop();
+  }
+
+  ;
+
+  function reset() {
+    timer.reset();
+  }
+
+  ;
+  return _react.default.createElement("section", null, _react.default.createElement("div", null, timer.getTimeValues().toString()), _react.default.createElement("button", {
+    onClick: function () {
+      return start();
+    }
+  }, "start"), _react.default.createElement("button", {
+    onClick: function () {
+      return pause();
+    }
+  }, "pause"), _react.default.createElement("button", {
+    onClick: function () {
+      return stop();
+    }
+  }, "stop"), _react.default.createElement("button", {
+    onClick: function () {
+      return reset();
+    }
+  }, "reset"));
+};
+
+var _default = Digital;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js"}],"../src/pages/StopWatch.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37290,7 +37349,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61250" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57117" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
