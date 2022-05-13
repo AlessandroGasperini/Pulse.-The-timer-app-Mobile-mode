@@ -136,4 +136,28 @@ code {
   top: -30vh;
 }
 
+/* ---------------------------------------------- */
+
+
+
+.spin {
+
+  animation: spin 30s linear infinite;
+  animation-name: spin;
+  transition-property: all;
+}
+
+@keyframes spin {
+
+  from {
+    transform: rotate(0deg);
+
+  }
+
+  to {
+    transform: rotate(360deg);
+
+  }
+}
+
 /*# sourceMappingURL=/src.62c16509.css.map */
