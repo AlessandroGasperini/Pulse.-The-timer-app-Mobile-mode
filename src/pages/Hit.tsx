@@ -7,7 +7,7 @@ function Hit() {
 
     return (
         <section>
-            <h1>Digital</h1>
+            <h1>hit</h1>
 
         </section>
     );

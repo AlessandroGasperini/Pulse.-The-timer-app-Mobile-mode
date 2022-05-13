@@ -38,7 +38,7 @@ const StopWatch: React.FC<allTimes> = () => {
             seconds: 0
         },
         countdown: false,
-        updateWhenTargetAchieved: time.updateWhenTargetAchieved
+        updateWhenTargetAchieved: false
     });
 
 
@@ -56,7 +56,7 @@ const StopWatch: React.FC<allTimes> = () => {
 
 
     function reset() {
-        timer.reset();
+        window.location.reload()
     };
 
 
@@ -72,6 +72,16 @@ const StopWatch: React.FC<allTimes> = () => {
             <div>{timer.getTimeValues().toString()}</div>
 
 
+
+            <ul>
+                {allLaps.map((lap: string, id: number) => (
+                    <p key={id}>{lap}</p>
+                ))}
+            </ul>
+
+            <Link to={"/AnalogStopWatch"}>analog</Link>
+
+
             <button onClick={() => start()}>start</button>
 
             <button onClick={() => pause()}>pause</button>
@@ -81,11 +91,6 @@ const StopWatch: React.FC<allTimes> = () => {
             <button onClick={() => reset()}>reset</button>
 
             <button onClick={() => lap()}>lap</button>
-            <ul>
-                {allLaps.map((lap: string, id: number) => (
-                    <p key={id}>{lap}</p>
-                ))}
-            </ul>
         </section>
 
     )

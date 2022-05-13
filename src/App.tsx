@@ -3,12 +3,13 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import SetTimer from './pages/SetTimer';
-import Analog from './pages/Analog';
+import AnalogTimer from './pages/AnalogTimer';
 import Digital from './pages/Digital';
 import StopWatch from './pages/StopWatch';
 import Hit from './pages/Hit';
 import Text from './pages/Text';
 import Alarm from './pages/Alarm';
+import AnalogStopWatch from './pages/AnalogStopWatch';
 
 
 function App() {
@@ -20,12 +21,14 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/SetTimer" element={<SetTimer />} />
-            <Route path="/StopWatch" element={<StopWatch />} />
-            <Route path="/Analog" element={<Analog />} />
-            <Route path="/Digital" element={<Digital />} />
+            <Route path="/StopWatch" element={<StopWatch days={0} hours={0} minutes={0} seconds={0} targetDays={0} targetHours={0} targetMinutes={0} targetSeconds={0} countdown={false} updateWhenTargetAchieved={false} />} />
+            <Route path="/AnalogTimer" element={<AnalogTimer hours={0} minutes={0} seconds={0} targetDays={0} targetHours={0} targetMinutes={0} targetSeconds={0} countdown={false} updateWhenTargetAchieved={false} />} />
+            <Route path="/Digital" element={<Digital hours={0} minutes={0} seconds={0} targetDays={0} targetHours={0} targetMinutes={0} targetSeconds={0} countdown={false} updateWhenTargetAchieved={false} />} />
             <Route path="/Hit" element={<Hit />} />
             <Route path="/Alarm" element={<Alarm />} />
-            <Route path="/Text" element={<Text />} />
+            <Route path="/Text" element={<Text hours={0} minutes={0} seconds={0} targetDays={0} targetHours={0} targetMinutes={0} targetSeconds={0} countdown={false} updateWhenTargetAchieved={false} />} />
+            <Route path="/AnalogStopWatch" element={<AnalogStopWatch hours={0} minutes={0} seconds={0} targetDays={0} targetHours={0} targetMinutes={0} targetSeconds={0} countdown={false} updateWhenTargetAchieved={false} />} />
+
           </Routes>
         </main>
       </Router>

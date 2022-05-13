@@ -10,7 +10,7 @@ function Alarm() {
 
     return (
         <section>
-            <h1>Analo</h1>
+            <h1>alarm</h1>
 
 
 

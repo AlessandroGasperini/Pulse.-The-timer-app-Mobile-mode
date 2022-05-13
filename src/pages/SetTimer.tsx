@@ -65,7 +65,7 @@ function setTimer() {
 
 
 
-            <Link state={allSettings} to={"/Analog"}>
+            <Link state={allSettings} to={"/AnalogTimer"}>
                 <h1>Analog klocka</h1>
             </Link>
 

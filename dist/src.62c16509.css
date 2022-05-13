@@ -25,4 +25,115 @@ code {
   display: none;
 }
 
+.clock {
+  margin: 0 auto;
+  width: 261px;
+}
+
+.clockSection {
+  width: 261px;
+  height: 261px;
+  margin: 0 auto;
+}
+
+.noRunSeconds {
+  top: -245px;
+  left: 2px;
+  position: relative;
+  width: 1.1px;
+}
+
+.pauseSecond {
+  top: -245px;
+  left: 2px;
+  position: relative;
+  transform: rotate(360deg);
+  transform-origin: bottom left;
+  animation: spin 60s linear infinite;
+  animation-name: spin;
+  transition-property: all;
+  width: 1.1px;
+  animation-play-state: paused;
+
+}
+
+.sekundpekare {
+  top: -245px;
+  left: 2px;
+  position: relative;
+  transform: rotate(360deg);
+  transform-origin: bottom left;
+  animation: spin 60s linear infinite;
+  animation-name: spin;
+  transition-property: all;
+  width: 1.1px;
+}
+
+@keyframes spin {
+
+  from {
+    transform: rotate(0deg);
+
+  }
+
+  to {
+    transform: rotate(360deg);
+
+  }
+
+}
+
+
+
+.noRunMinutes {
+  top: -247px;
+  left: 0px;
+  position: relative;
+  width: 2px;
+}
+
+.pauseHour {
+  top: -247px;
+  left: 0px;
+  position: relative;
+  transform: rotate(360deg);
+  transform-origin: bottom left;
+  animation: spin 3600s linear infinite;
+  animation-name: spin;
+  transition-property: all;
+  width: 2px;
+  animation-play-state: paused;
+}
+
+.timpekare {
+  top: -247px;
+  left: 0px;
+  position: relative;
+  transform: rotate(360deg);
+  transform-origin: bottom left;
+  animation: spin 3600s linear infinite;
+  animation-name: spin;
+  transition-property: all;
+  width: 2px;
+}
+
+@keyframes spin {
+
+  from {
+    transform: rotate(0deg);
+
+  }
+
+  to {
+    transform: rotate(360deg);
+
+  }
+
+}
+
+.timer {
+  position: relative;
+  top: -30vh;
+}
+
 /*# sourceMappingURL=/src.62c16509.css.map */
