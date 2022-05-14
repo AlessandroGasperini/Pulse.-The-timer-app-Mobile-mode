@@ -35655,8 +35655,8 @@ function setTimer() {
     to: "/Hit"
   }, _react.default.createElement("h1", null, "Hit klocka")), _react.default.createElement(_reactRouterDom.Link, {
     state: allSettings,
-    to: "/Alarm"
-  }, _react.default.createElement("h1", null, "Alarm klocka")), _react.default.createElement(_reactRouterDom.Link, {
+    to: "/HourGlass"
+  }, _react.default.createElement("h1", null, "HourGlass klocka")), _react.default.createElement(_reactRouterDom.Link, {
     state: allSettings,
     to: "/StopWatch"
   }, _react.default.createElement("h1", null, "StopWatch klocka")), _react.default.createElement(_reactRouterDom.Link, {
@@ -36572,15 +36572,7 @@ var Digital = function () {
   var location = (0, _reactRouterDom.useLocation)();
   var time = location.state;
 
-  var _a = (0, _react.useState)(false),
-      modalP = _a[0],
-      setModalP = _a[1];
-
-  var _b = (0, _react.useState)(false),
-      modalS = _b[0],
-      setModalS = _b[1];
-
-  var _c = (0, _easytimerReactHook.default)({
+  var _a = (0, _easytimerReactHook.default)({
     startValues: {
       hours: time.hours,
       minutes: time.minutes,
@@ -36594,8 +36586,8 @@ var Digital = function () {
     countdown: time.countdown,
     updateWhenTargetAchieved: time.updateWhenTargetAchieved
   }),
-      timer = _c[0],
-      isTargetAchieved = _c[1];
+      timer = _a[0],
+      isTargetAchieved = _a[1];
 
   function start() {
     timer.start();
@@ -36621,6 +36613,15 @@ var Digital = function () {
   }
 
   ;
+
+  var _b = (0, _react.useState)(false),
+      modalP = _b[0],
+      setModalP = _b[1];
+
+  var _c = (0, _react.useState)(false),
+      modalS = _c[0],
+      setModalS = _c[1];
+
   var theTimeSec = timer.getTimeValues().seconds;
   var theTimeMin = timer.getTimeValues().minutes;
   var theTimeHour = timer.getTimeValues().hours;
@@ -37545,29 +37546,7 @@ var Text = function () {
 
 var _default = Text;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js"}],"../src/pages/Alarm.tsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactRouterDom = require("react-router-dom");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Alarm() {
-  var location = (0, _reactRouterDom.useLocation)();
-  var time = location.state;
-  return _react.default.createElement("section", null, _react.default.createElement("h1", null, "alarm"));
-}
-
-var _default = Alarm;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js"}],"../src/pages/AnalogStopWatch.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js"}],"../src/pages/AnalogStopWatch.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37707,7 +37686,141 @@ var AnalogStopWatch = function () {
 
 var _default = AnalogStopWatch;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/sekund.png":"../src/assets/img/sekund.png","../assets/img/clock.png":"../src/assets/img/clock.png","../assets/img/timpekare.png":"../src/assets/img/timpekare.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js"}],"../src/App.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/sekund.png":"../src/assets/img/sekund.png","../assets/img/clock.png":"../src/assets/img/clock.png","../assets/img/timpekare.png":"../src/assets/img/timpekare.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js"}],"../src/pages/HourGlass.tsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _easytimerReactHook = _interopRequireDefault(require("easytimer-react-hook"));
+
+var _ModalPause = _interopRequireDefault(require("../Components/ModalPause"));
+
+var _ModalStop = _interopRequireDefault(require("../Components/ModalStop"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var HourGlass = function () {
+  var location = (0, _reactRouterDom.useLocation)();
+  var time = location.state;
+
+  var _a = (0, _easytimerReactHook.default)({
+    startValues: {
+      hours: time.hours,
+      minutes: time.minutes,
+      seconds: time.seconds
+    },
+    target: {
+      hours: time.targetHours,
+      minutes: time.targetMinutes,
+      seconds: time.targetSeconds
+    },
+    countdown: time.countdown,
+    updateWhenTargetAchieved: time.updateWhenTargetAchieved
+  }),
+      timer = _a[0],
+      isTargetAchieved = _a[1];
+
+  function start() {
+    timer.start();
+    setGlass(timeToString);
+    setAni("fillScreen linear infinite");
+  }
+
+  ;
+
+  function stop() {
+    timer.stop();
+  }
+
+  ;
+
+  function reset() {
+    timer.reset();
+    window.location.reload();
+  }
+
+  ;
+  (0, _react.useEffect)(function () {
+    if (timer.getTimeValues().toString() === "00:00:00") {}
+  }, [timer.getTimeValues().toString()]);
+
+  var _b = (0, _react.useState)(false),
+      modalP = _b[0],
+      setModalP = _b[1];
+
+  var _c = (0, _react.useState)(false),
+      modalS = _c[0],
+      setModalS = _c[1];
+
+  var _d = (0, _react.useState)(""),
+      startGlass = _d[0],
+      setGlass = _d[1];
+
+  var _e = (0, _react.useState)(""),
+      startAni = _e[0],
+      setAni = _e[1];
+
+  var theTimeSec = timer.getTimeValues().seconds;
+  var theTimeMin = timer.getTimeValues().minutes;
+  var theTimeHour = timer.getTimeValues().hours;
+  var mins = time.minutes * 60;
+  var hours = time.hours * 3600;
+  var hourGlassTime = mins + hours + time.seconds;
+  var timeToString = hourGlassTime.toString() + "s";
+  console.log(hourGlassTime);
+  var style = {
+    height: "720px",
+    position: "relative",
+    top: "-720px",
+    backgroundColor: "green",
+    animation: startAni,
+    transitionProperty: "all",
+    animationDuration: startGlass
+  };
+  (0, _react.useEffect)(function () {
+    if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
+      setModalS(true);
+      setGlass("");
+    }
+  }, [theTimeSec]);
+  return _react.default.createElement("section", null, _react.default.createElement("section", {
+    style: style
+  }), _react.default.createElement("section", {
+    className: "forShow"
+  }, _react.default.createElement("button", {
+    onClick: function () {
+      return start();
+    }
+  }, "start"), _react.default.createElement("button", {
+    onClick: function () {
+      return stop();
+    }
+  }, "stop"), _react.default.createElement("button", {
+    onClick: function () {
+      return reset();
+    }
+  }, "reset")), modalP && _react.default.createElement(_ModalPause.default, {
+    modalHide: setModalP,
+    passFunction: function () {
+      return start();
+    }
+  }), modalS && _react.default.createElement(_ModalStop.default, null));
+};
+
+var _default = HourGlass;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx"}],"../src/App.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37735,9 +37848,9 @@ var _Hit = _interopRequireDefault(require("./pages/Hit"));
 
 var _Text = _interopRequireDefault(require("./pages/Text"));
 
-var _Alarm = _interopRequireDefault(require("./pages/Alarm"));
-
 var _AnalogStopWatch = _interopRequireDefault(require("./pages/AnalogStopWatch"));
+
+var _HourGlass = _interopRequireDefault(require("./pages/HourGlass"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37807,8 +37920,8 @@ function App() {
       updateWhenTargetAchieved: false
     })
   }), _react.default.createElement(_reactRouterDom.Route, {
-    path: "/Alarm",
-    element: _react.default.createElement(_Alarm.default, null)
+    path: "/HourGlass",
+    element: _react.default.createElement(_HourGlass.default, null)
   }), _react.default.createElement(_reactRouterDom.Route, {
     path: "/Text",
     element: _react.default.createElement(_Text.default, {
@@ -37840,7 +37953,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./App.css":"../src/App.css","react-router-dom":"../node_modules/react-router-dom/index.js","./pages/LandingPage":"../src/pages/LandingPage.tsx","./pages/SetTimer":"../src/pages/SetTimer.tsx","./pages/AnalogTimer":"../src/pages/AnalogTimer.tsx","./pages/Digital":"../src/pages/Digital.tsx","./pages/StopWatch":"../src/pages/StopWatch.tsx","./pages/Hit":"../src/pages/Hit.tsx","./pages/Text":"../src/pages/Text.tsx","./pages/Alarm":"../src/pages/Alarm.tsx","./pages/AnalogStopWatch":"../src/pages/AnalogStopWatch.tsx"}],"../src/index.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./App.css":"../src/App.css","react-router-dom":"../node_modules/react-router-dom/index.js","./pages/LandingPage":"../src/pages/LandingPage.tsx","./pages/SetTimer":"../src/pages/SetTimer.tsx","./pages/AnalogTimer":"../src/pages/AnalogTimer.tsx","./pages/Digital":"../src/pages/Digital.tsx","./pages/StopWatch":"../src/pages/StopWatch.tsx","./pages/Hit":"../src/pages/Hit.tsx","./pages/Text":"../src/pages/Text.tsx","./pages/AnalogStopWatch":"../src/pages/AnalogStopWatch.tsx","./pages/HourGlass":"../src/pages/HourGlass.tsx"}],"../src/index.tsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -37884,7 +37997,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54124" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56828" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,33 +1,22 @@
 import React from "react";
-
+import { useLocation } from "react-router-dom";
+import sekund from "../assets/img/sekund.png"
+import clock from "../assets/img/clock.png"
+import timpekare from "../assets/img/timpekare.png"
 import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
 
 
-interface allTimes {
-    hours: number,
-    minutes: number,
-    seconds: number,
-    targetDays: number,
-    targetHours: number,
-    targetMinutes: number,
-    targetSeconds: number,
-    countdown: boolean,
-    updateWhenTargetAchieved: boolean
-}
+const HourGlass = () => {
 
-const Digital: React.FC<allTimes> = () => {
+
 
     const location: any = useLocation();
 
     const time = location.state;
-
-
-
 
     const [timer, isTargetAchieved] = useTimer({
         startValues: {
@@ -45,13 +34,11 @@ const Digital: React.FC<allTimes> = () => {
     });
 
 
+
     function start() {
         timer.start();
-    };
-
-    function pause() {
-        timer.pause();
-        setModalP(true)
+        setGlass(timeToString)
+        setAni("fillScreen linear infinite")
     };
 
     function stop() {
@@ -61,35 +48,66 @@ const Digital: React.FC<allTimes> = () => {
 
     function reset() {
         timer.reset();
+        window.location.reload()
     };
+
+
+    useEffect(() => {
+        if (timer.getTimeValues().toString() === "00:00:00") {
+
+        }
+    }, [timer.getTimeValues().toString()])
 
     const [modalP, setModalP] = useState<boolean>(false)
     const [modalS, setModalS] = useState<boolean>(false)
+    const [startGlass, setGlass] = useState<string>("")
+    const [startAni, setAni] = useState<string>("")
+
+
 
     const theTimeSec: number = timer.getTimeValues().seconds
     const theTimeMin: number = timer.getTimeValues().minutes
     const theTimeHour: number = timer.getTimeValues().hours
 
+    let mins: number = time.minutes * 60
+    let hours: number = time.hours * 3600
+    let hourGlassTime: number = mins + hours + time.seconds
+    let timeToString: string = hourGlassTime.toString() + "s"
+
+    console.log(hourGlassTime);
+
+
+    let style: any = {
+        height: "720px",
+        position: "relative",
+        top: "-720px",
+        backgroundColor: "green",
+        animation: startAni,
+        transitionProperty: "all",
+        animationDuration: startGlass,
+    }
+
+
 
     useEffect(() => {
         if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
             setModalS(true)
+            setGlass("")
+
         }
     }, [theTimeSec])
 
-
     return (
-        <section>
-            <div>{timer.getTimeValues().toString()}</div>
+        <section >
+            <section style={style}></section>
 
-            <button onClick={() => start()}>start</button>
+            <section className="forShow">
+                <button onClick={() => start()}>start</button>
 
-            <button onClick={() => pause()}>pause</button>
+                <button onClick={() => stop()}>stop</button>
 
-            <button onClick={() => stop()}>stop</button>
-
-            <button onClick={() => reset()}>reset</button>
-
+                <button onClick={() => reset()}>reset</button>
+            </section>
 
             {modalP && <ModalPause modalHide={setModalP} passFunction={() => start()} />}
             {modalS && <ModalStop />}
@@ -100,4 +118,4 @@ const Digital: React.FC<allTimes> = () => {
     )
 };
 
-export default Digital
+export default HourGlass

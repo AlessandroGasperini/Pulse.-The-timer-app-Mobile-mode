@@ -75,8 +75,8 @@ function setTimer() {
                 <h1>Hit klocka</h1>
             </Link>
 
-            <Link state={allSettings} to={"/Alarm"}>
-                <h1>Alarm klocka</h1>
+            <Link state={allSettings} to={"/HourGlass"}>
+                <h1>HourGlass klocka</h1>
             </Link>
 
             <Link state={allSettings} to={"/StopWatch"}>

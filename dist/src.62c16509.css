@@ -157,7 +157,6 @@ code {
 
 .spin {
   animation: spin 30s linear infinite;
-  animation-name: spin;
   transition-property: all;
 }
 
@@ -298,6 +297,31 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+/* ---------------------------------------------------------------- */
+
+
+
+@keyframes fillScreen {
+  from {
+    background: linear-gradient(60deg, rgb(74, 146, 219), rgb(152, 215, 234));
+    transform: translatey(0%);
+  }
+
+
+  to {
+    background: linear-gradient(60deg, rgb(74, 146, 219), rgb(152, 215, 234));
+    transform: translatey(100%);
+
+  }
+
+}
+
+.forShow {
+  position: relative;
+  top: -9vh;
 }
 
 /*# sourceMappingURL=/src.62c16509.css.map */
