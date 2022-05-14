@@ -4,7 +4,8 @@ import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-
+import ModalPause from "../Components/ModalPause";
+import ModalStop from "../Components/ModalStop";
 
 interface allTimes {
     hours: number,

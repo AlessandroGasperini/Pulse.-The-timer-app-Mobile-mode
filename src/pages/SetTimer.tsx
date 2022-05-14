@@ -39,23 +39,21 @@ function setTimer() {
         <section>
             <h1>SetTimer</h1>
 
-            <section>
+            <section className="setTime">
+                <h4>Hours</h4>
                 <article>
-                    <h4>Hours</h4>
                     <img onClick={() => setHours(hours - 1)} src={left} alt="" />
                     <p>{hours}</p>
                     <img onClick={() => setHours(hours + 1)} src={right} alt="" />
                 </article>
-
+                <h4>Minutes</h4>
                 <article>
-                    <h4>Minutes</h4>
                     <img onClick={() => setMinutes(minutes - 1)} src={left} alt="" />
                     <p>{minutes}</p>
                     <img onClick={() => setMinutes(minutes + 1)} src={right} alt="" />
                 </article>
-
+                <h4>Seconds</h4>
                 <article>
-                    <h4>Seconds</h4>
                     <img onClick={() => setSeconds(seconds - 1)} src={left} alt="" />
                     <p>{seconds}</p>
                     <img onClick={() => setSeconds(seconds + 1)} src={right} alt="" />

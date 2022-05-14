@@ -277,4 +277,27 @@ code {
   display: none;
 }
 
+.setTime article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.setTime p {
+  margin: 0 10vw;
+  font-size: 2rem;
+}
+
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #000000ba;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /*# sourceMappingURL=/src.62c16509.css.map */

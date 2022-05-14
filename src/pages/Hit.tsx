@@ -7,7 +7,8 @@ import React from "react";
 import hitSpin from "../assets/img/hitSpin.png"
 import hitArrow from "../assets/img/hitArrow.png"
 import lapMark from "../assets/img/lapMark.png"
-
+import ModalPause from "../Components/ModalPause";
+import ModalStop from "../Components/ModalStop";
 
 
 interface allTimes {

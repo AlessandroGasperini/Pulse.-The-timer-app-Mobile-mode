@@ -4,6 +4,8 @@ import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import ModalPause from "../Components/ModalPause";
+import ModalStop from "../Components/ModalStop";
 
 
 interface allTimes {
@@ -23,6 +25,10 @@ const Digital: React.FC<allTimes> = () => {
     const location: any = useLocation();
 
     const time = location.state;
+
+    const [modalP, setModalP] = useState<boolean>(false)
+    const [modalS, setModalS] = useState<boolean>(false)
+
 
     const [timer, isTargetAchieved] = useTimer({
         startValues: {
@@ -46,6 +52,7 @@ const Digital: React.FC<allTimes> = () => {
 
     function pause() {
         timer.pause();
+        setModalP(true)
     };
 
     function stop() {
@@ -57,6 +64,16 @@ const Digital: React.FC<allTimes> = () => {
         timer.reset();
     };
 
+    const theTimeSec: number = timer.getTimeValues().seconds
+    const theTimeMin: number = timer.getTimeValues().minutes
+    const theTimeHour: number = timer.getTimeValues().hours
+
+
+    useEffect(() => {
+        if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
+            setModalS(true)
+        }
+    }, [theTimeSec])
 
 
     return (
@@ -70,6 +87,12 @@ const Digital: React.FC<allTimes> = () => {
             <button onClick={() => stop()}>stop</button>
 
             <button onClick={() => reset()}>reset</button>
+
+
+            {modalP && <ModalPause modalHide={setModalP} passFunction={() => start()} />}
+            {modalS && <ModalStop />}
+
+
         </section>
 
     )
