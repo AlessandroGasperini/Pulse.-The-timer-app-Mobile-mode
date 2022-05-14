@@ -98,6 +98,9 @@ const AnalogStopWatch: React.FC<allTimes> = () => {
                 ))}
             </ul>
 
+
+            <section className="test"></section>
+
             <Link to={"/StopWatch"}>degital</Link>
 
             <button onClick={() => start()}>start</button>
