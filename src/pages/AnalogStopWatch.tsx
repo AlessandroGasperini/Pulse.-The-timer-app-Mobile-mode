@@ -6,6 +6,7 @@ import timpekare from "../assets/img/timpekare.png"
 import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
 import { useEffect } from "react";
+import Header from "../Components/Header";
 
 interface allTimes {
     hours: number,
@@ -83,7 +84,7 @@ const AnalogStopWatch: React.FC<allTimes> = () => {
 
     return (
         <section>
-
+            <Header />
             <section className="clockSection">
                 <img className="clock" src={clock} alt="" />
                 <img className={sec} src={sekund} alt="" />

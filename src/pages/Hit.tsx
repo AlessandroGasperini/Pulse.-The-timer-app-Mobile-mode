@@ -59,7 +59,6 @@ const Hit: React.FC<allTimes> = () => {
 
 
 
-
     function reset() {
         window.location.reload()
     };
@@ -71,8 +70,6 @@ const Hit: React.FC<allTimes> = () => {
         if (theTime === 30) {
             lap.push(1)
         }
-        // console.log(lap);
-
     }, [theTime])
 
 
@@ -99,8 +96,19 @@ const Hit: React.FC<allTimes> = () => {
     }
 
 
+    const [modalP, setModalP] = useState<boolean>(false)
+    const [modalS, setModalS] = useState<boolean>(false)
 
-    // console.log(timer.getTimeValues().toString());
+    const theTimeSec: number = timer.getTimeValues().seconds
+    const theTimeMin: number = timer.getTimeValues().minutes
+    const theTimeHour: number = timer.getTimeValues().hours
+
+
+    useEffect(() => {
+        if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 30) {
+            setModalS(true)
+        }
+    }, [theTimeSec])
 
 
     return (
@@ -123,8 +131,10 @@ const Hit: React.FC<allTimes> = () => {
                 <button onClick={() => start()}>start</button>
 
                 <button onClick={() => reset()}>reset</button>
-
             </section>
+
+            {modalP && <ModalPause currentTime={timer.getTimeValues().toString()} modalHide={setModalP} passFunction={() => start()} />}
+            {modalS && <ModalStop />}
 
         </section>
 

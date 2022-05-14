@@ -485,8 +485,8 @@ const Text: React.FC<allTimes> = () => {
 
     return (
         <section>
-            <h3>{hours} {hoursText}</h3>
-            <h3>{minutes} {minutesText}</h3>
+            <h3>{hours} {hoursText},</h3>
+            <h3>{minutes} {minutesText} och </h3>
             <h3>{seconds} {secondsText}</h3>
 
             <button onClick={() => start()}>start</button>

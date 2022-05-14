@@ -91,7 +91,7 @@ const Digital: React.FC<allTimes> = () => {
             <button onClick={() => reset()}>reset</button>
 
 
-            {modalP && <ModalPause modalHide={setModalP} passFunction={() => start()} />}
+            {modalP && <ModalPause currentTime={timer.getTimeValues().toString()} modalHide={setModalP} passFunction={() => start()} />}
             {modalS && <ModalStop />}
 
 

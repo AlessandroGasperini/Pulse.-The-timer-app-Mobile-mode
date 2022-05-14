@@ -56,6 +56,12 @@ const AnalogTimer: React.FC<allTimes> = () => {
         timer.pause();
         setSec("pauseSecond")
         setHours("pauseHour")
+        setModalP(true)
+    };
+
+    function stop() {
+        timer.stop();
+        setModalS(true)
     };
 
 
@@ -65,15 +71,23 @@ const AnalogTimer: React.FC<allTimes> = () => {
     };
 
 
+
+
+    const [modalP, setModalP] = useState<boolean>(false)
+    const [modalS, setModalS] = useState<boolean>(false)
+
+    const theTimeSec: number = timer.getTimeValues().seconds
+    const theTimeMin: number = timer.getTimeValues().minutes
+    const theTimeHour: number = timer.getTimeValues().hours
+
+
     useEffect(() => {
-        if (timer.getTimeValues().toString() === "00:00:00") {
+        if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
+            setModalS(true)
             setSec("pauseSecond")
             setHours("pauseHour")
-
         }
-    }, [timer.getTimeValues().toString()])
-
-
+    }, [theTimeSec])
 
     return (
         <section>
@@ -88,9 +102,17 @@ const AnalogTimer: React.FC<allTimes> = () => {
 
             <button onClick={() => start()}>start</button>
 
-            <button onClick={() => pause()}>stop</button>
+            <button onClick={() => pause()}>pause</button>
+
+            <button onClick={() => stop()}>stop</button>
+
 
             <button onClick={() => reset()}>reset</button>
+
+
+            {modalP && <ModalPause currentTime={timer.getTimeValues().toString()} modalHide={setModalP} passFunction={() => start()} />}
+            {modalS && <ModalStop />}
+
         </section>
 
     )
