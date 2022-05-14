@@ -36664,6 +36664,10 @@ var _default = StopWatch;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js"}],"../src/assets/img/hitSpin.png":[function(require,module,exports) {
 module.exports = "/hitSpin.2b86cce1.png";
+},{}],"../src/assets/img/hitArrow.png":[function(require,module,exports) {
+module.exports = "/hitArrow.01f6d4dd.png";
+},{}],"../src/assets/img/lapMark.png":[function(require,module,exports) {
+module.exports = "/lapMark.f599038c.png";
 },{}],"../src/pages/Hit.tsx":[function(require,module,exports) {
 "use strict";
 
@@ -36679,6 +36683,10 @@ var _react = _interopRequireWildcard(require("react"));
 var _reactRouterDom = require("react-router-dom");
 
 var _hitSpin = _interopRequireDefault(require("../assets/img/hitSpin.png"));
+
+var _hitArrow = _interopRequireDefault(require("../assets/img/hitArrow.png"));
+
+var _lapMark = _interopRequireDefault(require("../assets/img/lapMark.png"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -36723,16 +36731,13 @@ var Hit = function () {
       goRest = _e[0],
       setGoRest = _e[1];
 
+  var _f = (0, _react.useState)(_hitArrow.default),
+      arrow = _f[0],
+      setArrow = _f[1];
+
   function start() {
     timer.start();
     setHit("spin");
-  }
-
-  ;
-
-  function pause() {
-    timer.pause();
-    setHit("pause");
   }
 
   ;
@@ -36743,34 +36748,60 @@ var Hit = function () {
 
   ;
   var theTime = timer.getTimeValues().seconds;
-  console.log(theTime);
+
+  var _g = (0, _react.useState)([]),
+      lap = _g[0],
+      setLap = _g[1];
+
+  (0, _react.useEffect)(function () {
+    if (theTime === 30) {
+      lap.push(1);
+    } // console.log(lap);
+
+  }, [theTime]);
   (0, _react.useEffect)(function () {
     if (theTime <= 30 && theTime != 0) {
       setHit("rest");
       setBreath("breath");
       setGoRest("Rest");
-    } else if (theTime > 30) {
+      setArrow("");
+    } else if (theTime >= 30) {
       setImgSpin(_hitSpin.default);
       setBreath("pauseBreath");
       setHit("spin");
       setGoRest("Go!");
+      setArrow(_hitArrow.default);
     }
   }, [theTime]);
-  return _react.default.createElement("section", null, _react.default.createElement("div", null, timer.getTimeValues().toString()), _react.default.createElement("h1", null, "hit"), _react.default.createElement("img", {
+  var spinSec = "spinSection";
+
+  if (timer.getTimeValues().minutes === 0 && timer.getTimeValues().seconds <= 30) {
+    spinSec = "hideSec";
+  } // console.log(timer.getTimeValues().toString());
+
+
+  return _react.default.createElement("section", null, _react.default.createElement("section", null, _react.default.createElement("img", {
+    src: arrow,
+    alt: ""
+  })), _react.default.createElement("section", {
+    className: spinSec
+  }, _react.default.createElement("img", {
     className: hit,
     src: imgSpin,
     alt: ""
   }), _react.default.createElement("div", {
     className: breath
-  }), _react.default.createElement("h3", null, goRest), _react.default.createElement("section", null, _react.default.createElement("button", {
+  }), _react.default.createElement("h3", null, goRest)), lap.map(function (one, id) {
+    return _react.default.createElement("img", {
+      key: id,
+      src: _lapMark.default,
+      alt: ""
+    });
+  }), _react.default.createElement("section", null, _react.default.createElement("button", {
     onClick: function () {
       return start();
     }
   }, "start"), _react.default.createElement("button", {
-    onClick: function () {
-      return pause();
-    }
-  }, "pause"), _react.default.createElement("button", {
     onClick: function () {
       return reset();
     }
@@ -36779,7 +36810,7 @@ var Hit = function () {
 
 var _default = Hit;
 exports.default = _default;
-},{"easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/hitSpin.png":"../src/assets/img/hitSpin.png"}],"../src/pages/Text.tsx":[function(require,module,exports) {
+},{"easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/hitSpin.png":"../src/assets/img/hitSpin.png","../assets/img/hitArrow.png":"../src/assets/img/hitArrow.png","../assets/img/lapMark.png":"../src/assets/img/lapMark.png"}],"../src/pages/Text.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37551,7 +37582,9 @@ var AnalogStopWatch = function () {
     return _react.default.createElement("p", {
       key: id
     }, lap);
-  })), _react.default.createElement(_reactRouterDom.Link, {
+  })), _react.default.createElement("section", {
+    className: "test"
+  }), _react.default.createElement(_reactRouterDom.Link, {
     to: "/StopWatch"
   }, "degital"), _react.default.createElement("button", {
     onClick: function () {

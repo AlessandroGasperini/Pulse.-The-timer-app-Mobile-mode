@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #FFFDF6;
 }
 
 .App-logo {
@@ -17,24 +18,24 @@
 }
 
 .clockSection {
-  width: 261px;
-  height: 261px;
+  width: 300px;
+  height: 300px;
   margin: 0 auto;
 }
 
 .noRunSeconds {
-  top: -245px;
-  left: 2px;
+  top: -131px;
+  left: -131px;
   position: relative;
   width: 1.1px;
 }
 
 .pauseSecond {
-  top: -245px;
-  left: 2px;
+  top: -131px;
+  left: -131px;
   position: relative;
   transform: rotate(360deg);
-  transform-origin: bottom left;
+  transform-origin: bottom center;
   animation: spin 60s linear infinite;
   animation-name: spin;
   transition-property: all;
@@ -44,11 +45,11 @@
 }
 
 .sekundpekare {
-  top: -245px;
-  left: 2px;
+  top: -131px;
+  left: -131px;
   position: relative;
   transform: rotate(360deg);
-  transform-origin: bottom left;
+  transform-origin: bottom center;
   animation: spin 60s linear infinite;
   animation-name: spin;
   transition-property: all;
@@ -72,18 +73,18 @@
 
 
 .noRunMinutes {
-  top: -247px;
-  left: 0px;
+  top: -130px;
+  left: -133px;
   position: relative;
   width: 2px;
 }
 
 .pauseHour {
-  top: -247px;
-  left: 0px;
+  top: -130px;
+  left: -133px;
   position: relative;
   transform: rotate(360deg);
-  transform-origin: bottom left;
+  transform-origin: bottom center;
   animation: spin 3600s linear infinite;
   animation-name: spin;
   transition-property: all;
@@ -92,16 +93,17 @@
 }
 
 .timpekare {
-  top: -247px;
-  left: 0px;
+  top: -130px;
+  left: -133px;
   position: relative;
   transform: rotate(360deg);
-  transform-origin: bottom left;
+  transform-origin: bottom center;
   animation: spin 3600s linear infinite;
   animation-name: spin;
   transition-property: all;
   width: 2px;
 }
+
 
 @keyframes spin {
 
@@ -119,7 +121,7 @@
 
 .timer {
   position: relative;
-  top: -30vh;
+  top: -11vh;
 }
 
 /* ---------------------------------------------- */
@@ -140,7 +142,6 @@
 }
 
 .spin {
-  display: block;
   animation: spin 30s linear infinite;
   animation-name: spin;
   transition-property: all;
@@ -164,7 +165,6 @@
 }
 
 .breath {
-  display: block;
   border-radius: 50%;
   width: 300px;
   height: 300px;
@@ -172,6 +172,7 @@
   animation-duration: 30s;
   animation-name: blink;
   animation-timing-function: ease;
+  margin: 3vh auto;
 }
 
 @keyframes blink {
@@ -188,7 +189,7 @@
 
   20% {
     background: linear-gradient(60deg, rgb(74, 146, 219), rgb(152, 215, 234));
-    transform: scale(100%);
+    transform: scale(90%);
   }
 
 
@@ -200,7 +201,7 @@
 
   40% {
     background: linear-gradient(60deg, rgb(74, 146, 219), rgb(152, 215, 234));
-    transform: scale(100%);
+    transform: scale(90%);
   }
 
 
@@ -213,7 +214,7 @@
 
   60% {
     background: linear-gradient(60deg, rgb(74, 146, 219), rgb(152, 215, 234));
-    transform: scale(100%);
+    transform: scale(90%);
   }
 
 
@@ -226,7 +227,7 @@
 
   80% {
     background: linear-gradient(60deg, rgb(74, 146, 219), rgb(152, 215, 234));
-    transform: scale(100%);
+    transform: scale(90%);
   }
 
 
@@ -244,4 +245,20 @@
 
   }
 
+}
+
+.spinSection {
+  width: 330px;
+  height: 353px;
+  margin: 0 auto;
+}
+
+.spinSection h3 {
+  position: relative;
+  top: -43vh;
+  font-size: 4rem;
+}
+
+.hideSec {
+  display: none;
 }
