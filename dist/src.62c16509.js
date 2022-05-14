@@ -36674,11 +36674,15 @@ exports.default = void 0;
 
 var _easytimerReactHook = _interopRequireDefault(require("easytimer-react-hook"));
 
+var _react = _interopRequireWildcard(require("react"));
+
 var _reactRouterDom = require("react-router-dom");
 
-var _react = _interopRequireDefault(require("react"));
-
 var _hitSpin = _interopRequireDefault(require("../assets/img/hitSpin.png"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36703,20 +36707,32 @@ var Hit = function () {
       timer = _a[0],
       isTargetAchieved = _a[1];
 
+  var _b = (0, _react.useState)("stillMin"),
+      hit = _b[0],
+      setHit = _b[1];
+
+  var _c = (0, _react.useState)("pauseBreath"),
+      breath = _c[0],
+      setBreath = _c[1];
+
+  var _d = (0, _react.useState)(_hitSpin.default),
+      imgSpin = _d[0],
+      setImgSpin = _d[1];
+
+  var _e = (0, _react.useState)(""),
+      goRest = _e[0],
+      setGoRest = _e[1];
+
   function start() {
     timer.start();
+    setHit("spin");
   }
 
   ;
 
   function pause() {
     timer.pause();
-  }
-
-  ;
-
-  function stop() {
-    timer.stop();
+    setHit("pause");
   }
 
   ;
@@ -36726,13 +36742,27 @@ var Hit = function () {
   }
 
   ;
-  var theTime = timer.getTimeValues().toString();
+  var theTime = timer.getTimeValues().seconds;
   console.log(theTime);
-  return _react.default.createElement("section", null, _react.default.createElement("h1", null, "hit"), _react.default.createElement("img", {
-    className: "spin",
-    src: _hitSpin.default,
+  (0, _react.useEffect)(function () {
+    if (theTime <= 30 && theTime != 0) {
+      setHit("rest");
+      setBreath("breath");
+      setGoRest("Rest");
+    } else if (theTime > 30) {
+      setImgSpin(_hitSpin.default);
+      setBreath("pauseBreath");
+      setHit("spin");
+      setGoRest("Go!");
+    }
+  }, [theTime]);
+  return _react.default.createElement("section", null, _react.default.createElement("div", null, timer.getTimeValues().toString()), _react.default.createElement("h1", null, "hit"), _react.default.createElement("img", {
+    className: hit,
+    src: imgSpin,
     alt: ""
-  }), _react.default.createElement("section", null, _react.default.createElement("button", {
+  }), _react.default.createElement("div", {
+    className: breath
+  }), _react.default.createElement("h3", null, goRest), _react.default.createElement("section", null, _react.default.createElement("button", {
     onClick: function () {
       return start();
     }
@@ -36742,10 +36772,6 @@ var Hit = function () {
     }
   }, "pause"), _react.default.createElement("button", {
     onClick: function () {
-      return stop();
-    }
-  }, "stop"), _react.default.createElement("button", {
-    onClick: function () {
       return reset();
     }
   }, "reset")));
@@ -36753,7 +36779,7 @@ var Hit = function () {
 
 var _default = Hit;
 exports.default = _default;
-},{"easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","react":"../node_modules/react/index.js","../assets/img/hitSpin.png":"../src/assets/img/hitSpin.png"}],"../src/pages/Text.tsx":[function(require,module,exports) {
+},{"easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/hitSpin.png":"../src/assets/img/hitSpin.png"}],"../src/pages/Text.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37725,7 +37751,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61250" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54124" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -5,7 +5,6 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import React from "react";
 import hitSpin from "../assets/img/hitSpin.png"
-import hitRest from "../assets/img/hitRest.png"
 
 interface allTimes {
     days: number,
@@ -41,17 +40,19 @@ const Hit: React.FC<allTimes> = () => {
         updateWhenTargetAchieved: time.updateWhenTargetAchieved
     });
 
+    const [hit, setHit] = useState<string>("stillMin")
+    const [breath, setBreath] = useState<string>("pauseBreath")
+    const [imgSpin, setImgSpin] = useState<string>(hitSpin)
+    const [goRest, setGoRest] = useState<string>("")
 
     function start() {
         timer.start();
+        setHit("spin")
     };
 
     function pause() {
         timer.pause();
-    };
-
-    function stop() {
-        timer.stop();
+        setHit("pause")
     };
 
 
@@ -59,23 +60,34 @@ const Hit: React.FC<allTimes> = () => {
         window.location.reload()
     };
 
-    const theTime = timer.getTimeValues().toString()
-
+    const theTime = timer.getTimeValues().seconds
     console.log(theTime);
 
+    useEffect(() => {
+        if (theTime <= 30 && theTime != 0) {
+            setHit("rest")
+            setBreath("breath")
+            setGoRest("Rest")
+        } else if (theTime > 30) {
+            setImgSpin(hitSpin)
+            setBreath("pauseBreath")
+            setHit("spin")
+            setGoRest("Go!")
+        }
+    }, [theTime])
     return (
         <section>
-
+            <div>{timer.getTimeValues().toString()}</div>
             <h1>hit</h1>
 
-            <img className="spin" src={hitSpin} alt="" />
+            <img className={hit} src={imgSpin} alt="" />
+            <div className={breath}></div>
+            <h3>{goRest}</h3>
 
             <section>
                 <button onClick={() => start()}>start</button>
 
                 <button onClick={() => pause()}>pause</button>
-
-                <button onClick={() => stop()}>stop</button>
 
                 <button onClick={() => reset()}>reset</button>
 

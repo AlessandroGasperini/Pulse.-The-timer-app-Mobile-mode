@@ -124,10 +124,23 @@
 
 /* ---------------------------------------------- */
 
+.stillMin {
+  margin: 0 auto;
+}
 
+.pause {
+  animation: spin 30s linear infinite;
+  animation-name: spin;
+  transition-property: all;
+  animation-play-state: paused;
+}
+
+.rest {
+  display: none;
+}
 
 .spin {
-
+  display: block;
   animation: spin 30s linear infinite;
   animation-name: spin;
   transition-property: all;
@@ -144,4 +157,91 @@
     transform: rotate(360deg);
 
   }
+}
+
+.pauseBreath {
+  display: none;
+}
+
+.breath {
+  display: block;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(60deg, violet, silver);
+  animation-duration: 30s;
+  animation-name: blink;
+  animation-timing-function: ease;
+}
+
+@keyframes blink {
+  from {
+    background: linear-gradient(60deg, rgb(74, 146, 219), rgb(152, 215, 234));
+  }
+
+
+  10% {
+    background: linear-gradient(60deg, rgb(136, 193, 223), silver);
+    transform: scale(115%);
+  }
+
+
+  20% {
+    background: linear-gradient(60deg, rgb(74, 146, 219), rgb(152, 215, 234));
+    transform: scale(100%);
+  }
+
+
+
+  30% {
+    background: linear-gradient(60deg, rgb(136, 193, 223), silver);
+    transform: scale(115%);
+  }
+
+  40% {
+    background: linear-gradient(60deg, rgb(74, 146, 219), rgb(152, 215, 234));
+    transform: scale(100%);
+  }
+
+
+
+  50% {
+    background: linear-gradient(60deg, rgb(136, 193, 223), silver);
+    transform: scale(115%);
+  }
+
+
+  60% {
+    background: linear-gradient(60deg, rgb(74, 146, 219), rgb(152, 215, 234));
+    transform: scale(100%);
+  }
+
+
+  70% {
+    background: linear-gradient(60deg, rgb(136, 193, 223), silver);
+    transform: scale(115%);
+  }
+
+
+
+  80% {
+    background: linear-gradient(60deg, rgb(74, 146, 219), rgb(152, 215, 234));
+    transform: scale(100%);
+  }
+
+
+
+  90% {
+    background: linear-gradient(60deg, rgb(136, 193, 223), silver);
+    transform: scale(115%);
+  }
+
+
+
+  to {
+    background: linear-gradient(60deg, rgb(74, 146, 219), rgb(152, 215, 234));
+
+
+  }
+
 }
