@@ -4,6 +4,14 @@ import { useState } from "react";
 import left from "../assets/img/left.png"
 import right from "../assets/img/right.png"
 import Header from "../Components/Header";
+import setAnalog from "../assets/img/setAnalog.png"
+import setDigital from "../assets/img/setDigital.png"
+import setHit from "../assets/img/setHit.png"
+import hourGlass from "../assets/img/hourGlass.png"
+import setStopWatch from "../assets/img/setStopWatch.png"
+import setText from "../assets/img/setText.png"
+
+
 
 function setTimer() {
     // Start values
@@ -64,27 +72,27 @@ function setTimer() {
 
 
             <Link state={allSettings} to={"/AnalogTimer"}>
-                <h1>Analog klocka</h1>
+                <img src={setAnalog} alt="" />
             </Link>
 
             <Link state={allSettings} to={"/Digital"}>
-                <h1>Digital klocka</h1>
+                <img src={setDigital} alt="" />
             </Link>
 
             <Link state={allSettings} to={"/Hit"}>
-                <h1>Hit klocka</h1>
+                <img src={setHit} alt="" />
             </Link>
 
             <Link state={allSettings} to={"/HourGlass"}>
-                <h1>HourGlass klocka</h1>
+                <img src={hourGlass} alt="" />
             </Link>
 
             <Link state={allSettings} to={"/StopWatch"}>
-                <h1>StopWatch klocka</h1>
+                <img src={setStopWatch} alt="" />
             </Link>
 
             <Link state={allSettings} to={"/Text"}>
-                <h1>Text klocka</h1>
+                <img src={setText} alt="" />
             </Link>
 
 

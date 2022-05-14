@@ -35505,7 +35505,9 @@ function createSearchParams(init) {
     return memo.concat(Array.isArray(value) ? value.map(v => [key, v]) : [[key, value]]);
   }, []));
 }
-},{"react":"../node_modules/react/index.js","history":"../node_modules/history/index.js","react-router":"../node_modules/react-router/index.js"}],"../src/pages/LandingPage.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","history":"../node_modules/history/index.js","react-router":"../node_modules/react-router/index.js"}],"../src/assets/img/pulse logo.png":[function(require,module,exports) {
+module.exports = "/pulse logo.3a15f700.png";
+},{}],"../src/pages/LandingPage.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35517,23 +35519,37 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
+var _pulseLogo = _interopRequireDefault(require("../assets/img/pulse logo.png"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function LandingPage() {
   return _react.default.createElement(_reactRouterDom.Link, {
     to: "/SetTimer"
   }, _react.default.createElement("section", null, _react.default.createElement("h1", null, "LandingPage"), _react.default.createElement("img", {
-    src: "",
+    src: _pulseLogo.default,
     alt: "bildlp"
-  })));
+  }), _react.default.createElement("h1", null, "PuLse")));
 }
 
 var _default = LandingPage;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js"}],"../src/assets/img/left.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/pulse logo.png":"../src/assets/img/pulse logo.png"}],"../src/assets/img/left.png":[function(require,module,exports) {
 module.exports = "/left.e9a78fbb.png";
 },{}],"../src/assets/img/right.png":[function(require,module,exports) {
 module.exports = "/right.73186344.png";
+},{}],"../src/assets/img/setAnalog.png":[function(require,module,exports) {
+module.exports = "/setAnalog.3f572a2f.png";
+},{}],"../src/assets/img/setDigital.png":[function(require,module,exports) {
+module.exports = "/setDigital.f60aab1d.png";
+},{}],"../src/assets/img/setHit.png":[function(require,module,exports) {
+module.exports = "/setHit.3621f532.png";
+},{}],"../src/assets/img/hourGlass.png":[function(require,module,exports) {
+module.exports = "/hourGlass.a1124bd5.png";
+},{}],"../src/assets/img/setStopWatch.png":[function(require,module,exports) {
+module.exports = "/setStopWatch.2c1c4768.png";
+},{}],"../src/assets/img/setText.png":[function(require,module,exports) {
+module.exports = "/setText.d7efec82.png";
 },{}],"../src/pages/SetTimer.tsx":[function(require,module,exports) {
 "use strict";
 
@@ -35549,6 +35565,18 @@ var _reactRouterDom = require("react-router-dom");
 var _left = _interopRequireDefault(require("../assets/img/left.png"));
 
 var _right = _interopRequireDefault(require("../assets/img/right.png"));
+
+var _setAnalog = _interopRequireDefault(require("../assets/img/setAnalog.png"));
+
+var _setDigital = _interopRequireDefault(require("../assets/img/setDigital.png"));
+
+var _setHit = _interopRequireDefault(require("../assets/img/setHit.png"));
+
+var _hourGlass = _interopRequireDefault(require("../assets/img/hourGlass.png"));
+
+var _setStopWatch = _interopRequireDefault(require("../assets/img/setStopWatch.png"));
+
+var _setText = _interopRequireDefault(require("../assets/img/setText.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35647,27 +35675,45 @@ function setTimer() {
   }))), _react.default.createElement(_reactRouterDom.Link, {
     state: allSettings,
     to: "/AnalogTimer"
-  }, _react.default.createElement("h1", null, "Analog klocka")), _react.default.createElement(_reactRouterDom.Link, {
+  }, _react.default.createElement("img", {
+    src: _setAnalog.default,
+    alt: ""
+  })), _react.default.createElement(_reactRouterDom.Link, {
     state: allSettings,
     to: "/Digital"
-  }, _react.default.createElement("h1", null, "Digital klocka")), _react.default.createElement(_reactRouterDom.Link, {
+  }, _react.default.createElement("img", {
+    src: _setDigital.default,
+    alt: ""
+  })), _react.default.createElement(_reactRouterDom.Link, {
     state: allSettings,
     to: "/Hit"
-  }, _react.default.createElement("h1", null, "Hit klocka")), _react.default.createElement(_reactRouterDom.Link, {
+  }, _react.default.createElement("img", {
+    src: _setHit.default,
+    alt: ""
+  })), _react.default.createElement(_reactRouterDom.Link, {
     state: allSettings,
     to: "/HourGlass"
-  }, _react.default.createElement("h1", null, "HourGlass klocka")), _react.default.createElement(_reactRouterDom.Link, {
+  }, _react.default.createElement("img", {
+    src: _hourGlass.default,
+    alt: ""
+  })), _react.default.createElement(_reactRouterDom.Link, {
     state: allSettings,
     to: "/StopWatch"
-  }, _react.default.createElement("h1", null, "StopWatch klocka")), _react.default.createElement(_reactRouterDom.Link, {
+  }, _react.default.createElement("img", {
+    src: _setStopWatch.default,
+    alt: ""
+  })), _react.default.createElement(_reactRouterDom.Link, {
     state: allSettings,
     to: "/Text"
-  }, _react.default.createElement("h1", null, "Text klocka")));
+  }, _react.default.createElement("img", {
+    src: _setText.default,
+    alt: ""
+  })));
 }
 
 var _default = setTimer;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/left.png":"../src/assets/img/left.png","../assets/img/right.png":"../src/assets/img/right.png"}],"../src/assets/img/sekund.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/left.png":"../src/assets/img/left.png","../assets/img/right.png":"../src/assets/img/right.png","../assets/img/setAnalog.png":"../src/assets/img/setAnalog.png","../assets/img/setDigital.png":"../src/assets/img/setDigital.png","../assets/img/setHit.png":"../src/assets/img/setHit.png","../assets/img/hourGlass.png":"../src/assets/img/hourGlass.png","../assets/img/setStopWatch.png":"../src/assets/img/setStopWatch.png","../assets/img/setText.png":"../src/assets/img/setText.png"}],"../src/assets/img/sekund.png":[function(require,module,exports) {
 module.exports = "/sekund.a9b0da02.png";
 },{}],"../src/assets/img/clock.png":[function(require,module,exports) {
 module.exports = "/clock.decaac8b.png";
@@ -37997,7 +38043,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56828" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64311" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
