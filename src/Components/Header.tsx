@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logoHeader from "../assets/img/headerLogo.png"
 
 function Header(props: string | any) {
@@ -18,7 +19,8 @@ function Header(props: string | any) {
 
     return (
         <section>
-            <img src={logoHeader} alt="" />
+            <Link to={"/setTimer"}><img src={logoHeader} alt="" /></Link>
+
             <h1>{props.header}</h1>
             <h3>{date}</h3>
             <h3>{hours}:{zero}{minutes}</h3>

@@ -10,6 +10,7 @@ import Hit from './pages/Hit';
 import Text from './pages/Text';
 import AnalogStopWatch from './pages/AnalogStopWatch';
 import HourGlass from './pages/HourGlass';
+import BigDay from './pages/bigDay';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/HourGlass" element={<HourGlass />} />
             <Route path="/Text" element={<Text />} />
             <Route path="/AnalogStopWatch" element={<AnalogStopWatch />} />
+            <Route path="/BigDay" element={<BigDay />} />
 
           </Routes>
         </main>

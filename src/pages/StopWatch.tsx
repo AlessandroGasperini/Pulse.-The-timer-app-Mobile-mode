@@ -1,5 +1,5 @@
 import React from "react";
-
+import analogChange from "../assets/img/setAnalog.png"
 import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -63,7 +63,9 @@ const StopWatch: React.FC = () => {
                 ))}
             </ul>
 
-            <Link to={"/AnalogStopWatch"}>analog</Link>
+            <Link to={"/AnalogStopWatch"}>
+                <img src={analogChange} alt="" />
+            </Link>
 
 
             <button onClick={() => start()}>start</button>

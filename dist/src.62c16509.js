@@ -35550,6 +35550,8 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _reactRouterDom = require("react-router-dom");
+
 var _headerLogo = _interopRequireDefault(require("../assets/img/headerLogo.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -35565,15 +35567,17 @@ function Header(props) {
     zero = "0";
   }
 
-  return _react.default.createElement("section", null, _react.default.createElement("img", {
+  return _react.default.createElement("section", null, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/setTimer"
+  }, _react.default.createElement("img", {
     src: _headerLogo.default,
     alt: ""
-  }), _react.default.createElement("h1", null, props.header), _react.default.createElement("h3", null, date), _react.default.createElement("h3", null, hours, ":", zero, minutes));
+  })), _react.default.createElement("h1", null, props.header), _react.default.createElement("h3", null, date), _react.default.createElement("h3", null, hours, ":", zero, minutes));
 }
 
 var _default = Header;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../assets/img/headerLogo.png":"../src/assets/img/headerLogo.png"}],"../src/assets/img/setAnalog.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/headerLogo.png":"../src/assets/img/headerLogo.png"}],"../src/assets/img/setAnalog.png":[function(require,module,exports) {
 module.exports = "/setAnalog.3f572a2f.png";
 },{}],"../src/assets/img/setDigital.png":[function(require,module,exports) {
 module.exports = "/setDigital.f60aab1d.png";
@@ -35585,6 +35589,8 @@ module.exports = "/hourGlass.a1124bd5.png";
 module.exports = "/setStopWatch.2c1c4768.png";
 },{}],"../src/assets/img/setText.png":[function(require,module,exports) {
 module.exports = "/setText.d7efec82.png";
+},{}],"../src/assets/img/calender.png":[function(require,module,exports) {
+module.exports = "/calender.4d11a47c.png";
 },{}],"../src/pages/SetTimer.tsx":[function(require,module,exports) {
 "use strict";
 
@@ -35614,6 +35620,8 @@ var _hourGlass = _interopRequireDefault(require("../assets/img/hourGlass.png"));
 var _setStopWatch = _interopRequireDefault(require("../assets/img/setStopWatch.png"));
 
 var _setText = _interopRequireDefault(require("../assets/img/setText.png"));
+
+var _calender = _interopRequireDefault(require("../assets/img/calender.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35711,7 +35719,7 @@ function setTimer() {
     },
     src: _right.default,
     alt: ""
-  }))), _react.default.createElement(_reactRouterDom.Link, {
+  }))), _react.default.createElement("section", null, _react.default.createElement(_reactRouterDom.Link, {
     state: allSettings,
     to: "/AnalogTimer"
   }, _react.default.createElement("img", {
@@ -35735,11 +35743,16 @@ function setTimer() {
   }, _react.default.createElement("img", {
     src: _hourGlass.default,
     alt: ""
-  })), _react.default.createElement(_reactRouterDom.Link, {
+  }))), _react.default.createElement("section", null, _react.default.createElement(_reactRouterDom.Link, {
     state: allSettings,
     to: "/StopWatch"
   }, _react.default.createElement("img", {
     src: _setStopWatch.default,
+    alt: ""
+  })), _react.default.createElement(_reactRouterDom.Link, {
+    to: "/BigDay"
+  }, _react.default.createElement("img", {
+    src: _calender.default,
     alt: ""
   })), _react.default.createElement(_reactRouterDom.Link, {
     state: allSettings,
@@ -35747,12 +35760,12 @@ function setTimer() {
   }, _react.default.createElement("img", {
     src: _setText.default,
     alt: ""
-  })));
+  }))));
 }
 
 var _default = setTimer;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/left.png":"../src/assets/img/left.png","../assets/img/right.png":"../src/assets/img/right.png","../Components/Header":"../src/Components/Header.tsx","../assets/img/setAnalog.png":"../src/assets/img/setAnalog.png","../assets/img/setDigital.png":"../src/assets/img/setDigital.png","../assets/img/setHit.png":"../src/assets/img/setHit.png","../assets/img/hourGlass.png":"../src/assets/img/hourGlass.png","../assets/img/setStopWatch.png":"../src/assets/img/setStopWatch.png","../assets/img/setText.png":"../src/assets/img/setText.png"}],"../src/assets/img/sekund.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/left.png":"../src/assets/img/left.png","../assets/img/right.png":"../src/assets/img/right.png","../Components/Header":"../src/Components/Header.tsx","../assets/img/setAnalog.png":"../src/assets/img/setAnalog.png","../assets/img/setDigital.png":"../src/assets/img/setDigital.png","../assets/img/setHit.png":"../src/assets/img/setHit.png","../assets/img/hourGlass.png":"../src/assets/img/hourGlass.png","../assets/img/setStopWatch.png":"../src/assets/img/setStopWatch.png","../assets/img/setText.png":"../src/assets/img/setText.png","../assets/img/calender.png":"../src/assets/img/calender.png"}],"../src/assets/img/sekund.png":[function(require,module,exports) {
 module.exports = "/sekund.a9b0da02.png";
 },{}],"../src/assets/img/clock.png":[function(require,module,exports) {
 module.exports = "/clock.decaac8b.png";
@@ -36791,6 +36804,8 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _setAnalog = _interopRequireDefault(require("../assets/img/setAnalog.png"));
+
 var _easytimerReactHook = _interopRequireDefault(require("easytimer-react-hook"));
 
 var _reactRouterDom = require("react-router-dom");
@@ -36863,7 +36878,10 @@ var StopWatch = function () {
     }, lap);
   })), _react.default.createElement(_reactRouterDom.Link, {
     to: "/AnalogStopWatch"
-  }, "analog"), _react.default.createElement("button", {
+  }, _react.default.createElement("img", {
+    src: _setAnalog.default,
+    alt: ""
+  })), _react.default.createElement("button", {
     onClick: function () {
       return start();
     }
@@ -36888,7 +36906,7 @@ var StopWatch = function () {
 
 var _default = StopWatch;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/Header":"../src/Components/Header.tsx"}],"../src/assets/img/hitSpin.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../assets/img/setAnalog.png":"../src/assets/img/setAnalog.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/Header":"../src/Components/Header.tsx"}],"../src/assets/img/hitSpin.png":[function(require,module,exports) {
 module.exports = "/hitSpin.2b86cce1.png";
 },{}],"../src/assets/img/hitArrow.png":[function(require,module,exports) {
 module.exports = "/hitArrow.01f6d4dd.png";
@@ -37785,6 +37803,8 @@ var _sekund = _interopRequireDefault(require("../assets/img/sekund.png"));
 
 var _clock = _interopRequireDefault(require("../assets/img/clock.png"));
 
+var _setDigital = _interopRequireDefault(require("../assets/img/setDigital.png"));
+
 var _timpekare = _interopRequireDefault(require("../assets/img/timpekare.png"));
 
 var _easytimerReactHook = _interopRequireDefault(require("easytimer-react-hook"));
@@ -37888,7 +37908,10 @@ var AnalogStopWatch = function () {
     }, lap);
   })), _react.default.createElement(_reactRouterDom.Link, {
     to: "/StopWatch"
-  }, "degital"), _react.default.createElement("button", {
+  }, _react.default.createElement("img", {
+    src: _setDigital.default,
+    alt: ""
+  })), _react.default.createElement("button", {
     onClick: function () {
       return start();
     }
@@ -37909,7 +37932,7 @@ var AnalogStopWatch = function () {
 
 var _default = AnalogStopWatch;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/sekund.png":"../src/assets/img/sekund.png","../assets/img/clock.png":"../src/assets/img/clock.png","../assets/img/timpekare.png":"../src/assets/img/timpekare.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/Header":"../src/Components/Header.tsx"}],"../src/pages/HourGlass.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/sekund.png":"../src/assets/img/sekund.png","../assets/img/clock.png":"../src/assets/img/clock.png","../assets/img/setDigital.png":"../src/assets/img/setDigital.png","../assets/img/timpekare.png":"../src/assets/img/timpekare.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/Header":"../src/Components/Header.tsx"}],"../src/pages/HourGlass.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38037,7 +38060,260 @@ var HourGlass = function () {
 
 var _default = HourGlass;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx"}],"../src/App.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx"}],"../src/assets/img/up.png":[function(require,module,exports) {
+module.exports = "/up.3257267a.png";
+},{}],"../src/assets/img/down.png":[function(require,module,exports) {
+module.exports = "/down.c634f431.png";
+},{}],"../src/pages/bigDay.tsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _ModalStop = _interopRequireDefault(require("../Components/ModalStop"));
+
+var _Header = _interopRequireDefault(require("../Components/Header"));
+
+var _up = _interopRequireDefault(require("../assets/img/up.png"));
+
+var _down = _interopRequireDefault(require("../assets/img/down.png"));
+
+var _easytimerReactHook = _interopRequireDefault(require("easytimer-react-hook"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var BigDay = function () {
+  (0, _react.useEffect)(function () {
+    timer.start();
+  }, []);
+
+  var _a = (0, _easytimerReactHook.default)({
+    startValues: {
+      hours: 1000000,
+      minutes: 1000000,
+      seconds: 1000000
+    },
+    countdown: true
+  }),
+      timer = _a[0],
+      isTargetAchieved = _a[1];
+
+  var _b = (0, _react.useState)(false),
+      modalS = _b[0],
+      setModalS = _b[1];
+
+  var today = new Date();
+  var year = today.getFullYear();
+  var month = today.getMonth() + 1;
+  var day = today.getDate();
+  var hours = today.getHours();
+  var minutes = today.getUTCMinutes();
+
+  var _c = (0, _react.useState)(year),
+      chooseYear = _c[0],
+      setYear = _c[1];
+
+  var _d = (0, _react.useState)(month),
+      chooseMonth = _d[0],
+      setMonth = _d[1];
+
+  var _e = (0, _react.useState)(day),
+      chooseDay = _e[0],
+      setDay = _e[1];
+
+  var _f = (0, _react.useState)(hours),
+      chooseHour = _f[0],
+      setHour = _f[1];
+
+  var _g = (0, _react.useState)(minutes),
+      chooseMinute = _g[0],
+      setMinute = _g[1];
+
+  var _h = (0, _react.useState)(""),
+      chooseImg = _h[0],
+      setImg = _h[1];
+
+  var _j = (0, _react.useState)(""),
+      chooseNote = _j[0],
+      setNote = _j[1];
+
+  var monthText = "";
+
+  switch (chooseMonth) {
+    case 1:
+      monthText = "Januari";
+      break;
+
+    case 2:
+      monthText = "Februari";
+      break;
+
+    case 3:
+      monthText = "Mars";
+      break;
+
+    case 4:
+      monthText = "April";
+      break;
+
+    case 5:
+      monthText = "Maj";
+      break;
+
+    case 6:
+      monthText = "Juni";
+      break;
+
+    case 7:
+      monthText = "Juli";
+      break;
+
+    case 8:
+      monthText = "Augusti";
+      break;
+
+    case 9:
+      monthText = "September";
+      break;
+
+    case 10:
+      monthText = "Oktober";
+      break;
+
+    case 11:
+      monthText = "November";
+      break;
+
+    case 12:
+      monthText = "December";
+      break;
+
+    default:
+      break;
+  }
+
+  var todaysDate = year.toString() + month.toString() + day.toString() + hours.toString() + minutes.toString();
+  var choosenDate = chooseYear.toString() + chooseMonth.toString() + chooseDay.toString() + chooseHour.toString() + chooseMinute.toString();
+  var zero = "";
+
+  if (chooseMinute === 0 || chooseMinute === 1 || chooseMinute === 2 || chooseMinute === 3 || chooseMinute === 4 || chooseMinute === 5 || chooseMinute === 6 || chooseMinute === 7 || chooseMinute === 8 || chooseMinute === 9) {
+    zero = "0";
+  }
+
+  var _k = (0, _react.useState)(""),
+      finalDate = _k[0],
+      setFinalDate = _k[1];
+
+  function makeBigDay() {
+    setFinalDate(choosenDate);
+  }
+
+  console.log(todaysDate);
+  console.log(finalDate);
+  timer.getTimeValues().seconds;
+  (0, _react.useEffect)(function () {
+    if (todaysDate === finalDate) {
+      console.log("happy day bitch");
+      setModalS(true);
+    }
+  }, [timer.getTimeValues().seconds]);
+  return _react.default.createElement("section", null, _react.default.createElement(_Header.default, {
+    header: "Big Day"
+  }), _react.default.createElement("input", {
+    type: "text",
+    onChange: function (e) {
+      return setNote(e.target.value);
+    }
+  }), _react.default.createElement("article", null, _react.default.createElement("img", {
+    onClick: function () {
+      return setYear(chooseYear + 1);
+    },
+    src: _up.default,
+    alt: ""
+  }), _react.default.createElement("p", null, chooseYear), _react.default.createElement("img", {
+    onClick: function () {
+      return setYear(chooseYear - 1);
+    },
+    src: _down.default,
+    alt: ""
+  })), _react.default.createElement("article", null, _react.default.createElement("img", {
+    onClick: function () {
+      return setMonth(chooseMonth + 1);
+    },
+    src: _up.default,
+    alt: ""
+  }), _react.default.createElement("p", null, monthText), _react.default.createElement("img", {
+    onClick: function () {
+      return setMonth(chooseMonth - 1);
+    },
+    src: _down.default,
+    alt: ""
+  })), _react.default.createElement("article", null, _react.default.createElement("img", {
+    className: monthText === "Februari" && chooseDay === 28 ? "hide" : "",
+    onClick: function () {
+      return setDay(chooseDay + 1);
+    },
+    src: _up.default,
+    alt: ""
+  }), _react.default.createElement("p", null, chooseDay), _react.default.createElement("img", {
+    className: chooseDay === 1 ? "hide" : "",
+    onClick: function () {
+      return setDay(chooseDay - 1);
+    },
+    src: _down.default,
+    alt: ""
+  })), _react.default.createElement("article", null, _react.default.createElement("img", {
+    onClick: function () {
+      return setHour(chooseHour + 1);
+    },
+    src: _up.default,
+    alt: ""
+  }), _react.default.createElement("p", null, chooseHour), _react.default.createElement("img", {
+    onClick: function () {
+      return setHour(chooseHour - 1);
+    },
+    src: _down.default,
+    alt: ""
+  })), _react.default.createElement("article", null, _react.default.createElement("img", {
+    onClick: function () {
+      return setMinute(chooseMinute + 1);
+    },
+    src: _up.default,
+    alt: ""
+  }), _react.default.createElement("p", null, zero, chooseMinute), _react.default.createElement("img", {
+    onClick: function () {
+      return setMinute(chooseMinute - 1);
+    },
+    src: _down.default,
+    alt: ""
+  })), _react.default.createElement("input", {
+    type: "text",
+    onChange: function (e) {
+      return setImg(e.target.value);
+    }
+  }), _react.default.createElement("section", {
+    className: finalDate != "" ? "" : "hide"
+  }, _react.default.createElement("h1", null, chooseNote), _react.default.createElement("img", {
+    src: chooseImg,
+    alt: ""
+  }), _react.default.createElement("h2", null, chooseYear, chooseMonth, chooseDay), _react.default.createElement("h5", null, chooseHour, ":", zero, chooseMinute)), _react.default.createElement("button", {
+    onClick: function () {
+      return makeBigDay();
+    }
+  }, "Create "), modalS && _react.default.createElement(_ModalStop.default, null));
+};
+
+var _default = BigDay;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/up.png":"../src/assets/img/up.png","../assets/img/down.png":"../src/assets/img/down.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js"}],"../src/App.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38068,6 +38344,8 @@ var _Text = _interopRequireDefault(require("./pages/Text"));
 var _AnalogStopWatch = _interopRequireDefault(require("./pages/AnalogStopWatch"));
 
 var _HourGlass = _interopRequireDefault(require("./pages/HourGlass"));
+
+var _bigDay = _interopRequireDefault(require("./pages/bigDay"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38103,12 +38381,15 @@ function App() {
   }), _react.default.createElement(_reactRouterDom.Route, {
     path: "/AnalogStopWatch",
     element: _react.default.createElement(_AnalogStopWatch.default, null)
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    path: "/BigDay",
+    element: _react.default.createElement(_bigDay.default, null)
   })))));
 }
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./App.css":"../src/App.css","react-router-dom":"../node_modules/react-router-dom/index.js","./pages/LandingPage":"../src/pages/LandingPage.tsx","./pages/SetTimer":"../src/pages/SetTimer.tsx","./pages/AnalogTimer":"../src/pages/AnalogTimer.tsx","./pages/Digital":"../src/pages/Digital.tsx","./pages/StopWatch":"../src/pages/StopWatch.tsx","./pages/Hit":"../src/pages/Hit.tsx","./pages/Text":"../src/pages/Text.tsx","./pages/AnalogStopWatch":"../src/pages/AnalogStopWatch.tsx","./pages/HourGlass":"../src/pages/HourGlass.tsx"}],"../src/index.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./App.css":"../src/App.css","react-router-dom":"../node_modules/react-router-dom/index.js","./pages/LandingPage":"../src/pages/LandingPage.tsx","./pages/SetTimer":"../src/pages/SetTimer.tsx","./pages/AnalogTimer":"../src/pages/AnalogTimer.tsx","./pages/Digital":"../src/pages/Digital.tsx","./pages/StopWatch":"../src/pages/StopWatch.tsx","./pages/Hit":"../src/pages/Hit.tsx","./pages/Text":"../src/pages/Text.tsx","./pages/AnalogStopWatch":"../src/pages/AnalogStopWatch.tsx","./pages/HourGlass":"../src/pages/HourGlass.tsx","./pages/bigDay":"../src/pages/bigDay.tsx"}],"../src/index.tsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -38152,7 +38433,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61592" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63746" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

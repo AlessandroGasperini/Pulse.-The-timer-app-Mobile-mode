@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import sekund from "../assets/img/sekund.png"
 import clock from "../assets/img/clock.png"
+import setDigital from "../assets/img/setDigital.png"
 import timpekare from "../assets/img/timpekare.png"
 import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
@@ -80,7 +81,9 @@ const AnalogStopWatch: React.FC = () => {
                 ))}
             </ul>
 
-            <Link to={"/StopWatch"}>degital</Link>
+            <Link to={"/StopWatch"}>
+                <img src={setDigital} alt="" />
+            </Link>
 
             <button onClick={() => start()}>start</button>
 

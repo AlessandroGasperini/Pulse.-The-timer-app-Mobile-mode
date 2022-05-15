@@ -10,6 +10,7 @@ import setHit from "../assets/img/setHit.png"
 import hourGlass from "../assets/img/hourGlass.png"
 import setStopWatch from "../assets/img/setStopWatch.png"
 import setText from "../assets/img/setText.png"
+import calender from "../assets/img/calender.png"
 
 
 
@@ -69,32 +70,38 @@ function setTimer() {
 
             </section>
 
+            <section>
 
+                <Link state={allSettings} to={"/AnalogTimer"}>
+                    <img src={setAnalog} alt="" />
+                </Link>
 
-            <Link state={allSettings} to={"/AnalogTimer"}>
-                <img src={setAnalog} alt="" />
-            </Link>
+                <Link state={allSettings} to={"/Digital"}>
+                    <img src={setDigital} alt="" />
+                </Link>
 
-            <Link state={allSettings} to={"/Digital"}>
-                <img src={setDigital} alt="" />
-            </Link>
+                <Link state={allSettings} to={"/Hit"}>
+                    <img src={setHit} alt="" />
+                </Link>
 
-            <Link state={allSettings} to={"/Hit"}>
-                <img src={setHit} alt="" />
-            </Link>
+                <Link state={allSettings} to={"/HourGlass"}>
+                    <img src={hourGlass} alt="" />
+                </Link>
+            </section>
+            <section>
+                <Link state={allSettings} to={"/StopWatch"}>
+                    <img src={setStopWatch} alt="" />
+                </Link>
 
-            <Link state={allSettings} to={"/HourGlass"}>
-                <img src={hourGlass} alt="" />
-            </Link>
+                <Link to={"/BigDay"}>
+                    <img src={calender} alt="" />
+                </Link>
 
-            <Link state={allSettings} to={"/StopWatch"}>
-                <img src={setStopWatch} alt="" />
-            </Link>
+                <Link state={allSettings} to={"/Text"}>
+                    <img src={setText} alt="" />
+                </Link>
 
-            <Link state={allSettings} to={"/Text"}>
-                <img src={setText} alt="" />
-            </Link>
-
+            </section>
 
 
 
