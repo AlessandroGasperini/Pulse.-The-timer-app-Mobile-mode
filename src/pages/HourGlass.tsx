@@ -8,10 +8,11 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
-import Header from "../Components/Header";
 
 
-const AnalogTimer: React.FC = () => {
+const HourGlass = () => {
+
+
 
     const location: any = useLocation();
 
@@ -22,30 +23,21 @@ const AnalogTimer: React.FC = () => {
             hours: time.hours,
             minutes: time.minutes,
             seconds: time.seconds
-        }, countdown: true,
+        }, countdown: true
     });
 
-    const [sec, setSec] = useState<string>("noRunSeconds")
-    const [hours, setHours] = useState<string>("noRunMinutes")
 
 
     function start() {
         timer.start();
-        setSec("sekundpekare")
-        setHours("timpekare")
-    };
-
-    function pause() {
-        timer.pause();
-        setSec("pauseSecond")
-        setHours("pauseHour")
-        setModalP(true)
+        setGlass(timeToString)
+        setAni("fillScreen linear infinite")
     };
 
     function stop() {
         timer.stop();
-        setModalS(true)
     };
+
 
     function reset() {
         timer.reset();
@@ -53,49 +45,70 @@ const AnalogTimer: React.FC = () => {
     };
 
 
+    useEffect(() => {
+        if (timer.getTimeValues().toString() === "00:00:00") {
+
+        }
+    }, [timer.getTimeValues().toString()])
+
     const [modalP, setModalP] = useState<boolean>(false)
     const [modalS, setModalS] = useState<boolean>(false)
+    const [startGlass, setGlass] = useState<string>("")
+    const [startAni, setAni] = useState<string>("")
+
+
 
     const theTimeSec: number = timer.getTimeValues().seconds
     const theTimeMin: number = timer.getTimeValues().minutes
     const theTimeHour: number = timer.getTimeValues().hours
 
+    let mins: number = time.minutes * 60
+    let hours: number = time.hours * 3600
+    let hourGlassTime: number = mins + hours + time.seconds
+    let timeToString: string = hourGlassTime.toString() + "s"
+
+    console.log(hourGlassTime);
+
+
+    let style: any = {
+        height: "720px",
+        position: "relative",
+        top: "-720px",
+        backgroundColor: "green",
+        animation: startAni,
+        transitionProperty: "all",
+        animationDuration: startGlass,
+    }
+
+
 
     useEffect(() => {
         if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
             setModalS(true)
-            setSec("pauseSecond")
-            setHours("pauseHour")
+            setGlass("")
+
         }
     }, [theTimeSec])
 
     return (
-        <section>
-            <Header header={"Timer Analog"} />
-            <section className="clockSection">
-                <img className="clock" src={clock} alt="" />
-                <img className={sec} src={sekund} alt="" />
-                <img className={hours} src={timpekare} alt="" />
-                <div className="timer">{timer.getTimeValues().toString()}</div>
+        <section >
+            <section style={style}></section>
 
+            <section className="forShow">
+                <button onClick={() => start()}>start</button>
+
+                <button onClick={() => stop()}>stop</button>
+
+                <button onClick={() => reset()}>reset</button>
             </section>
 
-            <button onClick={() => start()}>start</button>
-
-            <button onClick={() => pause()}>pause</button>
-
-            <button onClick={() => stop()}>stop</button>
-
-
-            <button onClick={() => reset()}>reset</button>
-
-
-            {modalP && <ModalPause currentTime={timer.getTimeValues().toString()} modalHide={setModalP} passFunction={() => start()} />}
+            {modalP && <ModalPause modalHide={setModalP} passFunction={() => start()} />}
             {modalS && <ModalStop />}
+
 
         </section>
 
     )
 };
 
-export default AnalogTimer
+export default HourGlass

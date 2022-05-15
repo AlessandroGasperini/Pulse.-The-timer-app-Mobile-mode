@@ -4,6 +4,15 @@ import { useState } from "react";
 import left from "../assets/img/left.png"
 import right from "../assets/img/right.png"
 import Header from "../Components/Header";
+import setAnalog from "../assets/img/setAnalog.png"
+import setDigital from "../assets/img/setDigital.png"
+import setHit from "../assets/img/setHit.png"
+import hourGlass from "../assets/img/hourGlass.png"
+import setStopWatch from "../assets/img/setStopWatch.png"
+import setText from "../assets/img/setText.png"
+import calender from "../assets/img/calender.png"
+
+
 
 function setTimer() {
     // Start values
@@ -37,7 +46,7 @@ function setTimer() {
 
     return (
         <section>
-            <h1>SetTimer</h1>
+            <Header header={"Set & Choose"} />
 
             <section className="setTime">
                 <h4>Hours</h4>
@@ -61,32 +70,38 @@ function setTimer() {
 
             </section>
 
+            <section>
 
+                <Link state={allSettings} to={"/AnalogTimer"}>
+                    <img src={setAnalog} alt="" />
+                </Link>
 
-            <Link state={allSettings} to={"/AnalogTimer"}>
-                <h1>Analog klocka</h1>
-            </Link>
+                <Link state={allSettings} to={"/Digital"}>
+                    <img src={setDigital} alt="" />
+                </Link>
 
-            <Link state={allSettings} to={"/Digital"}>
-                <h1>Digital klocka</h1>
-            </Link>
+                <Link state={allSettings} to={"/Hit"}>
+                    <img src={setHit} alt="" />
+                </Link>
 
-            <Link state={allSettings} to={"/Hit"}>
-                <h1>Hit klocka</h1>
-            </Link>
+                <Link state={allSettings} to={"/HourGlass"}>
+                    <img src={hourGlass} alt="" />
+                </Link>
+            </section>
+            <section>
+                <Link state={allSettings} to={"/StopWatch"}>
+                    <img src={setStopWatch} alt="" />
+                </Link>
 
-            <Link state={allSettings} to={"/Alarm"}>
-                <h1>Alarm klocka</h1>
-            </Link>
+                <Link to={"/BigDay"}>
+                    <img src={calender} alt="" />
+                </Link>
 
-            <Link state={allSettings} to={"/StopWatch"}>
-                <h1>StopWatch klocka</h1>
-            </Link>
+                <Link state={allSettings} to={"/Text"}>
+                    <img src={setText} alt="" />
+                </Link>
 
-            <Link state={allSettings} to={"/Text"}>
-                <h1>Text klocka</h1>
-            </Link>
-
+            </section>
 
 
 

@@ -6,43 +6,21 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
+import Header from "../Components/Header";
 
 
-interface allTimes {
-    hours: number,
-    minutes: number,
-    seconds: number,
-    targetDays: number,
-    targetHours: number,
-    targetMinutes: number,
-    targetSeconds: number,
-    countdown: boolean,
-    updateWhenTargetAchieved: boolean
-}
-
-const Digital: React.FC<allTimes> = () => {
+const Digital: React.FC = () => {
 
     const location: any = useLocation();
 
     const time = location.state;
-
-    const [modalP, setModalP] = useState<boolean>(false)
-    const [modalS, setModalS] = useState<boolean>(false)
-
 
     const [timer, isTargetAchieved] = useTimer({
         startValues: {
             hours: time.hours,
             minutes: time.minutes,
             seconds: time.seconds
-        },
-        target: {
-            hours: time.targetHours,
-            minutes: time.targetMinutes,
-            seconds: time.targetSeconds
-        },
-        countdown: time.countdown,
-        updateWhenTargetAchieved: time.updateWhenTargetAchieved
+        }, countdown: true,
     });
 
 
@@ -64,6 +42,9 @@ const Digital: React.FC<allTimes> = () => {
         timer.reset();
     };
 
+    const [modalP, setModalP] = useState<boolean>(false)
+    const [modalS, setModalS] = useState<boolean>(false)
+
     const theTimeSec: number = timer.getTimeValues().seconds
     const theTimeMin: number = timer.getTimeValues().minutes
     const theTimeHour: number = timer.getTimeValues().hours
@@ -78,6 +59,8 @@ const Digital: React.FC<allTimes> = () => {
 
     return (
         <section>
+            <Header header={"Timer Digital"} />
+
             <div>{timer.getTimeValues().toString()}</div>
 
             <button onClick={() => start()}>start</button>
@@ -89,7 +72,7 @@ const Digital: React.FC<allTimes> = () => {
             <button onClick={() => reset()}>reset</button>
 
 
-            {modalP && <ModalPause modalHide={setModalP} passFunction={() => start()} />}
+            {modalP && <ModalPause currentTime={timer.getTimeValues().toString()} modalHide={setModalP} passFunction={() => start()} />}
             {modalS && <ModalStop />}
 
 

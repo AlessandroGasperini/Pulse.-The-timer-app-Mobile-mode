@@ -18,6 +18,7 @@ function ModalPause(props: any) {
 
             <button onClick={() => startAgain()}>Start</button>
 
+            <h5>{props.currentTime}</h5>
 
         </section>
     );

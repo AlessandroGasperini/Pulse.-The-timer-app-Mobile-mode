@@ -2,46 +2,28 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import sekund from "../assets/img/sekund.png"
 import clock from "../assets/img/clock.png"
+import setDigital from "../assets/img/setDigital.png"
 import timpekare from "../assets/img/timpekare.png"
 import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
 import { useEffect } from "react";
+import Header from "../Components/Header";
 
-interface allTimes {
-    hours: number,
-    minutes: number,
-    seconds: number,
-    targetDays: number,
-    targetHours: number,
-    targetMinutes: number,
-    targetSeconds: number,
-    countdown: boolean,
-    updateWhenTargetAchieved: boolean
-}
+// interface allTimes {
+//     hours: number,
+//     minutes: number,
+//     seconds: number,
+//     targetDays: number,
+//     targetHours: number,
+//     targetMinutes: number,
+//     targetSeconds: number,
+//     countdown: boolean,
+//     updateWhenTargetAchieved: boolean
+// }
 
-const AnalogStopWatch: React.FC<allTimes> = () => {
+const AnalogStopWatch: React.FC = () => {
 
-    const location: any = useLocation();
-
-    const time = location.state;
-
-    const [timer, isTargetAchieved] = useTimer({
-        startValues: {
-            hours: 0,
-            minutes: 0,
-            seconds: 0
-        },
-        target: {
-            days: 10,
-            hours: 0,
-            minutes: 0,
-            seconds: 0
-        },
-        countdown: false,
-        updateWhenTargetAchieved: false
-    });
-
-
+    const [timer, isTargetAchieved] = useTimer({ target: { days: 10 } });
     const [sec, setSec] = useState<string>("noRunSeconds")
     const [hours, setHours] = useState<string>("noRunMinutes")
 
@@ -81,9 +63,10 @@ const AnalogStopWatch: React.FC<allTimes> = () => {
         allLaps.push(newLap)
     };
 
+
     return (
         <section>
-
+            <Header header={"Stop watch Analog"} />
             <section className="clockSection">
                 <img className="clock" src={clock} alt="" />
                 <img className={sec} src={sekund} alt="" />
@@ -98,10 +81,9 @@ const AnalogStopWatch: React.FC<allTimes> = () => {
                 ))}
             </ul>
 
-
-            <section className="test"></section>
-
-            <Link to={"/StopWatch"}>degital</Link>
+            <Link to={"/StopWatch"}>
+                <img src={setDigital} alt="" />
+            </Link>
 
             <button onClick={() => start()}>start</button>
 
