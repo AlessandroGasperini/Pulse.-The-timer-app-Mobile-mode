@@ -45,7 +45,7 @@ function setTimer() {
 
     return (
         <section>
-            <h1>SetTimer</h1>
+            <Header header={"Set & Choose"} />
 
             <section className="setTime">
                 <h4>Hours</h4>

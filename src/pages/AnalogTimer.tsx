@@ -8,19 +8,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
-interface allTimes {
-    hours: number,
-    minutes: number,
-    seconds: number,
-    targetDays: number,
-    targetHours: number,
-    targetMinutes: number,
-    targetSeconds: number,
-    countdown: boolean,
-    updateWhenTargetAchieved: boolean
-}
+import Header from "../Components/Header";
 
-const AnalogTimer: React.FC<allTimes> = () => {
+
+const AnalogTimer: React.FC = () => {
 
     const location: any = useLocation();
 
@@ -31,16 +22,8 @@ const AnalogTimer: React.FC<allTimes> = () => {
             hours: time.hours,
             minutes: time.minutes,
             seconds: time.seconds
-        },
-        target: {
-            hours: time.targetHours,
-            minutes: time.targetMinutes,
-            seconds: time.targetSeconds
-        },
-        countdown: time.countdown,
-        updateWhenTargetAchieved: time.updateWhenTargetAchieved
+        }, countdown: true,
     });
-
 
     const [sec, setSec] = useState<string>("noRunSeconds")
     const [hours, setHours] = useState<string>("noRunMinutes")
@@ -64,13 +47,10 @@ const AnalogTimer: React.FC<allTimes> = () => {
         setModalS(true)
     };
 
-
     function reset() {
         timer.reset();
         window.location.reload()
     };
-
-
 
 
     const [modalP, setModalP] = useState<boolean>(false)
@@ -91,7 +71,7 @@ const AnalogTimer: React.FC<allTimes> = () => {
 
     return (
         <section>
-
+            <Header header={"Timer Analog"} />
             <section className="clockSection">
                 <img className="clock" src={clock} alt="" />
                 <img className={sec} src={sekund} alt="" />

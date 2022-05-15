@@ -23,14 +23,7 @@ const HourGlass = () => {
             hours: time.hours,
             minutes: time.minutes,
             seconds: time.seconds
-        },
-        target: {
-            hours: time.targetHours,
-            minutes: time.targetMinutes,
-            seconds: time.targetSeconds
-        },
-        countdown: time.countdown,
-        updateWhenTargetAchieved: time.updateWhenTargetAchieved
+        }, countdown: true
     });
 
 

@@ -6,20 +6,12 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
+import Header from "../Components/Header";
 
-interface allTimes {
-    hours: number,
-    minutes: number,
-    seconds: number,
-    targetDays: number,
-    targetHours: number,
-    targetMinutes: number,
-    targetSeconds: number,
-    countdown: boolean,
-    updateWhenTargetAchieved: boolean
-}
 
-const Text: React.FC<allTimes> = () => {
+// const Text: React.FC<allTimes> = () => {
+
+const Text: React.FC = () => {
 
     const location: any = useLocation();
 
@@ -30,14 +22,7 @@ const Text: React.FC<allTimes> = () => {
             hours: time.hours,
             minutes: time.minutes,
             seconds: time.seconds
-        },
-        target: {
-            hours: time.targetHours,
-            minutes: time.targetMinutes,
-            seconds: time.targetSeconds
-        },
-        countdown: time.countdown,
-        updateWhenTargetAchieved: time.updateWhenTargetAchieved
+        }, countdown: true,
     });
 
 
@@ -47,6 +32,7 @@ const Text: React.FC<allTimes> = () => {
 
     function pause() {
         timer.pause();
+        setModalP(true)
     };
 
     function stop() {
@@ -58,8 +44,8 @@ const Text: React.FC<allTimes> = () => {
         timer.reset();
     };
 
-
-
+    let and: string = "och"
+    let comma: string = ","
     let hoursText: string = "timmar"
     let hours: string = ""
     switch (timer.getTimeValues().hours) {
@@ -97,6 +83,8 @@ const Text: React.FC<allTimes> = () => {
         case 0:
             hours = ""
             hoursText = ""
+            comma = ""
+            and = " och"
             break
         default:
             break;
@@ -287,6 +275,7 @@ const Text: React.FC<allTimes> = () => {
         case 0:
             minutes = ""
             minutesText = ""
+            comma = ""
             break
         default:
             break;
@@ -476,18 +465,40 @@ const Text: React.FC<allTimes> = () => {
         case 0:
             seconds = ""
             secondsText = ""
+            and = ""
+            comma = ""
             break
         default:
             break;
     }
 
+    if (timer.getTimeValues().hours >= 1 && timer.getTimeValues().seconds === 0) {
+        comma = " och"
+    }
+    if (timer.getTimeValues().minutes === 0 && timer.getTimeValues().seconds === 0) {
+        comma = ""
+    }
 
+    const [modalP, setModalP] = useState<boolean>(false)
+    const [modalS, setModalS] = useState<boolean>(false)
+
+    const theTimeSec: number = timer.getTimeValues().seconds
+    const theTimeMin: number = timer.getTimeValues().minutes
+    const theTimeHour: number = timer.getTimeValues().hours
+
+
+    useEffect(() => {
+        if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
+            setModalS(true)
+        }
+    }, [theTimeSec])
 
     return (
         <section>
-            <h3>{hours} {hoursText},</h3>
-            <h3>{minutes} {minutesText} och </h3>
-            <h3>{seconds} {secondsText}</h3>
+            <Header header={"Timer Text"} />
+
+            <h3>{hours} {hoursText}{comma} {minutes} {minutesText} {and} {seconds} {secondsText}</h3>
+
 
             <button onClick={() => start()}>start</button>
 
@@ -496,6 +507,11 @@ const Text: React.FC<allTimes> = () => {
             <button onClick={() => stop()}>stop</button>
 
             <button onClick={() => reset()}>reset</button>
+
+
+            {modalP && <ModalPause currentTime={timer.getTimeValues().toString()} modalHide={setModalP} passFunction={() => start()} />}
+            {modalS && <ModalStop />}
+
         </section>
 
     )

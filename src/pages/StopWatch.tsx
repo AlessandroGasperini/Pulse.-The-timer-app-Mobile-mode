@@ -4,22 +4,10 @@ import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import Header from "../Components/Header";
 
 
-interface allTimes {
-    days: number,
-    hours: number,
-    minutes: number,
-    seconds: number,
-    targetDays: number,
-    targetHours: number,
-    targetMinutes: number,
-    targetSeconds: number,
-    countdown: boolean,
-    updateWhenTargetAchieved: boolean
-}
-
-const StopWatch: React.FC<allTimes> = () => {
+const StopWatch: React.FC = () => {
 
     const location: any = useLocation();
 
@@ -31,14 +19,8 @@ const StopWatch: React.FC<allTimes> = () => {
             minutes: 0,
             seconds: 0
         },
-        target: {
-            days: 10,
-            hours: 0,
-            minutes: 0,
-            seconds: 0
-        },
+        target: { days: 10 },
         countdown: false,
-        updateWhenTargetAchieved: false
     });
 
 
@@ -69,6 +51,8 @@ const StopWatch: React.FC<allTimes> = () => {
 
     return (
         <section>
+
+            <Header header={"Stop Watch Digital"} />
             <div>{timer.getTimeValues().toString()}</div>
 
 

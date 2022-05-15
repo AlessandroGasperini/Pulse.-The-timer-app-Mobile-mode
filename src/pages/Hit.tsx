@@ -1,7 +1,7 @@
 
 import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import React from "react";
 import hitSpin from "../assets/img/hitSpin.png"
@@ -9,22 +9,11 @@ import hitArrow from "../assets/img/hitArrow.png"
 import lapMark from "../assets/img/lapMark.png"
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
+import Header from "../Components/Header";
 
 
-interface allTimes {
-    days: number,
-    hours: number,
-    minutes: number,
-    seconds: number,
-    targetDays: number,
-    targetHours: number,
-    targetMinutes: number,
-    targetSeconds: number,
-    countdown: boolean,
-    updateWhenTargetAchieved: boolean
-}
 
-const Hit: React.FC<allTimes> = () => {
+const Hit: React.FC = () => {
 
     const location: any = useLocation();
 
@@ -35,14 +24,8 @@ const Hit: React.FC<allTimes> = () => {
             hours: time.hours,
             minutes: time.minutes,
             seconds: time.seconds
-        },
-        target: {
-            hours: time.targetHours,
-            minutes: time.targetMinutes,
-            seconds: time.targetSeconds
-        },
-        countdown: time.countdown,
-        updateWhenTargetAchieved: time.updateWhenTargetAchieved
+        }, countdown: true,
+
     });
 
     const [hit, setHit] = useState<string>("stillMin")
@@ -55,6 +38,26 @@ const Hit: React.FC<allTimes> = () => {
     function start() {
         timer.start();
         setHit("spin")
+        setGoRest("Go!")
+    };
+
+    function pause() {
+        timer.pause();
+        setModalP(true)
+        seePause()
+    };
+
+    function seePause() {
+        if (breath === "pauseBreath") {
+            setHit("spinPause")
+        }
+    }
+
+
+
+    function stop() {
+        timer.stop();
+        setModalS(true)
     };
 
 
@@ -113,7 +116,7 @@ const Hit: React.FC<allTimes> = () => {
 
     return (
         <section>
-
+            <Header header={"HiT"} />
             <section>
                 <img src={arrow} alt="" />
             </section>
@@ -129,6 +132,10 @@ const Hit: React.FC<allTimes> = () => {
 
             <section>
                 <button onClick={() => start()}>start</button>
+
+                <button className={(breath === "breath") ? `${"hide"}` : ""} onClick={() => pause()}>pause</button>
+
+                <button onClick={() => stop()}>stop</button>
 
                 <button onClick={() => reset()}>reset</button>
             </section>

@@ -8,41 +8,21 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Header from "../Components/Header";
 
-interface allTimes {
-    hours: number,
-    minutes: number,
-    seconds: number,
-    targetDays: number,
-    targetHours: number,
-    targetMinutes: number,
-    targetSeconds: number,
-    countdown: boolean,
-    updateWhenTargetAchieved: boolean
-}
+// interface allTimes {
+//     hours: number,
+//     minutes: number,
+//     seconds: number,
+//     targetDays: number,
+//     targetHours: number,
+//     targetMinutes: number,
+//     targetSeconds: number,
+//     countdown: boolean,
+//     updateWhenTargetAchieved: boolean
+// }
 
-const AnalogStopWatch: React.FC<allTimes> = () => {
+const AnalogStopWatch: React.FC = () => {
 
-    const location: any = useLocation();
-
-    const time = location.state;
-
-    const [timer, isTargetAchieved] = useTimer({
-        startValues: {
-            hours: 0,
-            minutes: 0,
-            seconds: 0
-        },
-        target: {
-            days: 10,
-            hours: 0,
-            minutes: 0,
-            seconds: 0
-        },
-        countdown: false,
-        updateWhenTargetAchieved: false
-    });
-
-
+    const [timer, isTargetAchieved] = useTimer({ target: { days: 10 } });
     const [sec, setSec] = useState<string>("noRunSeconds")
     const [hours, setHours] = useState<string>("noRunMinutes")
 
@@ -82,9 +62,10 @@ const AnalogStopWatch: React.FC<allTimes> = () => {
         allLaps.push(newLap)
     };
 
+
     return (
         <section>
-            <Header />
+            <Header header={"Stop watch Analog"} />
             <section className="clockSection">
                 <img className="clock" src={clock} alt="" />
                 <img className={sec} src={sekund} alt="" />
@@ -98,9 +79,6 @@ const AnalogStopWatch: React.FC<allTimes> = () => {
                     <p key={id}>{lap}</p>
                 ))}
             </ul>
-
-
-            <section className="test"></section>
 
             <Link to={"/StopWatch"}>degital</Link>
 

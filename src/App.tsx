@@ -21,13 +21,13 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/SetTimer" element={<SetTimer />} />
-            <Route path="/StopWatch" element={<StopWatch days={0} hours={0} minutes={0} seconds={0} targetDays={0} targetHours={0} targetMinutes={0} targetSeconds={0} countdown={false} updateWhenTargetAchieved={false} />} />
-            <Route path="/AnalogTimer" element={<AnalogTimer hours={0} minutes={0} seconds={0} targetDays={0} targetHours={0} targetMinutes={0} targetSeconds={0} countdown={false} updateWhenTargetAchieved={false} />} />
-            <Route path="/Digital" element={<Digital hours={0} minutes={0} seconds={0} targetDays={0} targetHours={0} targetMinutes={0} targetSeconds={0} countdown={false} updateWhenTargetAchieved={false} />} />
-            <Route path="/Hit" element={<Hit days={0} hours={0} minutes={0} seconds={0} targetDays={0} targetHours={0} targetMinutes={0} targetSeconds={0} countdown={false} updateWhenTargetAchieved={false} />} />
+            <Route path="/StopWatch" element={<StopWatch />} />
+            <Route path="/AnalogTimer" element={<AnalogTimer />} />
+            <Route path="/Digital" element={<Digital />} />
+            <Route path="/Hit" element={<Hit />} />
             <Route path="/HourGlass" element={<HourGlass />} />
-            <Route path="/Text" element={<Text hours={0} minutes={0} seconds={0} targetDays={0} targetHours={0} targetMinutes={0} targetSeconds={0} countdown={false} updateWhenTargetAchieved={false} />} />
-            <Route path="/AnalogStopWatch" element={<AnalogStopWatch hours={0} minutes={0} seconds={0} targetDays={0} targetHours={0} targetMinutes={0} targetSeconds={0} countdown={false} updateWhenTargetAchieved={false} />} />
+            <Route path="/Text" element={<Text />} />
+            <Route path="/AnalogStopWatch" element={<AnalogStopWatch />} />
 
           </Routes>
         </main>
