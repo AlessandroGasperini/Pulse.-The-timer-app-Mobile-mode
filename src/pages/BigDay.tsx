@@ -9,10 +9,11 @@ import useTimer from "easytimer-react-hook";
 
 
 const BigDay: React.FC = () => {
+
     useEffect(() => {
         timer.start()
     }, [])
-    const [timer, isTargetAchieved] = useTimer({ startValues: { hours: 1000000, minutes: 1000000, seconds: 1000000 }, countdown: true });
+    const [timer, isTargetAchieved] = useTimer({ startValues: { hours: 100000000000000, minutes: 1000000, seconds: 1000000 }, countdown: true });
 
     const [modalS, setModalS] = useState<boolean>(false)
     const today = new Date()

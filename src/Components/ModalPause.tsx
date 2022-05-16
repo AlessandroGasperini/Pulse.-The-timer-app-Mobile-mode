@@ -1,5 +1,6 @@
 import React from "react";
 import useTimer from 'easytimer-react-hook';
+import styles from "./ModalPause.module.css"
 
 function ModalPause(props: any) {
 

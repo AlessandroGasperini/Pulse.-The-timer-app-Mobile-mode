@@ -10,11 +10,18 @@ import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
 import Header from "../Components/Header";
 
-const AnalogTimer: React.FC = () => {
+interface allTimes {
+    hours?: number,
+    minutes?: number,
+    seconds?: number,
+    countdown: boolean,
+}
 
-    const location: any = useLocation();
+const AnalogTimer: React.FC<allTimes> = () => {
 
-    const time = location.state;
+    const location: object | any = useLocation();
+
+    const time: object | any = location.state;
 
     const [timer, isTargetAchieved] = useTimer({
         startValues: {
@@ -51,9 +58,6 @@ const AnalogTimer: React.FC = () => {
         window.location.reload()
     };
 
-    function startSecondsAnimation() {
-        //lägg på klass för animationen
-    }
 
     const [modalP, setModalP] = useState<boolean>(false)
     const [modalS, setModalS] = useState<boolean>(false)

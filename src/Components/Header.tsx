@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoHeader from "../assets/img/headerLogo.png"
+import styles from "./Header.module.css"
 
 function Header(props: string | any) {
 
@@ -18,12 +19,14 @@ function Header(props: string | any) {
 
 
     return (
-        <section>
+        <section className="header">
             <Link to={"/setTimer"}><img src={logoHeader} alt="" /></Link>
 
             <h1>{props.header}</h1>
-            <h3>{date}</h3>
-            <h3>{hours}:{zero}{minutes}</h3>
+            <article>
+                <h3>{date}</h3>
+                <h3>{hours}:{zero}{minutes}</h3>
+            </article>
         </section>
     );
 }

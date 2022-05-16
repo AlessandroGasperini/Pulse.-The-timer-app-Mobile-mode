@@ -10,17 +10,6 @@ import { useEffect } from "react";
 import Header from "../Components/Header";
 import styles from "./AnalogStopWatch.module.css"
 
-// interface allTimes {
-//     hours: number,
-//     minutes: number,
-//     seconds: number,
-//     targetDays: number,
-//     targetHours: number,
-//     targetMinutes: number,
-//     targetSeconds: number,
-//     countdown: boolean,
-//     updateWhenTargetAchieved: boolean
-// }
 
 const AnalogStopWatch: React.FC = () => {
 
@@ -68,7 +57,7 @@ const AnalogStopWatch: React.FC = () => {
     return (
         <section>
             <Header header={"Stop watch Analog"} />
-            <section className={styles.clockSection}>
+            <section className="clockSection">
                 <img className="clock" src={clock} alt="" />
                 <img className={sec} src={sekund} alt="" />
                 <img className={hours} src={timpekare} alt="" />

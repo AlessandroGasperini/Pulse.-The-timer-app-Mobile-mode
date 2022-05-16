@@ -35567,12 +35567,14 @@ function Header(props) {
     zero = "0";
   }
 
-  return _react.default.createElement("section", null, _react.default.createElement(_reactRouterDom.Link, {
+  return _react.default.createElement("section", {
+    className: "header"
+  }, _react.default.createElement(_reactRouterDom.Link, {
     to: "/setTimer"
   }, _react.default.createElement("img", {
     src: _headerLogo.default,
     alt: ""
-  })), _react.default.createElement("h1", null, props.header), _react.default.createElement("h3", null, date), _react.default.createElement("h3", null, hours, ":", zero, minutes));
+  })), _react.default.createElement("h1", null, props.header), _react.default.createElement("article", null, _react.default.createElement("h3", null, date), _react.default.createElement("h3", null, hours, ":", zero, minutes)));
 }
 
 var _default = Header;
@@ -35744,7 +35746,6 @@ function setTimer() {
     src: _hourGlass.default,
     alt: ""
   }))), _react.default.createElement("section", null, _react.default.createElement(_reactRouterDom.Link, {
-    state: allSettings,
     to: "/StopWatch"
   }, _react.default.createElement("img", {
     src: _setStopWatch.default,
@@ -36520,7 +36521,7 @@ function ModalStop() {
   return _react.default.createElement("section", {
     className: "container"
   }, _react.default.createElement("h1", null, "ModalStop"), _react.default.createElement("img", {
-    className: "bell",
+    className: "bellShake",
     src: _bell.default,
     alt: ""
   }), _react.default.createElement(_reactRouterDom.Link, {
@@ -36619,9 +36620,6 @@ var AnalogTimer = function () {
   }
 
   ;
-
-  function startSecondsAnimation() {//lägg på klass för animationen
-  }
 
   var _d = (0, _react.useState)(false),
       modalP = _d[0],
@@ -37126,7 +37124,6 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-// const Text: React.FC<allTimes> = () => {
 var Text = function () {
   var location = (0, _reactRouterDom.useLocation)();
   var time = location.state;
@@ -37780,12 +37777,7 @@ var Text = function () {
 
 var _default = Text;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx"}],"../src/pages/AnalogStopWatch.module.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/pages/AnalogStopWatch.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx"}],"../src/pages/AnalogStopWatch.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37809,25 +37801,12 @@ var _easytimerReactHook = _interopRequireDefault(require("easytimer-react-hook")
 
 var _Header = _interopRequireDefault(require("../Components/Header"));
 
-var _AnalogStopWatchModule = _interopRequireDefault(require("./AnalogStopWatch.module.css"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-// interface allTimes {
-//     hours: number,
-//     minutes: number,
-//     seconds: number,
-//     targetDays: number,
-//     targetHours: number,
-//     targetMinutes: number,
-//     targetSeconds: number,
-//     countdown: boolean,
-//     updateWhenTargetAchieved: boolean
-// }
 var AnalogStopWatch = function () {
   var _a = (0, _easytimerReactHook.default)(),
       timer = _a[0],
@@ -37883,7 +37862,7 @@ var AnalogStopWatch = function () {
   return _react.default.createElement("section", null, _react.default.createElement(_Header.default, {
     header: "Stop watch Analog"
   }), _react.default.createElement("section", {
-    className: _AnalogStopWatchModule.default.clockSection
+    className: "clockSection"
   }, _react.default.createElement("img", {
     className: "clock",
     src: _clock.default,
@@ -37928,7 +37907,7 @@ var AnalogStopWatch = function () {
 
 var _default = AnalogStopWatch;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/sekund.png":"../src/assets/img/sekund.png","../assets/img/clock.png":"../src/assets/img/clock.png","../assets/img/setDigital.png":"../src/assets/img/setDigital.png","../assets/img/timpekare.png":"../src/assets/img/timpekare.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/Header":"../src/Components/Header.tsx","./AnalogStopWatch.module.css":"../src/pages/AnalogStopWatch.module.css"}],"../src/pages/HourGlass.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/sekund.png":"../src/assets/img/sekund.png","../assets/img/clock.png":"../src/assets/img/clock.png","../assets/img/setDigital.png":"../src/assets/img/setDigital.png","../assets/img/timpekare.png":"../src/assets/img/timpekare.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/Header":"../src/Components/Header.tsx"}],"../src/pages/HourGlass.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38093,7 +38072,7 @@ var BigDay = function () {
 
   var _a = (0, _easytimerReactHook.default)({
     startValues: {
-      hours: 1000000,
+      hours: 100000000000000,
       minutes: 1000000,
       seconds: 1000000
     },
@@ -38439,7 +38418,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51739" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59198" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

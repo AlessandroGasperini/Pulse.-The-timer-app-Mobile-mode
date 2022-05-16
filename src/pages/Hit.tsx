@@ -11,13 +11,18 @@ import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
 import Header from "../Components/Header";
 
+interface allTimes {
+    hours?: number,
+    minutes?: number,
+    seconds?: number,
+    countdown?: boolean
+}
 
+const Hit: React.FC<allTimes> = () => {
 
-const Hit: React.FC = () => {
+    const location: object | any = useLocation();
 
-    const location: any = useLocation();
-
-    const time = location.state;
+    const time: object | any = location.state;
 
     const [timer, isTargetAchieved] = useTimer({
         startValues: {

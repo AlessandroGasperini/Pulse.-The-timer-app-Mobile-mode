@@ -90,7 +90,7 @@ function setTimer() {
                 </Link>
             </section>
             <section>
-                <Link state={allSettings} to={"/StopWatch"}>
+                <Link to={"/StopWatch"}>
                     <img src={setStopWatch} alt="" />
                 </Link>
 
