@@ -27,13 +27,14 @@ const BigDay: React.FC = () => {
 
     const [chooseYear, setYear] = useState<number>(year)
     const [chooseMonth, setMonth] = useState<number>(month)
+    const [monthInText, setMonthText] = useState<string>("")
     const [chooseDay, setDay] = useState<number>(day)
     const [chooseHour, setHour] = useState<number>(hours)
     const [chooseMinute, setMinute] = useState<number>(minutes)
     const [chooseImg, setImg] = useState<string>("")
     const [chooseNote, setNote] = useState<string>("")
 
-    let monthText = ""
+    let monthText: string = ""
     switch (chooseMonth) {
         case 1:
             monthText = "Januari"
@@ -95,6 +96,7 @@ const BigDay: React.FC = () => {
     const [finalDate, setFinalDate] = useState<string>("")
     function makeBigDay() {
         setFinalDate(choosenDate)
+        setMonthText(monthText)
     }
     console.log(todaysDate);
     console.log(finalDate);
@@ -156,7 +158,7 @@ const BigDay: React.FC = () => {
             <section className={finalDate != "" ? "" : "hide"} >
                 <h1>{chooseNote}</h1>
                 <img src={chooseImg} alt="" />
-                <h2>{chooseYear}{chooseMonth}{chooseDay}</h2>
+                <h2>{chooseDay} {monthInText}-{chooseYear}</h2>
                 <h5>{chooseHour}:{zero}{chooseMinute}</h5>
             </section>
 
