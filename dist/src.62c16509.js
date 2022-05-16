@@ -37780,7 +37780,12 @@ var Text = function () {
 
 var _default = Text;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx"}],"../src/pages/AnalogStopWatch.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx"}],"../src/pages/AnalogStopWatch.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/pages/AnalogStopWatch.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37803,6 +37808,8 @@ var _timpekare = _interopRequireDefault(require("../assets/img/timpekare.png"));
 var _easytimerReactHook = _interopRequireDefault(require("easytimer-react-hook"));
 
 var _Header = _interopRequireDefault(require("../Components/Header"));
+
+var _AnalogStopWatchModule = _interopRequireDefault(require("./AnalogStopWatch.module.css"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37876,7 +37883,7 @@ var AnalogStopWatch = function () {
   return _react.default.createElement("section", null, _react.default.createElement(_Header.default, {
     header: "Stop watch Analog"
   }), _react.default.createElement("section", {
-    className: "clockSection"
+    className: _AnalogStopWatchModule.default.clockSection
   }, _react.default.createElement("img", {
     className: "clock",
     src: _clock.default,
@@ -37921,7 +37928,7 @@ var AnalogStopWatch = function () {
 
 var _default = AnalogStopWatch;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/sekund.png":"../src/assets/img/sekund.png","../assets/img/clock.png":"../src/assets/img/clock.png","../assets/img/setDigital.png":"../src/assets/img/setDigital.png","../assets/img/timpekare.png":"../src/assets/img/timpekare.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/Header":"../src/Components/Header.tsx"}],"../src/pages/HourGlass.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/sekund.png":"../src/assets/img/sekund.png","../assets/img/clock.png":"../src/assets/img/clock.png","../assets/img/setDigital.png":"../src/assets/img/setDigital.png","../assets/img/timpekare.png":"../src/assets/img/timpekare.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/Header":"../src/Components/Header.tsx","./AnalogStopWatch.module.css":"../src/pages/AnalogStopWatch.module.css"}],"../src/pages/HourGlass.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38114,25 +38121,29 @@ var BigDay = function () {
       chooseMonth = _d[0],
       setMonth = _d[1];
 
-  var _e = (0, _react.useState)(day),
-      chooseDay = _e[0],
-      setDay = _e[1];
+  var _e = (0, _react.useState)(""),
+      monthInText = _e[0],
+      setMonthText = _e[1];
 
-  var _f = (0, _react.useState)(hours),
-      chooseHour = _f[0],
-      setHour = _f[1];
+  var _f = (0, _react.useState)(day),
+      chooseDay = _f[0],
+      setDay = _f[1];
 
-  var _g = (0, _react.useState)(minutes),
-      chooseMinute = _g[0],
-      setMinute = _g[1];
+  var _g = (0, _react.useState)(hours),
+      chooseHour = _g[0],
+      setHour = _g[1];
 
-  var _h = (0, _react.useState)(""),
-      chooseImg = _h[0],
-      setImg = _h[1];
+  var _h = (0, _react.useState)(minutes),
+      chooseMinute = _h[0],
+      setMinute = _h[1];
 
   var _j = (0, _react.useState)(""),
-      chooseNote = _j[0],
-      setNote = _j[1];
+      chooseImg = _j[0],
+      setImg = _j[1];
+
+  var _k = (0, _react.useState)(""),
+      chooseNote = _k[0],
+      setNote = _k[1];
 
   var monthText = "";
 
@@ -38202,12 +38213,13 @@ var BigDay = function () {
     zeroHour = "0";
   }
 
-  var _k = (0, _react.useState)(""),
-      finalDate = _k[0],
-      setFinalDate = _k[1];
+  var _l = (0, _react.useState)(""),
+      finalDate = _l[0],
+      setFinalDate = _l[1];
 
   function makeBigDay() {
     setFinalDate(choosenDate);
+    setMonthText(monthText);
   }
 
   console.log(todaysDate);
@@ -38298,7 +38310,7 @@ var BigDay = function () {
   }, _react.default.createElement("h1", null, chooseNote), _react.default.createElement("img", {
     src: chooseImg,
     alt: ""
-  }), _react.default.createElement("h2", null, chooseYear, chooseMonth, chooseDay), _react.default.createElement("h5", null, chooseHour, ":", zero, chooseMinute)), _react.default.createElement("button", {
+  }), _react.default.createElement("h2", null, chooseDay, " ", monthInText, "-", chooseYear), _react.default.createElement("h5", null, chooseHour, ":", zero, chooseMinute)), _react.default.createElement("button", {
     onClick: function () {
       return makeBigDay();
     }
@@ -38427,7 +38439,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60707" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51739" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
