@@ -13,15 +13,7 @@ const StopWatch: React.FC = () => {
 
     const time = location.state;
 
-    const [timer, isTargetAchieved] = useTimer({
-        startValues: {
-            hours: 0,
-            minutes: 0,
-            seconds: 0
-        },
-        target: { days: 10 },
-        countdown: false,
-    });
+    const [timer, isTargetAchieved] = useTimer({});
 
 
     function start() {

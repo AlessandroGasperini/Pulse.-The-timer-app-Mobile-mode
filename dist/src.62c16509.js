@@ -35505,8 +35505,8 @@ function createSearchParams(init) {
     return memo.concat(Array.isArray(value) ? value.map(v => [key, v]) : [[key, value]]);
   }, []));
 }
-},{"react":"../node_modules/react/index.js","history":"../node_modules/history/index.js","react-router":"../node_modules/react-router/index.js"}],"../src/assets/img/pulse logo.png":[function(require,module,exports) {
-module.exports = "/pulse logo.3a15f700.png";
+},{"react":"../node_modules/react/index.js","history":"../node_modules/history/index.js","react-router":"../node_modules/react-router/index.js"}],"../src/assets/img/logoLanding.png":[function(require,module,exports) {
+module.exports = "/logoLanding.faf5e9e3.png";
 },{}],"../src/pages/LandingPage.tsx":[function(require,module,exports) {
 "use strict";
 
@@ -35519,7 +35519,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _pulseLogo = _interopRequireDefault(require("../assets/img/pulse logo.png"));
+var _logoLanding = _interopRequireDefault(require("../assets/img/logoLanding.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35527,14 +35527,14 @@ function LandingPage() {
   return _react.default.createElement(_reactRouterDom.Link, {
     to: "/SetTimer"
   }, _react.default.createElement("section", null, _react.default.createElement("h1", null, "LandingPage"), _react.default.createElement("img", {
-    src: _pulseLogo.default,
+    src: _logoLanding.default,
     alt: ""
-  }), _react.default.createElement("h1", null, "PuLse")));
+  })));
 }
 
 var _default = LandingPage;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/pulse logo.png":"../src/assets/img/pulse logo.png"}],"../src/assets/img/left.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/logoLanding.png":"../src/assets/img/logoLanding.png"}],"../src/assets/img/left.png":[function(require,module,exports) {
 module.exports = "/left.e9a78fbb.png";
 },{}],"../src/assets/img/right.png":[function(require,module,exports) {
 module.exports = "/right.73186344.png";
@@ -36620,6 +36620,9 @@ var AnalogTimer = function () {
 
   ;
 
+  function startSecondsAnimation() {//lägg på klass för animationen
+  }
+
   var _d = (0, _react.useState)(false),
       modalP = _d[0],
       setModalP = _d[1];
@@ -36822,17 +36825,7 @@ var StopWatch = function () {
   var location = (0, _reactRouterDom.useLocation)();
   var time = location.state;
 
-  var _a = (0, _easytimerReactHook.default)({
-    startValues: {
-      hours: 0,
-      minutes: 0,
-      seconds: 0
-    },
-    target: {
-      days: 10
-    },
-    countdown: false
-  }),
+  var _a = (0, _easytimerReactHook.default)({}),
       timer = _a[0],
       isTargetAchieved = _a[1];
 
@@ -37829,11 +37822,7 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 //     updateWhenTargetAchieved: boolean
 // }
 var AnalogStopWatch = function () {
-  var _a = (0, _easytimerReactHook.default)({
-    target: {
-      days: 10
-    }
-  }),
+  var _a = (0, _easytimerReactHook.default)(),
       timer = _a[0],
       isTargetAchieved = _a[1];
 
@@ -38203,9 +38192,14 @@ var BigDay = function () {
   var todaysDate = year.toString() + month.toString() + day.toString() + hours.toString() + minutes.toString();
   var choosenDate = chooseYear.toString() + chooseMonth.toString() + chooseDay.toString() + chooseHour.toString() + chooseMinute.toString();
   var zero = "";
+  var zeroHour = "";
 
   if (chooseMinute === 0 || chooseMinute === 1 || chooseMinute === 2 || chooseMinute === 3 || chooseMinute === 4 || chooseMinute === 5 || chooseMinute === 6 || chooseMinute === 7 || chooseMinute === 8 || chooseMinute === 9) {
     zero = "0";
+  }
+
+  if (chooseHour === 0 || chooseHour === 1 || chooseHour === 2 || chooseHour === 3 || chooseHour === 4 || chooseHour === 5 || chooseHour === 6 || chooseHour === 7 || chooseHour === 8 || chooseHour === 9) {
+    zeroHour = "0";
   }
 
   var _k = (0, _react.useState)(""),
@@ -38276,7 +38270,7 @@ var BigDay = function () {
     },
     src: _up.default,
     alt: ""
-  }), _react.default.createElement("p", null, chooseHour), _react.default.createElement("img", {
+  }), _react.default.createElement("p", null, zeroHour, chooseHour), _react.default.createElement("img", {
     onClick: function () {
       return setHour(chooseHour - 1);
     },
@@ -38433,7 +38427,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63746" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60707" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

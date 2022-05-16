@@ -4,8 +4,8 @@ import ModalStop from "../Components/ModalStop";
 import Header from "../Components/Header";
 import up from "../assets/img/up.png"
 import down from "../assets/img/down.png"
-import { Link, useLocation } from "react-router-dom";
 import useTimer from "easytimer-react-hook";
+
 
 
 const BigDay: React.FC = () => {
@@ -83,10 +83,14 @@ const BigDay: React.FC = () => {
     let choosenDate: string = chooseYear.toString() + chooseMonth.toString() + chooseDay.toString() + chooseHour.toString() + chooseMinute.toString()
 
     let zero: string = ""
+    let zeroHour: string = ""
     if (chooseMinute === 0 || chooseMinute === 1 || chooseMinute === 2 || chooseMinute === 3 || chooseMinute === 4 || chooseMinute === 5 || chooseMinute === 6 || chooseMinute === 7 || chooseMinute === 8 || chooseMinute === 9) {
         zero = "0"
     }
 
+    if (chooseHour === 0 || chooseHour === 1 || chooseHour === 2 || chooseHour === 3 || chooseHour === 4 || chooseHour === 5 || chooseHour === 6 || chooseHour === 7 || chooseHour === 8 || chooseHour === 9) {
+        zeroHour = "0"
+    }
 
     const [finalDate, setFinalDate] = useState<string>("")
     function makeBigDay() {
@@ -135,7 +139,7 @@ const BigDay: React.FC = () => {
 
             <article>
                 <img onClick={() => setHour(chooseHour + 1)} src={up} alt="" />
-                <p>{chooseHour}</p>
+                <p>{zeroHour}{chooseHour}</p>
                 <img onClick={() => setHour(chooseHour - 1)} src={down} alt="" />
             </article>
 

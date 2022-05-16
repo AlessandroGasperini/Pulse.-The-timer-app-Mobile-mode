@@ -10,7 +10,6 @@ import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
 import Header from "../Components/Header";
 
-
 const AnalogTimer: React.FC = () => {
 
     const location: any = useLocation();
@@ -52,6 +51,9 @@ const AnalogTimer: React.FC = () => {
         window.location.reload()
     };
 
+    function startSecondsAnimation() {
+        //lägg på klass för animationen
+    }
 
     const [modalP, setModalP] = useState<boolean>(false)
     const [modalS, setModalS] = useState<boolean>(false)
@@ -60,7 +62,6 @@ const AnalogTimer: React.FC = () => {
     const theTimeMin: number = timer.getTimeValues().minutes
     const theTimeHour: number = timer.getTimeValues().hours
 
-
     useEffect(() => {
         if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
             setModalS(true)
@@ -68,6 +69,7 @@ const AnalogTimer: React.FC = () => {
             setHours("pauseHour")
         }
     }, [theTimeSec])
+
 
     return (
         <section>
@@ -88,7 +90,6 @@ const AnalogTimer: React.FC = () => {
 
 
             <button onClick={() => reset()}>reset</button>
-
 
             {modalP && <ModalPause currentTime={timer.getTimeValues().toString()} modalHide={setModalP} passFunction={() => start()} />}
             {modalS && <ModalStop />}

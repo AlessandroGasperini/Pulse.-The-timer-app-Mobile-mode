@@ -23,7 +23,7 @@ import Header from "../Components/Header";
 
 const AnalogStopWatch: React.FC = () => {
 
-    const [timer, isTargetAchieved] = useTimer({ target: { days: 10 } });
+    const [timer, isTargetAchieved] = useTimer();
     const [sec, setSec] = useState<string>("noRunSeconds")
     const [hours, setHours] = useState<string>("noRunMinutes")
 
