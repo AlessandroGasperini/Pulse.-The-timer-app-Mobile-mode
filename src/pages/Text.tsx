@@ -45,7 +45,7 @@ const Text: React.FC<allTimes> = () => {
 
 
     function reset() {
-        timer.reset();
+        window.location.reload()
     };
 
     let and: string = "och"

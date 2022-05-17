@@ -1,0 +1,14 @@
+.btnArt {
+  display: flex; }
+
+.setTime article {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.setTime p {
+  margin: 0 10vw;
+  font-size: 2rem; }
+
+.containerr {
+  background-color: #5B656F; }

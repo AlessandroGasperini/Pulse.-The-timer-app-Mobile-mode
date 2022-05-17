@@ -1,0 +1,33 @@
+// //variabler
+// $font-stack: Helvetica,
+// sans-serif;
+// $primary-color: #fff;
+// $page-margin: 2rem;
+
+// //En variabel klump
+// @mixin main {
+//     background-color: rgb(63, 150, 193);
+//     color: $primary-color;
+//     font-family: $font-stack;
+//     margin: $page-margin
+// }
+
+.btnArt {
+    display: flex;
+}
+
+.setTime article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.setTime p {
+    margin: 0 10vw;
+    font-size: 2rem;
+}
+
+.containerr {
+
+    background-color: #5B656F;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import sekund from "../assets/img/sekund.png"
 import clock from "../assets/img/clock.png"
 import setDigital from "../assets/img/setDigital.png"
@@ -8,7 +8,6 @@ import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
 import { useEffect } from "react";
 import Header from "../Components/Header";
-import styles from "./AnalogStopWatch.module.css"
 
 
 const AnalogStopWatch: React.FC = () => {
@@ -55,7 +54,7 @@ const AnalogStopWatch: React.FC = () => {
 
 
     return (
-        <section>
+        <section className="containerASW">
             <Header header={"Stop watch Analog"} />
             <section className="clockSection">
                 <img className="clock" src={clock} alt="" />

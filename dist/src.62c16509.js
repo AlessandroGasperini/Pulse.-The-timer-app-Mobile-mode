@@ -35526,7 +35526,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function LandingPage() {
   return _react.default.createElement(_reactRouterDom.Link, {
     to: "/SetTimer"
-  }, _react.default.createElement("section", null, _react.default.createElement("h1", null, "LandingPage"), _react.default.createElement("img", {
+  }, _react.default.createElement("section", {
+    className: "container"
+  }, _react.default.createElement("img", {
     src: _logoLanding.default,
     alt: ""
   })));
@@ -35670,6 +35672,10 @@ function setTimer() {
       updateWhenTargetAchieved = _j[0],
       setUpdateWhenTargetAchieved = _j[1];
 
+  var _k = (0, _react.useState)(false),
+      intervall = _k[0],
+      setIntervall = _k[1];
+
   var allSettings = {
     hours: hours,
     minutes: minutes,
@@ -35679,13 +35685,18 @@ function setTimer() {
     targetMinutes: targetMinutes,
     targetSeconds: targetSeconds,
     countdown: countdown,
-    updateWhenTargetAchieved: updateWhenTargetAchieved
+    updateWhenTargetAchieved: updateWhenTargetAchieved,
+    intervall: intervall
   };
-  return _react.default.createElement("section", null, _react.default.createElement(_Header.default, {
+  return _react.default.createElement("section", null, _react.default.createElement("section", {
+    className: "containerr"
+  }, _react.default.createElement(_Header.default, {
     header: "Set & Choose"
   }), _react.default.createElement("section", {
     className: "setTime"
-  }, _react.default.createElement("h4", null, "Hours"), _react.default.createElement("article", null, _react.default.createElement("img", {
+  }, _react.default.createElement("h4", null, "Hours"), _react.default.createElement("article", {
+    className: "btnArt"
+  }, _react.default.createElement("img", {
     onClick: function () {
       return setHours(hours - 1);
     },
@@ -35761,7 +35772,12 @@ function setTimer() {
   }, _react.default.createElement("img", {
     src: _setText.default,
     alt: ""
-  }))));
+  }))), _react.default.createElement("input", {
+    type: "checkbox",
+    onChange: function () {
+      return setIntervall(true);
+    }
+  })));
 }
 
 var _default = setTimer;
@@ -36632,14 +36648,53 @@ var AnalogTimer = function () {
   var theTimeSec = timer.getTimeValues().seconds;
   var theTimeMin = timer.getTimeValues().minutes;
   var theTimeHour = timer.getTimeValues().hours;
+
+  var _f = (0, _react.useState)("hide"),
+      timerOG = _f[0],
+      setTimerOG = _f[1];
+
+  var _g = (0, _react.useState)("showT"),
+      timerHide = _g[0],
+      setTimerHide = _g[1];
+
+  var _h = (0, _easytimerReactHook.default)({
+    startValues: {
+      seconds: 5
+    },
+    countdown: true
+  }),
+      intV = _h[0],
+      setIntV = _h[1];
+
+  var _j = (0, _react.useState)(false),
+      restart = _j[0],
+      setRestart = _j[1];
+
   (0, _react.useEffect)(function () {
-    if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
+    if (time.intervall === true && theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
+      setRestart(true);
+      intV.start();
+      setTimerOG("countD");
+      setTimerHide("hide");
+    }
+  }, [theTimeSec]);
+  (0, _react.useEffect)(function () {
+    if (intV.getTimeValues().toString() === "00:00:00" && restart === true) {
+      timer.reset();
+      setTimerOG("hide");
+      setTimerHide("timerShown");
+    }
+  }, [intV.getTimeValues().toString()]);
+  (0, _react.useEffect)(function () {
+    if (time.intervall === false && theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
       setModalS(true);
       setSec("pauseSecond");
       setHours("pauseHour");
     }
   }, [theTimeSec]);
-  return _react.default.createElement("section", null, _react.default.createElement(_Header.default, {
+  return _react.default.createElement("section", {
+    className: "containerAT"
+  }, _react.default.createElement(_Header.default, {
     header: "Timer Analog"
   }), _react.default.createElement("section", {
     className: "clockSection"
@@ -36656,8 +36711,10 @@ var AnalogTimer = function () {
     src: _timpekare.default,
     alt: ""
   }), _react.default.createElement("div", {
-    className: "timer"
-  }, timer.getTimeValues().toString())), _react.default.createElement("button", {
+    className: timerHide
+  }, timer.getTimeValues().toString()), _react.default.createElement("p", {
+    className: timerOG
+  }, intV.getTimeValues().toString())), _react.default.createElement("p", null, intV.getTimeValues().toString()), _react.default.createElement("button", {
     onClick: function () {
       return start();
     }
@@ -36745,7 +36802,7 @@ var Digital = function () {
   ;
 
   function reset() {
-    timer.reset();
+    window.location.reload();
   }
 
   ;
@@ -36761,14 +36818,57 @@ var Digital = function () {
   var theTimeSec = timer.getTimeValues().seconds;
   var theTimeMin = timer.getTimeValues().minutes;
   var theTimeHour = timer.getTimeValues().hours;
+
+  var _d = (0, _react.useState)("hide"),
+      timerOG = _d[0],
+      setTimerOG = _d[1];
+
+  var _e = (0, _react.useState)("timerShown"),
+      timerHide = _e[0],
+      setTimerHide = _e[1];
+
+  var _f = (0, _easytimerReactHook.default)({
+    startValues: {
+      seconds: 5
+    },
+    countdown: true
+  }),
+      intV = _f[0],
+      setIntV = _f[1];
+
+  var _g = (0, _react.useState)(false),
+      restart = _g[0],
+      setRestart = _g[1];
+
   (0, _react.useEffect)(function () {
-    if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
+    if (time.intervall === true && theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
+      setRestart(true);
+      intV.start();
+      setTimerOG("red");
+      setTimerHide("hide");
+    }
+  }, [theTimeSec]);
+  (0, _react.useEffect)(function () {
+    if (intV.getTimeValues().toString() === "00:00:00" && restart === true) {
+      timer.reset();
+      setTimerOG("hide");
+      setTimerHide("timerShown");
+    }
+  }, [intV.getTimeValues().toString()]);
+  (0, _react.useEffect)(function () {
+    if (time.intervall === false && theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
       setModalS(true);
     }
   }, [theTimeSec]);
-  return _react.default.createElement("section", null, _react.default.createElement(_Header.default, {
+  return _react.default.createElement("section", {
+    className: "containerD"
+  }, _react.default.createElement(_Header.default, {
     header: "Timer Digital"
-  }), _react.default.createElement("div", null, timer.getTimeValues().toString()), _react.default.createElement("button", {
+  }), _react.default.createElement("div", null, _react.default.createElement("p", {
+    className: timerHide
+  }, timer.getTimeValues().toString()), _react.default.createElement("p", {
+    className: timerOG
+  }, intV.getTimeValues().toString())), _react.default.createElement("button", {
     onClick: function () {
       return start();
     }
@@ -36861,7 +36961,9 @@ var StopWatch = function () {
   }
 
   ;
-  return _react.default.createElement("section", null, _react.default.createElement(_Header.default, {
+  return _react.default.createElement("section", {
+    className: "container"
+  }, _react.default.createElement(_Header.default, {
     header: "Stop Watch Digital"
   }), _react.default.createElement("div", null, timer.getTimeValues().toString()), _react.default.createElement("ul", null, allLaps.map(function (lap, id) {
     return _react.default.createElement("p", {
@@ -37159,7 +37261,7 @@ var Text = function () {
   ;
 
   function reset() {
-    timer.reset();
+    window.location.reload();
   }
 
   ;
@@ -37859,7 +37961,9 @@ var AnalogStopWatch = function () {
   }
 
   ;
-  return _react.default.createElement("section", null, _react.default.createElement(_Header.default, {
+  return _react.default.createElement("section", {
+    className: "containerASW"
+  }, _react.default.createElement(_Header.default, {
     header: "Stop watch Analog"
   }), _react.default.createElement("section", {
     className: "clockSection"
@@ -38072,7 +38176,7 @@ var BigDay = function () {
 
   var _a = (0, _easytimerReactHook.default)({
     startValues: {
-      hours: 100000000000000,
+      hours: 1000000,
       minutes: 1000000,
       seconds: 1000000
     },
@@ -38418,7 +38522,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59198" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63041" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
