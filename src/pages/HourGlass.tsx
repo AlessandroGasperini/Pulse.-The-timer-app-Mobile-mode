@@ -95,7 +95,7 @@ const HourGlass: React.FC<allTimes> = () => {
     }, [theTimeSec])
 
     return (
-        <section >
+        <section className="containerHG" >
             <section style={style}></section>
 
             <section className="forShow">

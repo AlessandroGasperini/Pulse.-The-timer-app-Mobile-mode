@@ -120,7 +120,7 @@ const Hit: React.FC<allTimes> = () => {
 
 
     return (
-        <section>
+        <section className='containerHIT'>
             <Header header={"HiT"} />
             <section>
                 <img src={arrow} alt="" />

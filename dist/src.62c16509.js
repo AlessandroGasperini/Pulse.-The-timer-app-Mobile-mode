@@ -35527,7 +35527,7 @@ function LandingPage() {
   return _react.default.createElement(_reactRouterDom.Link, {
     to: "/SetTimer"
   }, _react.default.createElement("section", {
-    className: "container"
+    className: "containerLP"
   }, _react.default.createElement("img", {
     src: _logoLanding.default,
     alt: ""
@@ -35689,7 +35689,7 @@ function setTimer() {
     intervall: intervall
   };
   return _react.default.createElement("section", null, _react.default.createElement("section", {
-    className: "containerr"
+    className: "containerST"
   }, _react.default.createElement(_Header.default, {
     header: "Set & Choose"
   }), _react.default.createElement("section", {
@@ -35697,8 +35697,11 @@ function setTimer() {
   }, _react.default.createElement("h4", null, "Hours"), _react.default.createElement("article", {
     className: "btnArt"
   }, _react.default.createElement("img", {
-    onClick: function () {
+    className: hours == 0 ? "blur" : "null",
+    onClick: hours != 0 ? function () {
       return setHours(hours - 1);
+    } : function () {
+      return setHours(0);
     },
     src: _left.default,
     alt: ""
@@ -35709,8 +35712,11 @@ function setTimer() {
     src: _right.default,
     alt: ""
   })), _react.default.createElement("h4", null, "Minutes"), _react.default.createElement("article", null, _react.default.createElement("img", {
-    onClick: function () {
+    className: minutes == 0 ? "blur" : "null",
+    onClick: minutes != 0 ? function () {
       return setMinutes(minutes - 1);
+    } : function () {
+      return setMinutes(0);
     },
     src: _left.default,
     alt: ""
@@ -35721,8 +35727,11 @@ function setTimer() {
     src: _right.default,
     alt: ""
   })), _react.default.createElement("h4", null, "Seconds"), _react.default.createElement("article", null, _react.default.createElement("img", {
-    onClick: function () {
+    className: seconds == 0 ? "blur" : "null",
+    onClick: seconds != 0 ? function () {
       return setSeconds(seconds - 1);
+    } : function () {
+      return setSeconds(0);
     },
     src: _left.default,
     alt: ""
@@ -35732,52 +35741,66 @@ function setTimer() {
     },
     src: _right.default,
     alt: ""
-  }))), _react.default.createElement("section", null, _react.default.createElement(_reactRouterDom.Link, {
+  }))), _react.default.createElement("input", {
+    className: "checkbox",
+    type: "checkbox",
+    onChange: function () {
+      return setIntervall(!intervall);
+    }
+  }), _react.default.createElement("section", {
+    className: "topRowSelect"
+  }, _react.default.createElement(_reactRouterDom.Link, {
+    className: hours == 0 && seconds == 0 && minutes == 0 ? "blur" : "null",
     state: allSettings,
-    to: "/AnalogTimer"
+    to: hours == 0 && seconds == 0 && minutes == 0 ? "/SetTimer" : "/AnalogTimer"
   }, _react.default.createElement("img", {
     src: _setAnalog.default,
     alt: ""
   })), _react.default.createElement(_reactRouterDom.Link, {
+    className: hours == 0 && seconds == 0 && minutes == 0 ? "blur" : "null",
     state: allSettings,
-    to: "/Digital"
+    to: hours == 0 && seconds == 0 && minutes == 0 ? "/SetTimer" : "/Digital"
   }, _react.default.createElement("img", {
     src: _setDigital.default,
     alt: ""
   })), _react.default.createElement(_reactRouterDom.Link, {
+    className: minutes <= 0 || intervall == true || hours > 0 || seconds > 0 ? "blur" : "null",
     state: allSettings,
-    to: "/Hit"
+    to: minutes <= 0 || intervall == true ? "/SetTimer" : "/Hit"
   }, _react.default.createElement("img", {
     src: _setHit.default,
     alt: ""
   })), _react.default.createElement(_reactRouterDom.Link, {
+    className: intervall == true || hours == 0 && minutes == 0 && seconds == 0 ? "blur" : "null",
     state: allSettings,
-    to: "/HourGlass"
+    to: intervall == true || hours == 0 && minutes == 0 && seconds == 0 ? "/SetTimer" : "/HourGlass"
   }, _react.default.createElement("img", {
     src: _hourGlass.default,
     alt: ""
-  }))), _react.default.createElement("section", null, _react.default.createElement(_reactRouterDom.Link, {
-    to: "/StopWatch"
+  }))), _react.default.createElement("section", {
+    className: "bottomRowSelect"
+  }, _react.default.createElement(_reactRouterDom.Link, {
+    className: hours > 0 || seconds > 0 || minutes > 0 || intervall == true ? "blur" : "null",
+    state: allSettings,
+    to: hours > 0 || seconds > 0 || minutes > 0 ? "/SetTimer" : "/StopWatch"
   }, _react.default.createElement("img", {
     src: _setStopWatch.default,
     alt: ""
   })), _react.default.createElement(_reactRouterDom.Link, {
-    to: "/BigDay"
+    className: hours > 0 || seconds > 0 || minutes > 0 || intervall == true ? "blur" : "null",
+    state: allSettings,
+    to: hours > 0 || seconds > 0 || minutes > 0 ? "/SetTimer" : "/BigDay"
   }, _react.default.createElement("img", {
     src: _calender.default,
     alt: ""
   })), _react.default.createElement(_reactRouterDom.Link, {
+    className: intervall == true || hours == 0 && minutes == 0 && seconds == 0 ? "blur" : "null",
     state: allSettings,
-    to: "/Text"
+    to: intervall == true || hours == 0 && minutes == 0 && seconds == 0 ? "/SetTimer" : "/Text"
   }, _react.default.createElement("img", {
     src: _setText.default,
     alt: ""
-  }))), _react.default.createElement("input", {
-    type: "checkbox",
-    onChange: function () {
-      return setIntervall(true);
-    }
-  })));
+  })))));
 }
 
 var _default = setTimer;
@@ -36962,7 +36985,7 @@ var StopWatch = function () {
 
   ;
   return _react.default.createElement("section", {
-    className: "container"
+    className: "containerSW"
   }, _react.default.createElement(_Header.default, {
     header: "Stop Watch Digital"
   }), _react.default.createElement("div", null, timer.getTimeValues().toString()), _react.default.createElement("ul", null, allLaps.map(function (lap, id) {
@@ -37153,7 +37176,9 @@ var Hit = function () {
       setModalS(true);
     }
   }, [theTimeSec]);
-  return _react.default.createElement("section", null, _react.default.createElement(_Header.default, {
+  return _react.default.createElement("section", {
+    className: 'containerHIT'
+  }, _react.default.createElement(_Header.default, {
     header: "HiT"
   }), _react.default.createElement("section", null, _react.default.createElement("img", {
     src: arrow,
@@ -38113,7 +38138,9 @@ var HourGlass = function () {
       setGlass("");
     }
   }, [theTimeSec]);
-  return _react.default.createElement("section", null, _react.default.createElement("section", {
+  return _react.default.createElement("section", {
+    className: "containerHG"
+  }, _react.default.createElement("section", {
     style: style
   }), _react.default.createElement("section", {
     className: "forShow"
@@ -38522,7 +38549,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63041" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58861" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

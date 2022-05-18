@@ -8,7 +8,7 @@ function LandingPage() {
 
     return (
         <Link to={"/SetTimer"}>
-            <section className="container">
+            <section className="containerLP">
 
                 <img src={logo} alt="" />
 

@@ -48,66 +48,65 @@ function setTimer() {
 
     return (
         <section>
-            <section className="containerr">
+            <section className="containerST">
                 <Header header={"Set & Choose"} />
 
                 <section className="setTime">
                     <h4>Hours</h4>
                     <article className="btnArt">
-                        <img onClick={() => setHours(hours - 1)} src={left} alt="" />
+                        <img className={hours == 0 ? "blur" : "null"} onClick={hours != 0 ? () => setHours(hours - 1) : () => setHours(0)} src={left} alt="" />
                         <p>{hours}</p>
                         <img onClick={() => setHours(hours + 1)} src={right} alt="" />
                     </article>
                     <h4>Minutes</h4>
                     <article>
-                        <img onClick={() => setMinutes(minutes - 1)} src={left} alt="" />
+                        <img className={minutes == 0 ? "blur" : "null"} onClick={minutes != 0 ? () => setMinutes(minutes - 1) : () => setMinutes(0)} src={left} alt="" />
                         <p>{minutes}</p>
                         <img onClick={() => setMinutes(minutes + 1)} src={right} alt="" />
                     </article>
                     <h4>Seconds</h4>
                     <article>
-                        <img onClick={() => setSeconds(seconds - 1)} src={left} alt="" />
+                        <img className={seconds == 0 ? "blur" : "null"} onClick={seconds != 0 ? () => setSeconds(seconds - 1) : () => setSeconds(0)} src={left} alt="" />
                         <p>{seconds}</p>
                         <img onClick={() => setSeconds(seconds + 1)} src={right} alt="" />
                     </article>
 
                 </section>
 
-                <section>
+                <input className="checkbox" type="checkbox" onChange={() => setIntervall(!intervall)} />
 
-                    <Link state={allSettings} to={"/AnalogTimer"}>
+                <section className="topRowSelect">
+
+                    <Link className={hours == 0 && seconds == 0 && minutes == 0 ? "blur" : "null"} state={allSettings} to={hours == 0 && seconds == 0 && minutes == 0 ? "/SetTimer" : "/AnalogTimer"}>
                         <img src={setAnalog} alt="" />
                     </Link>
 
-                    <Link state={allSettings} to={"/Digital"}>
+                    <Link className={hours == 0 && seconds == 0 && minutes == 0 ? "blur" : "null"} state={allSettings} to={hours == 0 && seconds == 0 && minutes == 0 ? "/SetTimer" : "/Digital"}>
                         <img src={setDigital} alt="" />
                     </Link>
 
-                    <Link state={allSettings} to={"/Hit"}>
+                    <Link className={minutes <= 0 || intervall == true || hours > 0 || seconds > 0 ? "blur" : "null"} state={allSettings} to={minutes <= 0 || intervall == true ? "/SetTimer" : "/Hit"}>
                         <img src={setHit} alt="" />
                     </Link>
 
-                    <Link state={allSettings} to={"/HourGlass"}>
+                    <Link className={intervall == true || hours == 0 && minutes == 0 && seconds == 0 ? "blur" : "null"} state={allSettings} to={intervall == true || hours == 0 && minutes == 0 && seconds == 0 ? "/SetTimer" : "/HourGlass"}>
                         <img src={hourGlass} alt="" />
                     </Link>
                 </section>
-                <section>
-                    <Link to={"/StopWatch"}>
+                <section className="bottomRowSelect">
+                    <Link className={hours > 0 || seconds > 0 || minutes > 0 || intervall == true ? "blur" : "null"} state={allSettings} to={hours > 0 || seconds > 0 || minutes > 0 ? "/SetTimer" : "/StopWatch"}>
                         <img src={setStopWatch} alt="" />
                     </Link>
 
-                    <Link to={"/BigDay"}>
+                    <Link className={hours > 0 || seconds > 0 || minutes > 0 || intervall == true ? "blur" : "null"} state={allSettings} to={hours > 0 || seconds > 0 || minutes > 0 ? "/SetTimer" : "/BigDay"}>
                         <img src={calender} alt="" />
                     </Link>
 
-                    <Link state={allSettings} to={"/Text"}>
+                    <Link className={intervall == true || hours == 0 && minutes == 0 && seconds == 0 ? "blur" : "null"} state={allSettings} to={intervall == true || hours == 0 && minutes == 0 && seconds == 0 ? "/SetTimer" : "/Text"}>
                         <img src={setText} alt="" />
                     </Link>
 
                 </section>
-
-
-                <input type="checkbox" onChange={() => setIntervall(true)} />
 
             </section>
 

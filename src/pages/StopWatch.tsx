@@ -42,7 +42,7 @@ const StopWatch: React.FC = () => {
     };
 
     return (
-        <section className="container">
+        <section className="containerSW">
 
             <Header header={"Stop Watch Digital"} />
             <div>{timer.getTimeValues().toString()}</div>
