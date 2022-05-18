@@ -35741,13 +35741,15 @@ function setTimer() {
     },
     src: _right.default,
     alt: ""
-  }))), _react.default.createElement("input", {
+  }))), _react.default.createElement("section", {
+    className: "checkboxSec"
+  }, _react.default.createElement("p", null, "Intervall 5min"), _react.default.createElement("input", {
     className: "checkbox",
     type: "checkbox",
     onChange: function () {
       return setIntervall(!intervall);
     }
-  }), _react.default.createElement("section", {
+  })), _react.default.createElement("section", {
     className: "topRowSelect"
   }, _react.default.createElement(_reactRouterDom.Link, {
     className: hours == 0 && seconds == 0 && minutes == 0 ? "blur" : "null",
@@ -36648,6 +36650,8 @@ var AnalogTimer = function () {
 
   function stop() {
     timer.stop();
+    setSec("pauseSecond");
+    setHours("pauseHour");
     setModalS(true);
   }
 
@@ -36682,7 +36686,7 @@ var AnalogTimer = function () {
 
   var _h = (0, _easytimerReactHook.default)({
     startValues: {
-      seconds: 5
+      minutes: 5
     },
     countdown: true
   }),
@@ -36699,6 +36703,8 @@ var AnalogTimer = function () {
       intV.start();
       setTimerOG("countD");
       setTimerHide("hide");
+      setSec("noRunSeconds");
+      setHours("noRunMinutes");
     }
   }, [theTimeSec]);
   (0, _react.useEffect)(function () {
@@ -36706,6 +36712,7 @@ var AnalogTimer = function () {
       timer.reset();
       setTimerOG("hide");
       setTimerHide("timerShown");
+      setSec("sekundpekare");
     }
   }, [intV.getTimeValues().toString()]);
   (0, _react.useEffect)(function () {
@@ -36737,7 +36744,9 @@ var AnalogTimer = function () {
     className: timerHide
   }, timer.getTimeValues().toString()), _react.default.createElement("p", {
     className: timerOG
-  }, intV.getTimeValues().toString())), _react.default.createElement("p", null, intV.getTimeValues().toString()), _react.default.createElement("button", {
+  }, intV.getTimeValues().toString())), _react.default.createElement("p", {
+    className: location.state.intervall === false || timer.getTimeValues().toString() != "00:00:00" ? "hide" : "intervallAn"
+  }, intV.getTimeValues().toString()), _react.default.createElement("button", {
     onClick: function () {
       return start();
     }
@@ -36988,11 +36997,16 @@ var StopWatch = function () {
     className: "containerSW"
   }, _react.default.createElement(_Header.default, {
     header: "Stop Watch Digital"
-  }), _react.default.createElement("div", null, timer.getTimeValues().toString()), _react.default.createElement("ul", null, allLaps.map(function (lap, id) {
+  }), _react.default.createElement("div", {
+    className: "stopWatch"
+  }, timer.getTimeValues().toString()), _react.default.createElement("ul", null, allLaps.map(function (lap, id) {
     return _react.default.createElement("p", {
+      className: "laps",
       key: id
     }, lap);
-  })), _react.default.createElement(_reactRouterDom.Link, {
+  })), _react.default.createElement("section", {
+    className: "stopWatchSec"
+  }, _react.default.createElement(_reactRouterDom.Link, {
     to: "/AnalogStopWatch"
   }, _react.default.createElement("img", {
     src: _setAnalog.default,
@@ -37017,7 +37031,7 @@ var StopWatch = function () {
     onClick: function () {
       return lap();
     }
-  }, "lap"));
+  }, "lap")));
 };
 
 var _default = StopWatch;
@@ -37180,7 +37194,10 @@ var Hit = function () {
     className: 'containerHIT'
   }, _react.default.createElement(_Header.default, {
     header: "HiT"
-  }), _react.default.createElement("section", null, _react.default.createElement("img", {
+  }), _react.default.createElement("section", {
+    className: 'hitArrowSec'
+  }, _react.default.createElement("img", {
+    className: 'hitArrow',
     src: arrow,
     alt: ""
   })), _react.default.createElement("section", {
@@ -38008,9 +38025,12 @@ var AnalogStopWatch = function () {
     className: "timer"
   }, timer.getTimeValues().toString())), _react.default.createElement("ul", null, allLaps.map(function (lap, id) {
     return _react.default.createElement("p", {
+      className: "laps",
       key: id
     }, lap);
-  })), _react.default.createElement(_reactRouterDom.Link, {
+  })), _react.default.createElement("section", {
+    className: "stopWatchASec"
+  }, _react.default.createElement(_reactRouterDom.Link, {
     to: "/StopWatch"
   }, _react.default.createElement("img", {
     src: _setDigital.default,
@@ -38031,7 +38051,7 @@ var AnalogStopWatch = function () {
     onClick: function () {
       return lap();
     }
-  }, "lap"));
+  }, "lap")));
 };
 
 var _default = AnalogStopWatch;
@@ -38549,7 +38569,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58861" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61082" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

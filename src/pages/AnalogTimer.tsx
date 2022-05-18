@@ -21,6 +21,7 @@ interface allTimes {
 const AnalogTimer: React.FC<allTimes> = () => {
 
 
+
     const location: object | any = useLocation();
 
     const time: object | any = location.state;
@@ -31,6 +32,7 @@ const AnalogTimer: React.FC<allTimes> = () => {
             minutes: time.minutes,
             seconds: time.seconds
         }, countdown: true,
+
     });
 
     const [sec, setSec] = useState<string>("noRunSeconds")
@@ -52,6 +54,8 @@ const AnalogTimer: React.FC<allTimes> = () => {
 
     function stop() {
         timer.stop();
+        setSec("pauseSecond")
+        setHours("pauseHour")
         setModalS(true)
     };
 
@@ -74,7 +78,7 @@ const AnalogTimer: React.FC<allTimes> = () => {
 
     const [intV, setIntV] = useTimer({
         startValues: {
-            seconds: 5
+            minutes: 5
         }, countdown: true,
     });
 
@@ -85,6 +89,8 @@ const AnalogTimer: React.FC<allTimes> = () => {
             intV.start()
             setTimerOG("countD")
             setTimerHide("hide")
+            setSec("noRunSeconds")
+            setHours("noRunMinutes")
         }
     }, [theTimeSec])
 
@@ -94,8 +100,11 @@ const AnalogTimer: React.FC<allTimes> = () => {
             timer.reset()
             setTimerOG("hide")
             setTimerHide("timerShown")
+            setSec("sekundpekare")
+
         }
     }, [intV.getTimeValues().toString()])
+
 
 
 
@@ -126,7 +135,7 @@ const AnalogTimer: React.FC<allTimes> = () => {
                 <p className={timerOG}>{intV.getTimeValues().toString()}</p>
             </section>
 
-            <p>{intV.getTimeValues().toString()}</p>
+            <p className={location.state.intervall === false || timer.getTimeValues().toString() != "00:00:00" ? "hide" : "intervallAn"}>{intV.getTimeValues().toString()}</p>
 
             <button onClick={() => start()}>start</button>
 

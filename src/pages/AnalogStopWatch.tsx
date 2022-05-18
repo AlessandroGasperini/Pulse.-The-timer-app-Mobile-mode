@@ -66,22 +66,23 @@ const AnalogStopWatch: React.FC = () => {
 
             <ul>
                 {allLaps.map((lap: string, id: number) => (
-                    <p key={id}>{lap}</p>
+                    <p className="laps" key={id}>{lap}</p>
                 ))}
             </ul>
 
-            <Link to={"/StopWatch"}>
-                <img src={setDigital} alt="" />
-            </Link>
+            <section className="stopWatchASec">
+                <Link to={"/StopWatch"}>
+                    <img src={setDigital} alt="" />
+                </Link>
 
-            <button onClick={() => start()}>start</button>
+                <button onClick={() => start()}>start</button>
 
-            <button onClick={() => pause()}>stop</button>
+                <button onClick={() => pause()}>stop</button>
 
-            <button onClick={() => reset()}>reset</button>
+                <button onClick={() => reset()}>reset</button>
 
-            <button onClick={() => lap()}>lap</button>
-
+                <button onClick={() => lap()}>lap</button>
+            </section>
         </section>
 
     )

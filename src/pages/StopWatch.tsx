@@ -45,30 +45,34 @@ const StopWatch: React.FC = () => {
         <section className="containerSW">
 
             <Header header={"Stop Watch Digital"} />
-            <div>{timer.getTimeValues().toString()}</div>
+            <div className="stopWatch">{timer.getTimeValues().toString()}</div>
 
 
 
             <ul>
                 {allLaps.map((lap: string, id: number) => (
-                    <p key={id}>{lap}</p>
+                    <p className="laps" key={id}>{lap}</p>
                 ))}
             </ul>
 
-            <Link to={"/AnalogStopWatch"}>
-                <img src={analogChange} alt="" />
-            </Link>
+
+            <section className="stopWatchSec">
+                <Link to={"/AnalogStopWatch"}>
+                    <img src={analogChange} alt="" />
+                </Link>
 
 
-            <button onClick={() => start()}>start</button>
+                <button onClick={() => start()}>start</button>
 
-            <button onClick={() => pause()}>pause</button>
+                <button onClick={() => pause()}>pause</button>
 
-            <button onClick={() => stop()}>stop</button>
+                <button onClick={() => stop()}>stop</button>
 
-            <button onClick={() => reset()}>reset</button>
+                <button onClick={() => reset()}>reset</button>
 
-            <button onClick={() => lap()}>lap</button>
+                <button onClick={() => lap()}>lap</button>
+
+            </section>
         </section>
 
     )

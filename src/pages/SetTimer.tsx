@@ -73,7 +73,10 @@ function setTimer() {
 
                 </section>
 
-                <input className="checkbox" type="checkbox" onChange={() => setIntervall(!intervall)} />
+                <section className="checkboxSec">
+                    <p>Intervall 5min</p>
+                    <input className="checkbox" type="checkbox" onChange={() => setIntervall(!intervall)} />
+                </section>
 
                 <section className="topRowSelect">
 

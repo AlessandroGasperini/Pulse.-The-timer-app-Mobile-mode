@@ -122,8 +122,8 @@ const Hit: React.FC<allTimes> = () => {
     return (
         <section className='containerHIT'>
             <Header header={"HiT"} />
-            <section>
-                <img src={arrow} alt="" />
+            <section className='hitArrowSec'>
+                <img className='hitArrow' src={arrow} alt="" />
             </section>
             <section className={spinSec}>
                 <img className={hit} src={imgSpin} alt="" />

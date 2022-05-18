@@ -1,11 +1,4 @@
-.App {
-  text-align: center;
-  background-color: #FFFDF6; }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none; }
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=PT+Sans&display=swap");
 .hide {
   display: none; }
 
@@ -24,7 +17,8 @@
 
 .spin {
   animation: spin 30s linear infinite;
-  transition-property: all; }
+  transition-property: all;
+  margin-left: 14.5vh; }
 
 .spinPause {
   animation: spin 30s linear infinite;
@@ -100,8 +94,11 @@
 
 .spinSection h3 {
   position: relative;
-  top: -43vh;
-  font-size: 4rem; }
+  top: -1vh;
+  font-size: 4rem;
+  color: azure;
+  left: -25vh;
+  font-family: cursive; }
 
 .hideSec {
   display: none; }
@@ -109,7 +106,8 @@
 .setTime article {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 5vh; }
 
 .setTime p {
   margin: 0 10vw;
@@ -140,7 +138,7 @@
   top: -9vh; }
 
 /* _-------------------------------------------------------- */
-.bell {
+.bellShake {
   animation: shake .5s;
   animation-iteration-count: infinite; }
 
@@ -178,9 +176,9 @@
   margin-left: -8px; }
 
 .clock {
-  margin: 0 auto;
   width: 261px;
-  margin-top: 15vh; }
+  margin-top: 8vh;
+  margin-left: 3vh; }
 
 .clockSection {
   width: 300px;
@@ -191,7 +189,8 @@
   top: -131px;
   left: -131px;
   position: relative;
-  width: 1.1px; }
+  width: 1.1px;
+  transform: rotate(0deg); }
 
 .pauseSecond {
   top: -131px;
@@ -226,7 +225,8 @@
   top: -130px;
   left: -133px;
   position: relative;
-  width: 2px; }
+  width: 2px;
+  transform: rotate(0deg); }
 
 .pauseHour {
   top: -130px;
@@ -259,7 +259,10 @@
 
 .timer {
   position: relative;
-  top: -11vh; }
+  top: -11vh;
+  text-align: center;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 900; }
 
 /* AnalogTimer------------------------------------------------------- */
 .containerAT {
@@ -284,7 +287,9 @@
 .showT {
   position: relative;
   top: -11vh;
-  display: block; }
+  display: block;
+  text-align: center;
+  font-family: "Montserrat Alternates", sans-serif; }
 
 /* BigDay------------------------------------------------------- */
 /* Digital------------------------------------------------------- */
@@ -300,7 +305,9 @@
   margin: 23vh 0 26vh 0; }
 
 .containerD p {
-  font-size: 4rem; }
+  font-size: 4rem;
+  text-align: center;
+  font-family: "Montserrat Alternates", sans-serif; }
 
 .timerShown {
   display: block; }
@@ -315,7 +322,8 @@
   height: 100%;
   position: fixed;
   top: 0;
-  background-color: #5B656F; }
+  background-color: #5B656F;
+  margin-left: -8px; }
 
 /* HourGlass------------------------------------------------------- */
 .containerHG {
@@ -374,16 +382,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 8vh; }
+  margin-bottom: 6vh; }
 
 .setTime h4 {
   margin-bottom: 1vh;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 900;
   font-size: 10px;
-  letter-spacing: 6px; }
+  letter-spacing: 6px;
+  text-align: center; }
 
 .setTime p {
-  font-size: 3rem; }
+  font-size: 3rem;
+  font-family: "Montserrat Alternates", sans-serif; }
 
 .blur {
   opacity: 0.3; }
@@ -397,15 +408,19 @@
 .header {
   display: flex;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+  height: 11vh; }
 
 .header h3 {
   font-size: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  font-family: "Montserrat Alternates", sans-serif;
+  text-align: center;
+  font-weight: 900; }
 
 .header h1 {
-  font-size: 15px;
-  font-family: monospace; }
+  font-size: 23px;
+  font-family: monospace;
+  font-family: "PT Sans", sans-serif; }
 
 /* modalStop------------------------------------------------------- */
 /* modalPause------------------------------------------------------- */
@@ -457,7 +472,7 @@
   animation-duration: 30s;
   animation-name: blink;
   animation-timing-function: ease;
-  margin: 3vh auto; }
+  margin: 10vh auto; }
 
 @keyframes blink {
   from {
@@ -492,15 +507,72 @@
   to {
     background: linear-gradient(60deg, #4a92db, #98d7ea); } }
 
-.spinSection {
-  width: 330px;
-  height: 353px;
-  margin: 0 auto; }
-
 .spinSection h3 {
   position: relative;
-  top: -43vh;
-  font-size: 4rem; }
+  top: -36vh;
+  font-size: 4rem;
+  color: azure; }
+
+.hitArrow {
+  margin-top: 5vh; }
 
 .hide {
   display: none; }
+
+.spinSection {
+  width: 330px;
+  height: 353px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vh; }
+
+.hitArrowSec {
+  display: flex;
+  justify-content: center; }
+
+.checkboxSec {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; }
+
+.checkboxSec p {
+  margin-right: 1vh;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 900; }
+
+.checkboxSec input {
+  margin-right: 4vh; }
+
+.intervallAn {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: -5vh;
+  font-family: "Montserrat Alternates", sans-serif; }
+
+.stopWatch {
+  text-align: center;
+  font-family: "Montserrat Alternates", sans-serif;
+  margin-top: 12vh;
+  font-size: 3rem; }
+
+.stopWatchSec {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 56vh; }
+
+.stopWatchASec {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 39vh; }
+
+.laps {
+  text-align: center;
+  font-size: 18px;
+  font-family: "Montserrat Alternates", sans-serif; }
+
+ul {
+  position: absolute;
+  left: 17vh; }
