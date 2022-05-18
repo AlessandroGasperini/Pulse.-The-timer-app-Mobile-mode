@@ -1,6 +1,7 @@
 import React from "react";
 import useTimer from 'easytimer-react-hook';
-import styles from "./ModalPause.module.css"
+import playPause from "../assets/img/playPause.png"
+
 
 function ModalPause(props: any) {
 
@@ -14,12 +15,13 @@ function ModalPause(props: any) {
 
     return (
         <section className="container">
-            <h1>ModalPause</h1>
+            <h1>P a u s e</h1>
 
+            <section className="pauseCont">
+                <img onClick={() => startAgain()} src={playPause} alt="" />
+            </section>
 
-            <button onClick={() => startAgain()}>Start</button>
-
-            <h5>{props.currentTime}</h5>
+            <h5 className="currentTime">{props.currentTime}</h5>
 
         </section>
     );

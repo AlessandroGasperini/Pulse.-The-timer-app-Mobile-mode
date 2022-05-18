@@ -5,6 +5,8 @@ sans-serif;
 $font-two: 'Montserrat Alternates',
 sans-serif;
 $gray-color: #5B656F;
+$bg-color: #eeee;
+$blue-color: #5B656F;
 $page-margin: 2rem;
 
 
@@ -15,7 +17,7 @@ $page-margin: 2rem;
 
 /* ---------------------------------------------- */
 .stillMin {
-  margin: 0 auto;
+  margin: 0 auto 0 53px;
 }
 
 .pause {
@@ -32,13 +34,14 @@ $page-margin: 2rem;
 .spin {
   animation: spin 30s linear infinite;
   transition-property: all;
-  margin-left: 14.5vh;
+  margin-left: 7.5vh;
 }
 
 .spinPause {
   animation: spin 30s linear infinite;
   transition-property: all;
   animation-play-state: paused;
+  margin-left: 8vh;
 }
 
 @keyframes spin {
@@ -74,7 +77,8 @@ $page-margin: 2rem;
   animation-duration: 30s;
   animation-name: blink;
   animation-timing-function: ease;
-  margin: 3vh auto;
+  position: relative;
+  top: -54vh;
 }
 
 @keyframes blink {
@@ -140,10 +144,10 @@ $page-margin: 2rem;
 
 .spinSection h3 {
   position: relative;
-  top: -1vh;
+  top: 0vh;
   font-size: 4rem;
   color: azure;
-  left: -25vh;
+  left: -27vh;
   font-family: cursive;
 }
 
@@ -169,10 +173,15 @@ $page-margin: 2rem;
   position: fixed;
   top: 0;
   background-color: #000000ba;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-left: -8px;
+
+  h1 {
+    font-family: $font-two;
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    margin-top: 19vh;
+  }
 }
 
 /* ---------------------------------------------------------------- */
@@ -188,15 +197,18 @@ $page-margin: 2rem;
   }
 }
 
-.forShow {
-  position: relative;
-  top: -9vh;
-}
+
 
 /* _-------------------------------------------------------- */
 .bellShake {
   animation: shake .5s;
   animation-iteration-count: infinite;
+
+}
+
+.shakeArt {
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes shake {
@@ -368,7 +380,7 @@ $page-margin: 2rem;
   height: 100%;
   position: fixed;
   top: 0;
-  background-color: #eeee;
+  background-color: $bg-color;
   margin-left: -8px;
 }
 
@@ -400,7 +412,7 @@ $page-margin: 2rem;
   height: 100%;
   position: fixed;
   top: 0;
-  background-color: #eeee;
+  background-color: $bg-color;
   margin-left: -8px;
 }
 
@@ -420,7 +432,7 @@ $page-margin: 2rem;
 
 .red {
   display: block;
-  color: red;
+  color: #a00d0d;
 }
 
 /* Hit------------------------------------------------------- */
@@ -445,7 +457,7 @@ $page-margin: 2rem;
 
 /* LandingPage------------------------------------------------------- */
 .containerLP {
-  background-color: #5B656F;
+  background-color: #2C3A43;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -466,7 +478,7 @@ $page-margin: 2rem;
 
 /* SetTimer------------------------------------------------------- */
 .containerST {
-  background-color: #eeee;
+  background-color: $bg-color;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -494,7 +506,7 @@ $page-margin: 2rem;
 
 .setTime {
   justify-content: space-around;
-  margin-top: 10vh;
+  margin-top: 7vh;
 
   article {
     display: flex;
@@ -526,7 +538,7 @@ $page-margin: 2rem;
 /* Text------------------------------------------------------- */
 /* Header------------------------------------------------------- */
 .containerASW {
-  background-color: #EEEE;
+  background-color: $bg-color;
 }
 
 .header {
@@ -555,9 +567,7 @@ $page-margin: 2rem;
 
 
 
-.stillMin {
-  margin: 0 auto;
-}
+
 
 .pause {
   animation: spin 30s linear infinite;
@@ -674,12 +684,7 @@ $page-margin: 2rem;
 
 
 
-.spinSection h3 {
-  position: relative;
-  top: -36vh;
-  font-size: 4rem;
-  color: azure;
-}
+
 
 .hitArrow {
   margin-top: 5vh;
@@ -757,4 +762,170 @@ $page-margin: 2rem;
 ul {
   position: absolute;
   left: 17vh;
+}
+
+.setDay {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 9vh;
+}
+
+.timeBD {
+  display: flex;
+
+  article {
+    margin-left: 5px;
+  }
+}
+
+.inputName,
+.inputImg {
+  display: flex;
+  margin-top: 7vh;
+  justify-content: center;
+}
+
+.btnArti {
+  display: flex;
+  justify-content: center;
+  margin-top: 7vh;
+}
+
+.imputImg {
+  width: 34vh;
+  height: 5vh;
+  border-radius: 6px;
+}
+
+.containerBD {
+  background-color: $bg-color;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  margin-left: -8px;
+}
+
+.choosenDayBD {
+  display: flex;
+  justify-content: center;
+
+  h2 {
+    text-align: center;
+    color: white;
+    font-family: $font-two;
+  }
+
+  h5 {
+    text-align: center;
+    font-family: $font-two;
+    color: white;
+  }
+
+  section {
+    background-color: #3D505C;
+    width: 30vh;
+    border-radius: 6px;
+    box-shadow: 0px 4px 7px -3px black;
+    margin-top: 4vh;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: $font-two;
+    color: white;
+  }
+
+  img {
+    width: 7vh;
+
+  }
+
+  .imgAndNote {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.btnArtBD {
+  text-align: center;
+}
+
+.texta {
+  font-size: 2rem;
+  text-align: center;
+  font-family: $font-two;
+  position: absolute;
+  top: 37vh;
+  width: 90%;
+  left: 14px;
+}
+
+.containerTX {
+  background-color: $bg-color;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  margin-left: -8px;
+}
+
+.allBtnsanalog {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40vh;
+}
+
+.allBtnDigital {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 47vh;
+}
+
+.btnSecHit {
+  display: flex;
+  justify-content: space-around;
+  margin-top: -35vh;
+  position: sticky;
+  bottom: 4vh;
+}
+
+.btnsText {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 81vh;
+}
+
+.forShow {
+  position: relative;
+  top: -9vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btnArtModS {
+  display: flex;
+  margin-top: 16vh;
+  justify-content: space-around;
+}
+
+.pauseCont {
+  display: flex;
+  justify-content: center;
+  margin-top: 29vh;
+}
+
+.currentTime {
+  text-align: center;
+  font-size: 2rem;
+  color: azure;
+  margin-top: 5vh;
+}
+
+.lapMark {
+  position: relative;
+  top: -51vh;
+  left: 13vh;
+  margin-right: 1vh;
 }

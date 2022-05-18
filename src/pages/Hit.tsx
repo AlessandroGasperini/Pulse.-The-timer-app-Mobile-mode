@@ -10,6 +10,11 @@ import lapMark from "../assets/img/lapMark.png"
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
 import Header from "../Components/Header";
+import play from "../assets/img/play.png"
+import pauseBtn from "../assets/img/pause.png"
+import stopBtn from "../assets/img/stop.png"
+import resetBtn from "../assets/img/reset.png"
+
 
 interface allTimes {
     hours?: number,
@@ -36,14 +41,12 @@ const Hit: React.FC<allTimes> = () => {
     const [hit, setHit] = useState<string>("stillMin")
     const [breath, setBreath] = useState<string>("pauseBreath")
     const [imgSpin, setImgSpin] = useState<string>(hitSpin)
-    const [goRest, setGoRest] = useState<string>("")
     const [arrow, setArrow] = useState<string>(hitArrow)
 
 
     function start() {
         timer.start();
         setHit("spin")
-        setGoRest("Go!")
     };
 
     function pause() {
@@ -63,6 +66,8 @@ const Hit: React.FC<allTimes> = () => {
     function stop() {
         timer.stop();
         setModalS(true)
+        setHit("hide")
+        setBreath("hide")
     };
 
 
@@ -85,13 +90,11 @@ const Hit: React.FC<allTimes> = () => {
         if (theTime <= 30 && theTime != 0) {
             setHit("rest")
             setBreath("breath")
-            setGoRest("Rest")
             setArrow("")
         } else if (theTime >= 30) {
             setImgSpin(hitSpin)
             setBreath("pauseBreath")
             setHit("spin")
-            setGoRest("Go!")
             setArrow(hitArrow)
         }
     }, [theTime])
@@ -122,29 +125,30 @@ const Hit: React.FC<allTimes> = () => {
     return (
         <section className='containerHIT'>
             <Header header={"HiT"} />
-            <section className='hitArrowSec'>
-                <img className='hitArrow' src={arrow} alt="" />
+
+            <section className={modalS === true ? "hide" : "null"} >
+                <section className='hitArrowSec'>
+                    <img className='hitArrow' src={arrow} alt="" />
+                </section>
+                <section >
+                    <img className={hit} src={imgSpin} alt="" />
+                    <div className={spinSec}></div>
+                    <div className={breath}></div>
+                </section>
+
+                {lap.map((one: number, id: number) => (
+                    <img className='lapMark' key={id} src={lapMark} alt="" />
+                ))}
+
+                <section className='btnSecHit'>
+
+
+                    <img onClick={() => start()} src={play} alt="" />
+                    <img className={(breath === "breath") ? `${"hide"}` : ""} onClick={() => pause()} src={pauseBtn} alt="" />
+                    <img onClick={() => stop()} src={stopBtn} alt="" />
+                    <img onClick={() => reset()} src={resetBtn} alt="" />
+                </section>
             </section>
-            <section className={spinSec}>
-                <img className={hit} src={imgSpin} alt="" />
-                <div className={breath}></div>
-                <h3>{goRest}</h3>
-            </section>
-
-            {lap.map((one: number, id: number) => (
-                <img key={id} src={lapMark} alt="" />
-            ))}
-
-            <section>
-                <button onClick={() => start()}>start</button>
-
-                <button className={(breath === "breath") ? `${"hide"}` : ""} onClick={() => pause()}>pause</button>
-
-                <button onClick={() => stop()}>stop</button>
-
-                <button onClick={() => reset()}>reset</button>
-            </section>
-
             {modalP && <ModalPause currentTime={timer.getTimeValues().toString()} modalHide={setModalP} passFunction={() => start()} />}
             {modalS && <ModalStop />}
 

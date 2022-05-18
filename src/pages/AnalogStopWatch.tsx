@@ -8,6 +8,12 @@ import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
 import { useEffect } from "react";
 import Header from "../Components/Header";
+import play from "../assets/img/play.png"
+import pauseBtn from "../assets/img/pause.png"
+import stopBtn from "../assets/img/stop.png"
+import resetBtn from "../assets/img/reset.png"
+import lapBtn from "../assets/img/lapBtn.png"
+
 
 
 const AnalogStopWatch: React.FC = () => {
@@ -74,14 +80,13 @@ const AnalogStopWatch: React.FC = () => {
                 <Link to={"/StopWatch"}>
                     <img src={setDigital} alt="" />
                 </Link>
+                <img onClick={() => start()} src={play} alt="" />
+                <img onClick={() => pause()} src={pauseBtn} alt="" />
+                <img onClick={() => reset()} src={resetBtn} alt="" />
+                <img onClick={() => lap()} src={lapBtn} alt="" />
 
-                <button onClick={() => start()}>start</button>
 
-                <button onClick={() => pause()}>stop</button>
 
-                <button onClick={() => reset()}>reset</button>
-
-                <button onClick={() => lap()}>lap</button>
             </section>
         </section>
 

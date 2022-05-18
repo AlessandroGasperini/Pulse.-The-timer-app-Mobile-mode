@@ -7,6 +7,11 @@ import { useEffect } from "react";
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
 import Header from "../Components/Header";
+import play from "../assets/img/play.png"
+import pauseBtn from "../assets/img/pause.png"
+import stopBtn from "../assets/img/stop.png"
+import resetBtn from "../assets/img/reset.png"
+import lapBtn from "../assets/img/lapBtn.png"
 
 interface allTimes {
     hours?: number,
@@ -32,15 +37,20 @@ const Digital: React.FC<allTimes> = () => {
 
     function start() {
         timer.start();
+        {
+            timerOG == "red" ? intV.start() : null
+        }
     };
 
     function pause() {
         timer.pause();
         setModalP(true)
+        intV.pause()
     };
 
     function stop() {
         timer.stop();
+        intV.stop()
     };
 
 
@@ -61,7 +71,7 @@ const Digital: React.FC<allTimes> = () => {
 
     const [intV, setIntV] = useTimer({
         startValues: {
-            seconds: 5
+            minutes: 5
         }, countdown: true,
     });
 
@@ -107,15 +117,12 @@ const Digital: React.FC<allTimes> = () => {
 
 
 
-
-            <button onClick={() => start()}>start</button>
-
-            <button onClick={() => pause()}>pause</button>
-
-            <button onClick={() => stop()}>stop</button>
-
-            <button onClick={() => reset()}>reset</button>
-
+            <section className="allBtnDigital">
+                <img onClick={() => start()} src={play} alt="" />
+                <img onClick={() => pause()} src={pauseBtn} alt="" />
+                <img onClick={() => stop()} src={stopBtn} alt="" />
+                <img onClick={() => reset()} src={resetBtn} alt="" />
+            </section>
 
 
             {modalP && <ModalPause currentTime={timer.getTimeValues().toString()} modalHide={setModalP} passFunction={() => start()} />}

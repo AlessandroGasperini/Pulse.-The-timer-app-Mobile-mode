@@ -7,7 +7,10 @@ import { useEffect } from "react";
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
 import Header from "../Components/Header";
-
+import play from "../assets/img/play.png"
+import pauseBtn from "../assets/img/pause.png"
+import stopBtn from "../assets/img/stop.png"
+import resetBtn from "../assets/img/reset.png"
 interface allTimes {
     hours?: number,
     minutes?: number,
@@ -482,6 +485,9 @@ const Text: React.FC<allTimes> = () => {
     if (timer.getTimeValues().minutes === 0 && timer.getTimeValues().seconds === 0) {
         comma = ""
     }
+    if (timer.getTimeValues().hours === 0 && timer.getTimeValues().minutes === 0) {
+        and = ""
+    }
 
     const [modalP, setModalP] = useState<boolean>(false)
     const [modalS, setModalS] = useState<boolean>(false)
@@ -498,20 +504,17 @@ const Text: React.FC<allTimes> = () => {
     }, [theTimeSec])
 
     return (
-        <section>
+        <section className="containerTX">
             <Header header={"Timer Text"} />
 
-            <h3>{hours} {hoursText}{comma} {minutes} {minutesText} {and} {seconds} {secondsText}</h3>
+            <h3 className="texta">{hours} {hoursText}{comma} {minutes} {minutesText} {and} {seconds} {secondsText}</h3>
 
-
-            <button onClick={() => start()}>start</button>
-
-            <button onClick={() => pause()}>pause</button>
-
-            <button onClick={() => stop()}>stop</button>
-
-            <button onClick={() => reset()}>reset</button>
-
+            <section className="btnsText">
+                <img onClick={() => start()} src={play} alt="" />
+                <img onClick={() => pause()} src={pauseBtn} alt="" />
+                <img onClick={() => stop()} src={stopBtn} alt="" />
+                <img onClick={() => reset()} src={resetBtn} alt="" />
+            </section>
 
             {modalP && <ModalPause currentTime={timer.getTimeValues().toString()} modalHide={setModalP} passFunction={() => start()} />}
             {modalS && <ModalStop />}

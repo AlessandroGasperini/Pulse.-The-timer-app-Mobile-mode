@@ -5,7 +5,11 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "../Components/Header";
-
+import play from "../assets/img/play.png"
+import pauseBtn from "../assets/img/pause.png"
+import stopBtn from "../assets/img/stop.png"
+import resetBtn from "../assets/img/reset.png"
+import lapBtn from "../assets/img/lapBtn.png"
 
 const StopWatch: React.FC = () => {
 
@@ -60,17 +64,10 @@ const StopWatch: React.FC = () => {
                 <Link to={"/AnalogStopWatch"}>
                     <img src={analogChange} alt="" />
                 </Link>
-
-
-                <button onClick={() => start()}>start</button>
-
-                <button onClick={() => pause()}>pause</button>
-
-                <button onClick={() => stop()}>stop</button>
-
-                <button onClick={() => reset()}>reset</button>
-
-                <button onClick={() => lap()}>lap</button>
+                <img onClick={() => start()} src={play} alt="" />
+                <img onClick={() => pause()} src={pauseBtn} alt="" />
+                <img onClick={() => reset()} src={resetBtn} alt="" />
+                <img onClick={() => lap()} src={lapBtn} alt="" />
 
             </section>
         </section>

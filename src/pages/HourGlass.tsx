@@ -8,6 +8,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
+import play from "../assets/img/playw.png"
+import stopBtn from "../assets/img/stopW.png"
+import resetBtn from "../assets/img/resetW.png"
 
 interface allTimes {
     hours?: number,
@@ -40,6 +43,8 @@ const HourGlass: React.FC<allTimes> = () => {
 
     function stop() {
         timer.stop();
+        setPaused("paused")
+        setModalS(true)
     };
 
 
@@ -59,7 +64,7 @@ const HourGlass: React.FC<allTimes> = () => {
     const [modalS, setModalS] = useState<boolean>(false)
     const [startGlass, setGlass] = useState<string>("")
     const [startAni, setAni] = useState<string>("")
-
+    const [paused, setPaused] = useState<string>("")
 
 
     const theTimeSec: number = timer.getTimeValues().seconds
@@ -82,6 +87,8 @@ const HourGlass: React.FC<allTimes> = () => {
         animation: startAni,
         transitionProperty: "all",
         animationDuration: startGlass,
+        animationPlayState: paused
+
     }
 
 
@@ -99,11 +106,9 @@ const HourGlass: React.FC<allTimes> = () => {
             <section style={style}></section>
 
             <section className="forShow">
-                <button onClick={() => start()}>start</button>
-
-                <button onClick={() => stop()}>stop</button>
-
-                <button onClick={() => reset()}>reset</button>
+                <img onClick={() => start()} src={play} alt="" />
+                <img onClick={() => stop()} src={stopBtn} alt="" />
+                <img onClick={() => reset()} src={resetBtn} alt="" />
             </section>
 
             {modalP && <ModalPause modalHide={setModalP} passFunction={() => start()} />}

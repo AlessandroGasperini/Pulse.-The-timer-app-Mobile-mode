@@ -9,6 +9,11 @@ import { useEffect } from "react";
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
 import Header from "../Components/Header";
+import play from "../assets/img/play.png"
+import pauseBtn from "../assets/img/pause.png"
+import stopBtn from "../assets/img/stop.png"
+import resetBtn from "../assets/img/reset.png"
+import lapBtn from "../assets/img/lapBtn.png"
 
 interface allTimes {
     hours?: number,
@@ -137,14 +142,12 @@ const AnalogTimer: React.FC<allTimes> = () => {
 
             <p className={location.state.intervall === false || timer.getTimeValues().toString() != "00:00:00" ? "hide" : "intervallAn"}>{intV.getTimeValues().toString()}</p>
 
-            <button onClick={() => start()}>start</button>
-
-            <button onClick={() => pause()}>pause</button>
-
-            <button onClick={() => stop()}>stop</button>
-
-
-            <button onClick={() => reset()}>reset</button>
+            <section className="allBtnsanalog">
+                <img onClick={() => start()} src={play} alt="" />
+                <img onClick={() => pause()} src={pauseBtn} alt="" />
+                <img onClick={() => stop()} src={stopBtn} alt="" />
+                <img onClick={() => reset()} src={resetBtn} alt="" />
+            </section>
 
             {modalP && <ModalPause currentTime={timer.getTimeValues().toString()} modalHide={setModalP} passFunction={() => start()} />}
             {modalS && <ModalStop />}

@@ -5,6 +5,7 @@ import Header from "../Components/Header";
 import up from "../assets/img/up.png"
 import down from "../assets/img/down.png"
 import useTimer from "easytimer-react-hook";
+import createBtn from "../assets/img/create.png"
 
 
 
@@ -116,54 +117,66 @@ const BigDay: React.FC = () => {
 
 
     return (
-        <section>
+        <section className="containerBD">
             <Header header={"Big Day"} />
-
-            <input type="text" onChange={(e) => setNote(e.target.value)} />
-
-            <article>
-                <img onClick={() => setYear(chooseYear + 1)} src={up} alt="" />
-                <p>{chooseYear}</p>
-                <img onClick={() => setYear(chooseYear - 1)} src={down} alt="" />
+            <article className="inputName">
+                <input className="imputImg" type="text" onChange={(e) => setNote(e.target.value)} />
             </article>
+            <section className="setDay">
 
-            <article>
-                <img onClick={() => setMonth(chooseMonth + 1)} src={up} alt="" />
-                <p>{monthText}</p>
-                <img onClick={() => setMonth(chooseMonth - 1)} src={down} alt="" />
-            </article>
+                <article className="btnArtBD">
+                    <img onClick={() => setYear(chooseYear + 1)} src={up} alt="" />
+                    <p>{chooseYear}</p>
+                    <img className={chooseYear == 2022 ? "hide" : "null"} onClick={() => setYear(chooseYear - 1)} src={down} alt="" />
+                </article>
 
-            <article>
-                <img className={monthText === "Februari" && chooseDay === 28 ? "hide" : ""} onClick={() => setDay(chooseDay + 1)} src={up} alt="" />
-                <p>{chooseDay}</p>
-                <img className={chooseDay === 1 ? "hide" : ""} onClick={() => setDay(chooseDay - 1)} src={down} alt="" />
-            </article>
+                <article className="btnArtBD">
+                    <img className={monthText === "Januari" && chooseDay === 31 || monthText === "Februari" && chooseDay === 28 || monthText === "Mars" && chooseDay === 31 || monthText === "April" && chooseDay === 30 || monthText === "Maj" && chooseDay === 31 || monthText === "Juni" && chooseDay === 30 || monthText === "Juli" && chooseDay === 31 || monthText === "Augusti" && chooseDay === 31 || monthText === "September" && chooseDay === 30 || monthText === "Oktober" && chooseDay === 31 || monthText === "November" && chooseDay === 30 || monthText === "December" && chooseDay === 31 ? "hide" : ""} onClick={() => setDay(chooseDay + 1)} src={up} alt="" />
+                    <p>{chooseDay}</p>
+                    <img className={chooseDay === 1 ? "hide" : ""} onClick={() => setDay(chooseDay - 1)} src={down} alt="" />
+                </article>
 
-            <article>
-                <img onClick={() => setHour(chooseHour + 1)} src={up} alt="" />
-                <p>{zeroHour}{chooseHour}</p>
-                <img onClick={() => setHour(chooseHour - 1)} src={down} alt="" />
-            </article>
+                <article className="btnArtBD">
+                    <img className={monthText == "December" ? "hide" : "null"} onClick={() => setMonth(chooseMonth + 1)} src={up} alt="" />
+                    <p>{monthText}</p>
+                    <img className={monthText == "Januari" ? "hide" : "null"} onClick={() => setMonth(chooseMonth - 1)} src={down} alt="" />
+                </article>
 
-            <article>
-                <img onClick={() => setMinute(chooseMinute + 1)} src={up} alt="" />
-                <p>{zero}{chooseMinute}</p>
-                <img onClick={() => setMinute(chooseMinute - 1)} src={down} alt="" />
-            </article>
+                <section className="timeBD">
 
-            <input type="text" onChange={(e) => setImg(e.target.value)} />
+                    <article className="btnArtBD">
+                        <img className={chooseHour == 23 ? "hide" : "null"} onClick={() => setHour(chooseHour + 1)} src={up} alt="" />
+                        <p>{zeroHour}{chooseHour} :</p>
+                        <img className={chooseHour == 0 ? "hide" : "null"} onClick={() => setHour(chooseHour - 1)} src={down} alt="" />
+                    </article>
 
-
-
-            <section className={finalDate != "" ? "" : "hide"} >
-                <h1>{chooseNote}</h1>
-                <img src={chooseImg} alt="" />
-                <h2>{chooseDay} {monthInText}-{chooseYear}</h2>
-                <h5>{chooseHour}:{zero}{chooseMinute}</h5>
+                    <article className="btnArtBD">
+                        <img className={chooseMinute == 59 ? "hide" : "null"} onClick={() => setMinute(chooseMinute + 1)} src={up} alt="" />
+                        <p>{zero}{chooseMinute}</p>
+                        <img className={chooseMinute == 0 ? "hide" : "null"} onClick={() => setMinute(chooseMinute - 1)} src={down} alt="" />
+                    </article>
+                </section>
             </section>
 
+            <article className="inputImg">
+                <input className="imputImg" type="text" onChange={(e) => setImg(e.target.value)} />
+            </article>
 
-            <button onClick={() => makeBigDay()}>Create </button>
+            <article className="btnArti">
+                <img onClick={() => makeBigDay()} src={createBtn} alt="" />
+            </article>
+
+            <article className="choosenDayBD">
+                <section className={finalDate != "" ? "" : "hide"} >
+                    <article className="imgAndNote">
+                        <h1>{chooseNote}</h1>
+                        <img src={chooseImg} alt="" />
+                    </article>
+                    <h2>{chooseDay} {monthInText}-{chooseYear}</h2>
+                    <h5>{chooseHour}:{zero}{chooseMinute}</h5>
+                </section>
+            </article>
+
 
             {modalS && <ModalStop />}
 
