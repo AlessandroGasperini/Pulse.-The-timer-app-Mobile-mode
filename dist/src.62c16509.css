@@ -745,29 +745,6 @@ ul {
   margin-top: 16vh;
   justify-content: space-around; }
 
-.allBtnDigital {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 47vh; }
-
-.lapMark {
-  position: relative;
-  top: -51vh;
-  left: 13vh;
-  margin-right: 1vh; }
-
-.btnSecHit {
-  display: flex;
-  justify-content: space-around;
-  margin-top: -35vh;
-  position: sticky;
-  bottom: 4vh; }
-
-.btnsText {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 81vh; }
-
 .stopWatchASec {
   display: flex;
   justify-content: space-around;
