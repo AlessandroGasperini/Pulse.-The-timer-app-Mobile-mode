@@ -122,12 +122,13 @@
   top: 0;
   background-color: #000000ba;
   margin-left: -8px; }
-  .container h1 {
-    font-family: "Montserrat Alternates", sans-serif;
-    font-size: 3rem;
-    color: white;
-    text-align: center;
-    margin-top: 19vh; }
+
+.container h1 {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+  margin-top: 19vh; }
 
 /* ---------------------------------------------------------------- */
 @keyframes fillScreen {
@@ -349,10 +350,11 @@
   display: flex;
   justify-content: center;
   margin-left: -8px; }
-  .containerLP img {
-    width: 36vh;
-    height: 30vh;
-    margin-top: 23vh; }
+
+.containerLP img {
+  width: 36vh;
+  height: 30vh;
+  margin-top: 23vh; }
 
 /* SetTimer------------------------------------------------------- */
 .containerST {
@@ -381,21 +383,24 @@
 .setTime {
   justify-content: space-around;
   margin-top: 7vh; }
-  .setTime article {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 6vh; }
-  .setTime h4 {
-    margin-bottom: 1vh;
-    font-family: "Montserrat Alternates", sans-serif;
-    font-weight: 900;
-    font-size: 10px;
-    letter-spacing: 6px;
-    text-align: center; }
-  .setTime p {
-    font-size: 3rem;
-    font-family: "Montserrat Alternates", sans-serif; }
+
+.setTime article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6vh; }
+
+.setTime h4 {
+  margin-bottom: 1vh;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 900;
+  font-size: 10px;
+  letter-spacing: 6px;
+  text-align: center; }
+
+.setTime p {
+  font-size: 3rem;
+  font-family: "Montserrat Alternates", sans-serif; }
 
 .blur {
   opacity: 0.3; }
@@ -527,12 +532,14 @@
   display: flex;
   justify-content: flex-end;
   align-items: center; }
-  .checkboxSec p {
-    margin-right: 1vh;
-    font-family: "Montserrat Alternates", sans-serif;
-    font-weight: 900; }
-  .checkboxSec input {
-    margin-right: 4vh; }
+
+.checkboxSec p {
+  margin-right: 1vh;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 900; }
+
+.checkboxSec input {
+  margin-right: 4vh; }
 
 .intervallAn {
   text-align: center;
@@ -574,8 +581,9 @@ ul {
 
 .timeBD {
   display: flex; }
-  .timeBD article {
-    margin-left: 5px; }
+
+.timeBD article {
+  margin-left: 5px; }
 
 .inputName,
 .inputImg {
@@ -604,30 +612,36 @@ ul {
 .choosenDayBD {
   display: flex;
   justify-content: center; }
-  .choosenDayBD h2 {
-    text-align: center;
-    color: white;
-    font-family: "Montserrat Alternates", sans-serif; }
-  .choosenDayBD h5 {
-    text-align: center;
-    font-family: "Montserrat Alternates", sans-serif;
-    color: white; }
-  .choosenDayBD section {
-    background-color: #3D505C;
-    width: 30vh;
-    border-radius: 6px;
-    box-shadow: 0px 4px 7px -3px black;
-    margin-top: 4vh; }
-  .choosenDayBD h1 {
-    text-align: center;
-    font-family: "Montserrat Alternates", sans-serif;
-    color: white; }
-  .choosenDayBD img {
-    width: 7vh; }
-  .choosenDayBD .imgAndNote {
-    display: flex;
-    justify-content: space-around;
-    align-items: center; }
+
+.choosenDayBD h2 {
+  text-align: center;
+  color: white;
+  font-family: "Montserrat Alternates", sans-serif; }
+
+.choosenDayBD h5 {
+  text-align: center;
+  font-family: "Montserrat Alternates", sans-serif;
+  color: white; }
+
+.choosenDayBD section {
+  background-color: #3D505C;
+  width: 30vh;
+  border-radius: 6px;
+  box-shadow: 0px 4px 7px -3px black;
+  margin-top: 4vh; }
+
+.choosenDayBD h1 {
+  text-align: center;
+  font-family: "Montserrat Alternates", sans-serif;
+  color: white; }
+
+.choosenDayBD img {
+  width: 7vh; }
+
+.choosenDayBD .imgAndNote {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
 
 .btnArtBD {
   text-align: center; }
@@ -681,20 +695,3 @@ ul {
   display: flex;
   margin-top: 16vh;
   justify-content: space-around; }
-
-.pauseCont {
-  display: flex;
-  justify-content: center;
-  margin-top: 29vh; }
-
-.currentTime {
-  text-align: center;
-  font-size: 2rem;
-  color: azure;
-  margin-top: 5vh; }
-
-.lapMark {
-  position: relative;
-  top: -51vh;
-  left: 13vh;
-  margin-right: 1vh; }

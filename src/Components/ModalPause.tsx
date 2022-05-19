@@ -1,7 +1,7 @@
 import React from "react";
 import useTimer from 'easytimer-react-hook';
 import playPause from "../assets/img/playPause.png"
-
+import "./ModalPause.module.css"
 
 function ModalPause(props: any) {
 

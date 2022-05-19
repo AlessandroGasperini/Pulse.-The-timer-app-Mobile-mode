@@ -36502,7 +36502,12 @@ var define;
 
 },{"react":"../node_modules/react/index.js","easytimer.js":"../node_modules/easytimer.js/dist/easytimer.js"}],"../src/assets/img/playPause.png":[function(require,module,exports) {
 module.exports = "/playPause.a5df0340.png";
-},{}],"../src/Components/ModalPause.tsx":[function(require,module,exports) {
+},{}],"../src/Components/ModalPause.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/Components/ModalPause.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36515,6 +36520,8 @@ var _react = _interopRequireDefault(require("react"));
 var _easytimerReactHook = _interopRequireDefault(require("easytimer-react-hook"));
 
 var _playPause = _interopRequireDefault(require("../assets/img/playPause.png"));
+
+require("./ModalPause.module.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36546,7 +36553,7 @@ function ModalPause(props) {
 
 var _default = ModalPause;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../assets/img/playPause.png":"../src/assets/img/playPause.png"}],"../src/assets/img/bell.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../assets/img/playPause.png":"../src/assets/img/playPause.png","./ModalPause.module.css":"../src/Components/ModalPause.module.css"}],"../src/assets/img/bell.png":[function(require,module,exports) {
 module.exports = "/bell.87f763df.png";
 },{}],"../src/assets/img/resetModal.png":[function(require,module,exports) {
 module.exports = "/resetModal.4ff6496a.png";
@@ -37132,7 +37139,12 @@ module.exports = "/hitSpin.2b86cce1.png";
 module.exports = "/hitArrow.01f6d4dd.png";
 },{}],"../src/assets/img/lapMark.png":[function(require,module,exports) {
 module.exports = "/lapMark.f599038c.png";
-},{}],"../src/pages/Hit.tsx":[function(require,module,exports) {
+},{}],"../src/pages/Hit.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/pages/Hit.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37165,6 +37177,8 @@ var _pause = _interopRequireDefault(require("../assets/img/pause.png"));
 var _stop = _interopRequireDefault(require("../assets/img/stop.png"));
 
 var _reset = _interopRequireDefault(require("../assets/img/reset.png"));
+
+require("./Hit.module.css");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -37348,7 +37362,12 @@ var Hit = function () {
 
 var _default = Hit;
 exports.default = _default;
-},{"easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/hitSpin.png":"../src/assets/img/hitSpin.png","../assets/img/hitArrow.png":"../src/assets/img/hitArrow.png","../assets/img/lapMark.png":"../src/assets/img/lapMark.png","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/stop.png":"../src/assets/img/stop.png","../assets/img/reset.png":"../src/assets/img/reset.png"}],"../src/pages/Text.tsx":[function(require,module,exports) {
+},{"easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/hitSpin.png":"../src/assets/img/hitSpin.png","../assets/img/hitArrow.png":"../src/assets/img/hitArrow.png","../assets/img/lapMark.png":"../src/assets/img/lapMark.png","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/stop.png":"../src/assets/img/stop.png","../assets/img/reset.png":"../src/assets/img/reset.png","./Hit.module.css":"../src/pages/Hit.module.css"}],"../src/pages/Text.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/pages/Text.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37375,6 +37394,8 @@ var _pause = _interopRequireDefault(require("../assets/img/pause.png"));
 var _stop = _interopRequireDefault(require("../assets/img/stop.png"));
 
 var _reset = _interopRequireDefault(require("../assets/img/reset.png"));
+
+require("./Text.module.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38053,7 +38074,7 @@ var Text = function () {
 
 var _default = Text;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/stop.png":"../src/assets/img/stop.png","../assets/img/reset.png":"../src/assets/img/reset.png"}],"../src/pages/AnalogStopWatch.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/stop.png":"../src/assets/img/stop.png","../assets/img/reset.png":"../src/assets/img/reset.png","./Text.module.css":"../src/pages/Text.module.css"}],"../src/pages/AnalogStopWatch.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38783,7 +38804,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49832" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57939" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

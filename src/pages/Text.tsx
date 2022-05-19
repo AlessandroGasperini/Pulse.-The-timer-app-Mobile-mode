@@ -11,6 +11,7 @@ import play from "../assets/img/play.png"
 import pauseBtn from "../assets/img/pause.png"
 import stopBtn from "../assets/img/stop.png"
 import resetBtn from "../assets/img/reset.png"
+import "./Text.module.css"
 interface allTimes {
     hours?: number,
     minutes?: number,
