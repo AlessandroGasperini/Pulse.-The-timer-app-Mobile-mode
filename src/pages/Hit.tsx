@@ -43,7 +43,6 @@ const Hit: React.FC<allTimes> = () => {
     const [imgSpin, setImgSpin] = useState<string>(hitSpin)
     const [arrow, setArrow] = useState<string>(hitArrow)
 
-
     function start() {
         timer.start();
         setHit("spin")
@@ -61,8 +60,6 @@ const Hit: React.FC<allTimes> = () => {
         }
     }
 
-
-
     function stop() {
         timer.stop();
         setModalS(true)
@@ -70,13 +67,12 @@ const Hit: React.FC<allTimes> = () => {
         setBreath("hide")
     };
 
-
-
     function reset() {
         window.location.reload()
     };
 
-    const theTime = timer.getTimeValues().seconds
+    const theTime: number = timer.getTimeValues().seconds
+
     const [lap, setLap] = useState<any>([])
     useEffect(() => {
 
@@ -84,7 +80,6 @@ const Hit: React.FC<allTimes> = () => {
             lap.push(1)
         }
     }, [theTime])
-
 
     useEffect(() => {
         if (theTime <= 30 && theTime != 0) {
@@ -106,7 +101,6 @@ const Hit: React.FC<allTimes> = () => {
 
     }
 
-
     const [modalP, setModalP] = useState<boolean>(false)
     const [modalS, setModalS] = useState<boolean>(false)
 
@@ -114,13 +108,11 @@ const Hit: React.FC<allTimes> = () => {
     const theTimeMin: number = timer.getTimeValues().minutes
     const theTimeHour: number = timer.getTimeValues().hours
 
-
     useEffect(() => {
         if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 30) {
             setModalS(true)
         }
     }, [theTimeSec])
-
 
     return (
         <section className='containerHIT'>

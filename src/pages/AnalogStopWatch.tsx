@@ -10,9 +10,9 @@ import { useEffect } from "react";
 import Header from "../Components/Header";
 import play from "../assets/img/play.png"
 import pauseBtn from "../assets/img/pause.png"
-import stopBtn from "../assets/img/stop.png"
 import resetBtn from "../assets/img/reset.png"
 import lapBtn from "../assets/img/lapBtn.png"
+import "./AnalogStopWatch.module.css"
 
 
 

@@ -1,8 +1,5 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import sekund from "../assets/img/sekund.png"
-import clock from "../assets/img/clock.png"
-import timpekare from "../assets/img/timpekare.png"
 import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
 import { useEffect } from "react";
@@ -11,6 +8,7 @@ import ModalStop from "../Components/ModalStop";
 import play from "../assets/img/playw.png"
 import stopBtn from "../assets/img/stopW.png"
 import resetBtn from "../assets/img/resetW.png"
+import "./HourGlass.module.css"
 
 interface allTimes {
     hours?: number,
@@ -33,8 +31,6 @@ const HourGlass: React.FC<allTimes> = () => {
         }, countdown: true
     });
 
-
-
     function start() {
         timer.start();
         setGlass(timeToString)
@@ -53,7 +49,6 @@ const HourGlass: React.FC<allTimes> = () => {
         window.location.reload()
     };
 
-
     useEffect(() => {
         if (timer.getTimeValues().toString() === "00:00:00") {
 
@@ -66,7 +61,6 @@ const HourGlass: React.FC<allTimes> = () => {
     const [startAni, setAni] = useState<string>("")
     const [paused, setPaused] = useState<string>("")
 
-
     const theTimeSec: number = timer.getTimeValues().seconds
     const theTimeMin: number = timer.getTimeValues().minutes
     const theTimeHour: number = timer.getTimeValues().hours
@@ -76,10 +70,7 @@ const HourGlass: React.FC<allTimes> = () => {
     let hourGlassTime: number = mins + hours + time.seconds
     let timeToString: string = hourGlassTime.toString() + "s"
 
-    console.log(hourGlassTime);
-
-
-    let style: any = {
+    let style: object | any = {
         height: "720px",
         position: "relative",
         top: "-720px",
@@ -88,10 +79,7 @@ const HourGlass: React.FC<allTimes> = () => {
         transitionProperty: "all",
         animationDuration: startGlass,
         animationPlayState: paused
-
     }
-
-
 
     useEffect(() => {
         if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
@@ -113,8 +101,6 @@ const HourGlass: React.FC<allTimes> = () => {
 
             {modalP && <ModalPause modalHide={setModalP} passFunction={() => start()} />}
             {modalS && <ModalStop />}
-
-
         </section>
 
     )

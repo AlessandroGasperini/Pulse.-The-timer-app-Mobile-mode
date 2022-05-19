@@ -11,7 +11,7 @@ import hourGlass from "../assets/img/hourGlass.png"
 import setStopWatch from "../assets/img/setStopWatch.png"
 import setText from "../assets/img/setText.png"
 import calender from "../assets/img/calender.png"
-import styles from "./SetTimer.module.css"
+import "./SetTimer.module.css"
 
 
 
@@ -31,7 +31,6 @@ function setTimer() {
     const [updateWhenTargetAchieved, setUpdateWhenTargetAchieved] = useState<boolean>(false)
     const [intervall, setIntervall] = useState<boolean>(false)
 
-
     const allSettings: object = {
         hours: hours,
         minutes: minutes,
@@ -44,7 +43,6 @@ function setTimer() {
         updateWhenTargetAchieved: updateWhenTargetAchieved,
         intervall: intervall
     }
-
 
     return (
         <section>

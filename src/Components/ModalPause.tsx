@@ -5,13 +5,12 @@ import "./ModalPause.module.css"
 
 function ModalPause(props: any) {
 
-    const [timer, isTargetAchieved] = useTimer({})
+    const [timer, isTargetAchieved] = useTimer()
 
     function startAgain() {
         props.passFunction()
         props.modalHide(false)
     }
-    console.log(props);
 
     return (
         <section className="container">

@@ -33,7 +33,6 @@ const Text: React.FC<allTimes> = () => {
         }, countdown: true,
     });
 
-
     function start() {
         timer.start();
     };
@@ -46,7 +45,6 @@ const Text: React.FC<allTimes> = () => {
     function stop() {
         timer.stop();
     };
-
 
     function reset() {
         window.location.reload()
@@ -97,7 +95,6 @@ const Text: React.FC<allTimes> = () => {
         default:
             break;
     }
-
 
     let minutesText: string = "minuter"
     let minutes: string = ""

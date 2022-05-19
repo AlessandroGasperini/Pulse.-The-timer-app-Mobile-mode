@@ -1,0 +1,15 @@
+.checkboxSec {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    p {
+        margin-right: 1vh;
+        font-family: $font-two;
+        font-weight: 900;
+    }
+
+    input {
+        margin-right: 4vh;
+    }
+}

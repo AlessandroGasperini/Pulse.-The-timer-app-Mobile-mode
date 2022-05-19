@@ -35507,7 +35507,12 @@ function createSearchParams(init) {
 }
 },{"react":"../node_modules/react/index.js","history":"../node_modules/history/index.js","react-router":"../node_modules/react-router/index.js"}],"../src/assets/img/logoLanding.png":[function(require,module,exports) {
 module.exports = "/logoLanding.faf5e9e3.png";
-},{}],"../src/pages/LandingPage.tsx":[function(require,module,exports) {
+},{}],"../src/pages/LandingPage.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/pages/LandingPage.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35520,6 +35525,8 @@ var _react = _interopRequireDefault(require("react"));
 var _reactRouterDom = require("react-router-dom");
 
 var _logoLanding = _interopRequireDefault(require("../assets/img/logoLanding.png"));
+
+require("./LandingPage.module.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35536,7 +35543,7 @@ function LandingPage() {
 
 var _default = LandingPage;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/logoLanding.png":"../src/assets/img/logoLanding.png"}],"../src/assets/img/left.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/logoLanding.png":"../src/assets/img/logoLanding.png","./LandingPage.module.css":"../src/pages/LandingPage.module.css"}],"../src/assets/img/left.png":[function(require,module,exports) {
 module.exports = "/left.e9a78fbb.png";
 },{}],"../src/assets/img/right.png":[function(require,module,exports) {
 module.exports = "/right.73186344.png";
@@ -35595,7 +35602,12 @@ module.exports = "/setStopWatch.2c1c4768.png";
 module.exports = "/setText.d7efec82.png";
 },{}],"../src/assets/img/calender.png":[function(require,module,exports) {
 module.exports = "/calender.4d11a47c.png";
-},{}],"../src/pages/SetTimer.tsx":[function(require,module,exports) {
+},{}],"../src/pages/SetTimer.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/pages/SetTimer.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35626,6 +35638,8 @@ var _setStopWatch = _interopRequireDefault(require("../assets/img/setStopWatch.p
 var _setText = _interopRequireDefault(require("../assets/img/setText.png"));
 
 var _calender = _interopRequireDefault(require("../assets/img/calender.png"));
+
+require("./SetTimer.module.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35807,7 +35821,7 @@ function setTimer() {
 
 var _default = setTimer;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/left.png":"../src/assets/img/left.png","../assets/img/right.png":"../src/assets/img/right.png","../Components/Header":"../src/Components/Header.tsx","../assets/img/setAnalog.png":"../src/assets/img/setAnalog.png","../assets/img/setDigital.png":"../src/assets/img/setDigital.png","../assets/img/setHit.png":"../src/assets/img/setHit.png","../assets/img/hourGlass.png":"../src/assets/img/hourGlass.png","../assets/img/setStopWatch.png":"../src/assets/img/setStopWatch.png","../assets/img/setText.png":"../src/assets/img/setText.png","../assets/img/calender.png":"../src/assets/img/calender.png"}],"../src/assets/img/sekund.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/left.png":"../src/assets/img/left.png","../assets/img/right.png":"../src/assets/img/right.png","../Components/Header":"../src/Components/Header.tsx","../assets/img/setAnalog.png":"../src/assets/img/setAnalog.png","../assets/img/setDigital.png":"../src/assets/img/setDigital.png","../assets/img/setHit.png":"../src/assets/img/setHit.png","../assets/img/hourGlass.png":"../src/assets/img/hourGlass.png","../assets/img/setStopWatch.png":"../src/assets/img/setStopWatch.png","../assets/img/setText.png":"../src/assets/img/setText.png","../assets/img/calender.png":"../src/assets/img/calender.png","./SetTimer.module.css":"../src/pages/SetTimer.module.css"}],"../src/assets/img/sekund.png":[function(require,module,exports) {
 module.exports = "/sekund.a9b0da02.png";
 },{}],"../src/assets/img/clock.png":[function(require,module,exports) {
 module.exports = "/clock.decaac8b.png";
@@ -36526,7 +36540,7 @@ require("./ModalPause.module.css");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function ModalPause(props) {
-  var _a = (0, _easytimerReactHook.default)({}),
+  var _a = (0, _easytimerReactHook.default)(),
       timer = _a[0],
       isTargetAchieved = _a[1];
 
@@ -36535,7 +36549,6 @@ function ModalPause(props) {
     props.modalHide(false);
   }
 
-  console.log(props);
   return _react.default.createElement("section", {
     className: "container"
   }, _react.default.createElement("h1", null, "P a u s e"), _react.default.createElement("section", {
@@ -36559,7 +36572,12 @@ module.exports = "/bell.87f763df.png";
 module.exports = "/resetModal.4ff6496a.png";
 },{}],"../src/assets/img/setNewTime.png":[function(require,module,exports) {
 module.exports = "/setNewTime.b2c52e19.png";
-},{}],"../src/Components/ModalStop.tsx":[function(require,module,exports) {
+},{}],"../src/Components/ModalStop.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/Components/ModalStop.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36576,6 +36594,8 @@ var _bell = _interopRequireDefault(require("../assets/img/bell.png"));
 var _resetModal = _interopRequireDefault(require("../assets/img/resetModal.png"));
 
 var _setNewTime = _interopRequireDefault(require("../assets/img/setNewTime.png"));
+
+require("./ModalStop.module.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36610,7 +36630,7 @@ function ModalStop() {
 
 var _default = ModalStop;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/bell.png":"../src/assets/img/bell.png","../assets/img/resetModal.png":"../src/assets/img/resetModal.png","../assets/img/setNewTime.png":"../src/assets/img/setNewTime.png"}],"../src/assets/img/play.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/bell.png":"../src/assets/img/bell.png","../assets/img/resetModal.png":"../src/assets/img/resetModal.png","../assets/img/setNewTime.png":"../src/assets/img/setNewTime.png","./ModalStop.module.css":"../src/Components/ModalStop.module.css"}],"../src/assets/img/play.png":[function(require,module,exports) {
 module.exports = "/play.408b81e7.png";
 },{}],"../src/assets/img/pause.png":[function(require,module,exports) {
 module.exports = "/pause.014676c1.png";
@@ -36618,7 +36638,12 @@ module.exports = "/pause.014676c1.png";
 module.exports = "/stop.f7cde4de.png";
 },{}],"../src/assets/img/reset.png":[function(require,module,exports) {
 module.exports = "/reset.ae76f7e1.png";
-},{}],"../src/pages/AnalogTimer.tsx":[function(require,module,exports) {
+},{}],"../src/pages/AnalogTimer.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/pages/AnalogTimer.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36651,6 +36676,8 @@ var _pause = _interopRequireDefault(require("../assets/img/pause.png"));
 var _stop = _interopRequireDefault(require("../assets/img/stop.png"));
 
 var _reset = _interopRequireDefault(require("../assets/img/reset.png"));
+
+require("./AnalogTimer.module.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36833,7 +36860,12 @@ var AnalogTimer = function () {
 
 var _default = AnalogTimer;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/sekund.png":"../src/assets/img/sekund.png","../assets/img/clock.png":"../src/assets/img/clock.png","../assets/img/timpekare.png":"../src/assets/img/timpekare.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/stop.png":"../src/assets/img/stop.png","../assets/img/reset.png":"../src/assets/img/reset.png"}],"../src/pages/Digital.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/sekund.png":"../src/assets/img/sekund.png","../assets/img/clock.png":"../src/assets/img/clock.png","../assets/img/timpekare.png":"../src/assets/img/timpekare.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/stop.png":"../src/assets/img/stop.png","../assets/img/reset.png":"../src/assets/img/reset.png","./AnalogTimer.module.css":"../src/pages/AnalogTimer.module.css"}],"../src/pages/Digital.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/pages/Digital.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36860,6 +36892,8 @@ var _pause = _interopRequireDefault(require("../assets/img/pause.png"));
 var _stop = _interopRequireDefault(require("../assets/img/stop.png"));
 
 var _reset = _interopRequireDefault(require("../assets/img/reset.png"));
+
+require("./Digital.module.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37010,9 +37044,14 @@ var Digital = function () {
 
 var _default = Digital;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/stop.png":"../src/assets/img/stop.png","../assets/img/reset.png":"../src/assets/img/reset.png"}],"../src/assets/img/lapBtn.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/stop.png":"../src/assets/img/stop.png","../assets/img/reset.png":"../src/assets/img/reset.png","./Digital.module.css":"../src/pages/Digital.module.css"}],"../src/assets/img/lapBtn.png":[function(require,module,exports) {
 module.exports = "/lapBtn.00fd3cfb.png";
-},{}],"../src/pages/StopWatch.tsx":[function(require,module,exports) {
+},{}],"../src/pages/StopWatch.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/pages/StopWatch.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37038,6 +37077,8 @@ var _reset = _interopRequireDefault(require("../assets/img/reset.png"));
 
 var _lapBtn = _interopRequireDefault(require("../assets/img/lapBtn.png"));
 
+require("./StopWatch.module.css");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -37045,9 +37086,6 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 var StopWatch = function () {
-  var location = (0, _reactRouterDom.useLocation)();
-  var time = location.state;
-
   var _a = (0, _easytimerReactHook.default)({}),
       timer = _a[0],
       isTargetAchieved = _a[1];
@@ -37133,7 +37171,7 @@ var StopWatch = function () {
 
 var _default = StopWatch;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../assets/img/setAnalog.png":"../src/assets/img/setAnalog.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/reset.png":"../src/assets/img/reset.png","../assets/img/lapBtn.png":"../src/assets/img/lapBtn.png"}],"../src/assets/img/hitSpin.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../assets/img/setAnalog.png":"../src/assets/img/setAnalog.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/reset.png":"../src/assets/img/reset.png","../assets/img/lapBtn.png":"../src/assets/img/lapBtn.png","./StopWatch.module.css":"../src/pages/StopWatch.module.css"}],"../src/assets/img/hitSpin.png":[function(require,module,exports) {
 module.exports = "/hitSpin.2b86cce1.png";
 },{}],"../src/assets/img/hitArrow.png":[function(require,module,exports) {
 module.exports = "/hitArrow.01f6d4dd.png";
@@ -38074,7 +38112,12 @@ var Text = function () {
 
 var _default = Text;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/stop.png":"../src/assets/img/stop.png","../assets/img/reset.png":"../src/assets/img/reset.png","./Text.module.css":"../src/pages/Text.module.css"}],"../src/pages/AnalogStopWatch.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","react-router-dom":"../node_modules/react-router-dom/index.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/stop.png":"../src/assets/img/stop.png","../assets/img/reset.png":"../src/assets/img/reset.png","./Text.module.css":"../src/pages/Text.module.css"}],"../src/pages/AnalogStopWatch.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/pages/AnalogStopWatch.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38105,6 +38148,8 @@ var _pause = _interopRequireDefault(require("../assets/img/pause.png"));
 var _reset = _interopRequireDefault(require("../assets/img/reset.png"));
 
 var _lapBtn = _interopRequireDefault(require("../assets/img/lapBtn.png"));
+
+require("./AnalogStopWatch.module.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38225,13 +38270,18 @@ var AnalogStopWatch = function () {
 
 var _default = AnalogStopWatch;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/sekund.png":"../src/assets/img/sekund.png","../assets/img/clock.png":"../src/assets/img/clock.png","../assets/img/setDigital.png":"../src/assets/img/setDigital.png","../assets/img/timpekare.png":"../src/assets/img/timpekare.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/reset.png":"../src/assets/img/reset.png","../assets/img/lapBtn.png":"../src/assets/img/lapBtn.png"}],"../src/assets/img/playw.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","../assets/img/sekund.png":"../src/assets/img/sekund.png","../assets/img/clock.png":"../src/assets/img/clock.png","../assets/img/setDigital.png":"../src/assets/img/setDigital.png","../assets/img/timpekare.png":"../src/assets/img/timpekare.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/Header":"../src/Components/Header.tsx","../assets/img/play.png":"../src/assets/img/play.png","../assets/img/pause.png":"../src/assets/img/pause.png","../assets/img/reset.png":"../src/assets/img/reset.png","../assets/img/lapBtn.png":"../src/assets/img/lapBtn.png","./AnalogStopWatch.module.css":"../src/pages/AnalogStopWatch.module.css"}],"../src/assets/img/playw.png":[function(require,module,exports) {
 module.exports = "/playw.6ad035c0.png";
 },{}],"../src/assets/img/stopW.png":[function(require,module,exports) {
 module.exports = "/stopW.da80afc0.png";
 },{}],"../src/assets/img/resetW.png":[function(require,module,exports) {
 module.exports = "/resetW.c59f34a8.png";
-},{}],"../src/pages/HourGlass.tsx":[function(require,module,exports) {
+},{}],"../src/pages/HourGlass.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/pages/HourGlass.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38254,6 +38304,8 @@ var _playw = _interopRequireDefault(require("../assets/img/playw.png"));
 var _stopW = _interopRequireDefault(require("../assets/img/stopW.png"));
 
 var _resetW = _interopRequireDefault(require("../assets/img/resetW.png"));
+
+require("./HourGlass.module.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38329,7 +38381,6 @@ var HourGlass = function () {
   var hours = time.hours * 3600;
   var hourGlassTime = mins + hours + time.seconds;
   var timeToString = hourGlassTime.toString() + "s";
-  console.log(hourGlassTime);
   var style = {
     height: "720px",
     position: "relative",
@@ -38380,13 +38431,18 @@ var HourGlass = function () {
 
 var _default = HourGlass;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../assets/img/playw.png":"../src/assets/img/playw.png","../assets/img/stopW.png":"../src/assets/img/stopW.png","../assets/img/resetW.png":"../src/assets/img/resetW.png"}],"../src/assets/img/up.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../Components/ModalPause":"../src/Components/ModalPause.tsx","../Components/ModalStop":"../src/Components/ModalStop.tsx","../assets/img/playw.png":"../src/assets/img/playw.png","../assets/img/stopW.png":"../src/assets/img/stopW.png","../assets/img/resetW.png":"../src/assets/img/resetW.png","./HourGlass.module.css":"../src/pages/HourGlass.module.css"}],"../src/assets/img/up.png":[function(require,module,exports) {
 module.exports = "/up.3257267a.png";
 },{}],"../src/assets/img/down.png":[function(require,module,exports) {
 module.exports = "/down.c634f431.png";
 },{}],"../src/assets/img/create.png":[function(require,module,exports) {
 module.exports = "/create.5580c7de.png";
-},{}],"../src/pages/bigDay.tsx":[function(require,module,exports) {
+},{}],"../src/pages/BigDay.module.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/pages/bigDay.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38407,6 +38463,8 @@ var _down = _interopRequireDefault(require("../assets/img/down.png"));
 var _easytimerReactHook = _interopRequireDefault(require("easytimer-react-hook"));
 
 var _create = _interopRequireDefault(require("../assets/img/create.png"));
+
+require("./BigDay.module.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38550,9 +38608,6 @@ var BigDay = function () {
     setMonthText(monthText);
   }
 
-  console.log(todaysDate);
-  console.log(finalDate);
-  timer.getTimeValues().seconds;
   (0, _react.useEffect)(function () {
     if (todaysDate === finalDate) {
       console.log("happy day bitch");
@@ -38684,7 +38739,7 @@ var BigDay = function () {
 
 var _default = BigDay;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/up.png":"../src/assets/img/up.png","../assets/img/down.png":"../src/assets/img/down.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../assets/img/create.png":"../src/assets/img/create.png"}],"../src/App.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../Components/ModalStop":"../src/Components/ModalStop.tsx","../Components/Header":"../src/Components/Header.tsx","../assets/img/up.png":"../src/assets/img/up.png","../assets/img/down.png":"../src/assets/img/down.png","easytimer-react-hook":"../node_modules/easytimer-react-hook/dist/index.min.js","../assets/img/create.png":"../src/assets/img/create.png","./BigDay.module.css":"../src/pages/BigDay.module.css"}],"../src/App.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

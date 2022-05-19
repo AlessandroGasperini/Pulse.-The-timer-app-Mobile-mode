@@ -13,7 +13,7 @@ import play from "../assets/img/play.png"
 import pauseBtn from "../assets/img/pause.png"
 import stopBtn from "../assets/img/stop.png"
 import resetBtn from "../assets/img/reset.png"
-import lapBtn from "../assets/img/lapBtn.png"
+import "./AnalogTimer.module.css"
 
 interface allTimes {
     hours?: number,
@@ -88,6 +88,7 @@ const AnalogTimer: React.FC<allTimes> = () => {
     });
 
     const [restart, setRestart] = useState<boolean>(false)
+
     useEffect(() => {
         if (time.intervall === true && theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
             setRestart(true)
@@ -110,13 +111,6 @@ const AnalogTimer: React.FC<allTimes> = () => {
         }
     }, [intV.getTimeValues().toString()])
 
-
-
-
-
-
-
-
     useEffect(() => {
         if (time.intervall === false && theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
             setModalS(true)
@@ -124,9 +118,6 @@ const AnalogTimer: React.FC<allTimes> = () => {
             setHours("pauseHour")
         }
     }, [theTimeSec])
-
-
-
 
 
     return (

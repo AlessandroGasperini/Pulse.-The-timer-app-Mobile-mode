@@ -7,18 +7,14 @@ import { useEffect } from "react";
 import Header from "../Components/Header";
 import play from "../assets/img/play.png"
 import pauseBtn from "../assets/img/pause.png"
-import stopBtn from "../assets/img/stop.png"
 import resetBtn from "../assets/img/reset.png"
 import lapBtn from "../assets/img/lapBtn.png"
+import "./StopWatch.module.css"
+
 
 const StopWatch: React.FC = () => {
 
-    const location: any = useLocation();
-
-    const time = location.state;
-
     const [timer, isTargetAchieved] = useTimer({});
-
 
     function start() {
         timer.start();
@@ -32,11 +28,9 @@ const StopWatch: React.FC = () => {
         timer.stop();
     };
 
-
     function reset() {
         window.location.reload()
     };
-
 
     const [allLaps, setAllLaps]: Array<string> | any = useState([])
 
@@ -50,8 +44,6 @@ const StopWatch: React.FC = () => {
 
             <Header header={"Stop Watch Digital"} />
             <div className="stopWatch">{timer.getTimeValues().toString()}</div>
-
-
 
             <ul>
                 {allLaps.map((lap: string, id: number) => (

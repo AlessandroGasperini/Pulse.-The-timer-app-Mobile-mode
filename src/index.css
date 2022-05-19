@@ -545,7 +545,9 @@
   text-align: center;
   font-size: 2rem;
   margin-top: -5vh;
-  font-family: "Montserrat Alternates", sans-serif; }
+  font-family: "Montserrat Alternates", sans-serif;
+  position: absolute;
+  left: 18vh; }
 
 .stopWatch {
   text-align: center;
@@ -695,3 +697,20 @@ ul {
   display: flex;
   margin-top: 16vh;
   justify-content: space-around; }
+
+.pauseCont {
+  display: flex;
+  justify-content: center;
+  margin-top: 29vh; }
+
+.currentTime {
+  text-align: center;
+  font-size: 2rem;
+  color: azure;
+  margin-top: 5vh; }
+
+.lapMark {
+  position: relative;
+  top: -51vh;
+  left: 13vh;
+  margin-right: 1vh; }

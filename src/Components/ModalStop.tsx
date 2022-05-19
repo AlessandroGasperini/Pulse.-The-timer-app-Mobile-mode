@@ -4,7 +4,7 @@ import bell from "../assets/img/bell.png"
 import styles from "./ModalStop.module.css"
 import resetModal from "../assets/img/resetModal.png"
 import setNewTime from "../assets/img/setNewTime.png"
-
+import "./ModalStop.module.css"
 
 function ModalStop() {
 

@@ -6,6 +6,7 @@ import up from "../assets/img/up.png"
 import down from "../assets/img/down.png"
 import useTimer from "easytimer-react-hook";
 import createBtn from "../assets/img/create.png"
+import "./BigDay.module.css"
 
 
 
@@ -99,9 +100,6 @@ const BigDay: React.FC = () => {
         setFinalDate(choosenDate)
         setMonthText(monthText)
     }
-    console.log(todaysDate);
-    console.log(finalDate);
-    timer.getTimeValues().seconds
 
     useEffect(() => {
         if (todaysDate === finalDate) {
@@ -109,12 +107,6 @@ const BigDay: React.FC = () => {
             setModalS(true)
         }
     }, [timer.getTimeValues().seconds])
-
-
-
-
-
-
 
     return (
         <section className="containerBD">

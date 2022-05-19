@@ -2,7 +2,7 @@ import React from "react";
 
 import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
@@ -11,8 +11,7 @@ import play from "../assets/img/play.png"
 import pauseBtn from "../assets/img/pause.png"
 import stopBtn from "../assets/img/stop.png"
 import resetBtn from "../assets/img/reset.png"
-import lapBtn from "../assets/img/lapBtn.png"
-
+import "./Digital.module.css"
 interface allTimes {
     hours?: number,
     minutes?: number,
@@ -76,6 +75,7 @@ const Digital: React.FC<allTimes> = () => {
     });
 
     const [restart, setRestart] = useState<boolean>(false)
+
     useEffect(() => {
         if (time.intervall === true && theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
             setRestart(true)
@@ -85,7 +85,6 @@ const Digital: React.FC<allTimes> = () => {
         }
     }, [theTimeSec])
 
-
     useEffect(() => {
         if (intV.getTimeValues().toString() === "00:00:00" && restart === true) {
             timer.reset()
@@ -94,17 +93,11 @@ const Digital: React.FC<allTimes> = () => {
         }
     }, [intV.getTimeValues().toString()])
 
-
-
-
-
-
     useEffect(() => {
         if (time.intervall === false && theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
             setModalS(true)
         }
     }, [theTimeSec])
-
 
     return (
         <section className="containerD">
@@ -114,8 +107,6 @@ const Digital: React.FC<allTimes> = () => {
                 <p className={timerHide} >{timer.getTimeValues().toString()}</p>
                 <p className={timerOG}>{intV.getTimeValues().toString()}</p>
             </div>
-
-
 
             <section className="allBtnDigital">
                 <img onClick={() => start()} src={play} alt="" />
