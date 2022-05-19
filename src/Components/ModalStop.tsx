@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import bell from "../assets/img/bell.png"
-
+import styles from "./ModalStop.module.css"
+import resetModal from "../assets/img/resetModal.png"
+import setNewTime from "../assets/img/setNewTime.png"
 
 
 function ModalStop() {
@@ -15,16 +17,21 @@ function ModalStop() {
 
     return (
         <section className="container">
-            <h1>ModalStop</h1>
+
+            <h1>S t o p</h1>
+
+            <article className="shakeArt">
+                <img className="bellShake" src={bell} alt="" />
+            </article>
+
+            <article className="btnArtModS">
+                <Link to={"/setTimer"}>
+                    <img src={setNewTime} alt="" />
+                </Link>
+                <img onClick={() => reset()} src={resetModal} alt="" />
+            </article>
 
 
-            <img className="bell" src={bell} alt="" />
-
-            <Link to={"/setTimer"}>
-                <button>Set new Time</button>
-            </Link>
-
-            <button onClick={() => reset()}>Reset</button>
 
 
 

@@ -7,13 +7,24 @@ import { useEffect } from "react";
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
 import Header from "../Components/Header";
+import play from "../assets/img/play.png"
+import pauseBtn from "../assets/img/pause.png"
+import stopBtn from "../assets/img/stop.png"
+import resetBtn from "../assets/img/reset.png"
+import lapBtn from "../assets/img/lapBtn.png"
 
+interface allTimes {
+    hours?: number,
+    minutes?: number,
+    seconds?: number,
+    countdown?: boolean
+}
 
-const Digital: React.FC = () => {
+const Digital: React.FC<allTimes> = () => {
 
-    const location: any = useLocation();
+    const location: object | any = useLocation();
 
-    const time = location.state;
+    const time: object | any = location.state;
 
     const [timer, isTargetAchieved] = useTimer({
         startValues: {
@@ -26,20 +37,25 @@ const Digital: React.FC = () => {
 
     function start() {
         timer.start();
+        {
+            timerOG == "red" ? intV.start() : null
+        }
     };
 
     function pause() {
         timer.pause();
         setModalP(true)
+        intV.pause()
     };
 
     function stop() {
         timer.stop();
+        intV.stop()
     };
 
 
     function reset() {
-        timer.reset();
+        window.location.reload()
     };
 
     const [modalP, setModalP] = useState<boolean>(false)
@@ -50,26 +66,63 @@ const Digital: React.FC = () => {
     const theTimeHour: number = timer.getTimeValues().hours
 
 
+    const [timerOG, setTimerOG] = useState<string>("hide")
+    const [timerHide, setTimerHide] = useState<string>("timerShown")
+
+    const [intV, setIntV] = useTimer({
+        startValues: {
+            minutes: 5
+        }, countdown: true,
+    });
+
+    const [restart, setRestart] = useState<boolean>(false)
     useEffect(() => {
-        if (theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
+        if (time.intervall === true && theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
+            setRestart(true)
+            intV.start()
+            setTimerOG("red")
+            setTimerHide("hide")
+        }
+    }, [theTimeSec])
+
+
+    useEffect(() => {
+        if (intV.getTimeValues().toString() === "00:00:00" && restart === true) {
+            timer.reset()
+            setTimerOG("hide")
+            setTimerHide("timerShown")
+        }
+    }, [intV.getTimeValues().toString()])
+
+
+
+
+
+
+    useEffect(() => {
+        if (time.intervall === false && theTimeHour == 0 && theTimeMin == 0 && theTimeSec == 0) {
             setModalS(true)
         }
     }, [theTimeSec])
 
 
     return (
-        <section>
+        <section className="containerD">
             <Header header={"Timer Digital"} />
 
-            <div>{timer.getTimeValues().toString()}</div>
+            <div>
+                <p className={timerHide} >{timer.getTimeValues().toString()}</p>
+                <p className={timerOG}>{intV.getTimeValues().toString()}</p>
+            </div>
 
-            <button onClick={() => start()}>start</button>
 
-            <button onClick={() => pause()}>pause</button>
 
-            <button onClick={() => stop()}>stop</button>
-
-            <button onClick={() => reset()}>reset</button>
+            <section className="allBtnDigital">
+                <img onClick={() => start()} src={play} alt="" />
+                <img onClick={() => pause()} src={pauseBtn} alt="" />
+                <img onClick={() => stop()} src={stopBtn} alt="" />
+                <img onClick={() => reset()} src={resetBtn} alt="" />
+            </section>
 
 
             {modalP && <ModalPause currentTime={timer.getTimeValues().toString()} modalHide={setModalP} passFunction={() => start()} />}

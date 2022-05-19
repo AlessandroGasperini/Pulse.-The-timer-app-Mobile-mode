@@ -8,15 +8,22 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ModalPause from "../Components/ModalPause";
 import ModalStop from "../Components/ModalStop";
+import play from "../assets/img/playw.png"
+import stopBtn from "../assets/img/stopW.png"
+import resetBtn from "../assets/img/resetW.png"
 
+interface allTimes {
+    hours?: number,
+    minutes?: number,
+    seconds?: number,
+    countdown?: boolean
+}
 
-const HourGlass = () => {
+const HourGlass: React.FC<allTimes> = () => {
 
+    const location: object | any = useLocation();
 
-
-    const location: any = useLocation();
-
-    const time = location.state;
+    const time: object | any = location.state;
 
     const [timer, isTargetAchieved] = useTimer({
         startValues: {
@@ -36,6 +43,8 @@ const HourGlass = () => {
 
     function stop() {
         timer.stop();
+        setPaused("paused")
+        setModalS(true)
     };
 
 
@@ -55,7 +64,7 @@ const HourGlass = () => {
     const [modalS, setModalS] = useState<boolean>(false)
     const [startGlass, setGlass] = useState<string>("")
     const [startAni, setAni] = useState<string>("")
-
+    const [paused, setPaused] = useState<string>("")
 
 
     const theTimeSec: number = timer.getTimeValues().seconds
@@ -78,6 +87,8 @@ const HourGlass = () => {
         animation: startAni,
         transitionProperty: "all",
         animationDuration: startGlass,
+        animationPlayState: paused
+
     }
 
 
@@ -91,15 +102,13 @@ const HourGlass = () => {
     }, [theTimeSec])
 
     return (
-        <section >
+        <section className="containerHG" >
             <section style={style}></section>
 
             <section className="forShow">
-                <button onClick={() => start()}>start</button>
-
-                <button onClick={() => stop()}>stop</button>
-
-                <button onClick={() => reset()}>reset</button>
+                <img onClick={() => start()} src={play} alt="" />
+                <img onClick={() => stop()} src={stopBtn} alt="" />
+                <img onClick={() => reset()} src={resetBtn} alt="" />
             </section>
 
             {modalP && <ModalPause modalHide={setModalP} passFunction={() => start()} />}

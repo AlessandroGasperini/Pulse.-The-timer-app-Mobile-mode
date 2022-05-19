@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/img/pulse logo.png"
+import logo from "../assets/img/logoLanding.png"
 
 function LandingPage() {
 
@@ -8,10 +8,10 @@ function LandingPage() {
 
     return (
         <Link to={"/SetTimer"}>
-            <section>
-                <h1>LandingPage</h1>
+            <section className="containerLP">
+
                 <img src={logo} alt="" />
-                <h1>PuLse</h1>
+
             </section>
         </Link>
     );

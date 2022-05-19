@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import sekund from "../assets/img/sekund.png"
 import clock from "../assets/img/clock.png"
 import setDigital from "../assets/img/setDigital.png"
@@ -8,22 +8,17 @@ import useTimer from 'easytimer-react-hook';
 import { useState } from "react";
 import { useEffect } from "react";
 import Header from "../Components/Header";
+import play from "../assets/img/play.png"
+import pauseBtn from "../assets/img/pause.png"
+import stopBtn from "../assets/img/stop.png"
+import resetBtn from "../assets/img/reset.png"
+import lapBtn from "../assets/img/lapBtn.png"
 
-// interface allTimes {
-//     hours: number,
-//     minutes: number,
-//     seconds: number,
-//     targetDays: number,
-//     targetHours: number,
-//     targetMinutes: number,
-//     targetSeconds: number,
-//     countdown: boolean,
-//     updateWhenTargetAchieved: boolean
-// }
+
 
 const AnalogStopWatch: React.FC = () => {
 
-    const [timer, isTargetAchieved] = useTimer({ target: { days: 10 } });
+    const [timer, isTargetAchieved] = useTimer();
     const [sec, setSec] = useState<string>("noRunSeconds")
     const [hours, setHours] = useState<string>("noRunMinutes")
 
@@ -65,7 +60,7 @@ const AnalogStopWatch: React.FC = () => {
 
 
     return (
-        <section>
+        <section className="containerASW">
             <Header header={"Stop watch Analog"} />
             <section className="clockSection">
                 <img className="clock" src={clock} alt="" />
@@ -77,22 +72,22 @@ const AnalogStopWatch: React.FC = () => {
 
             <ul>
                 {allLaps.map((lap: string, id: number) => (
-                    <p key={id}>{lap}</p>
+                    <p className="laps" key={id}>{lap}</p>
                 ))}
             </ul>
 
-            <Link to={"/StopWatch"}>
-                <img src={setDigital} alt="" />
-            </Link>
+            <section className="stopWatchASec">
+                <Link to={"/StopWatch"}>
+                    <img src={setDigital} alt="" />
+                </Link>
+                <img onClick={() => start()} src={play} alt="" />
+                <img onClick={() => pause()} src={pauseBtn} alt="" />
+                <img onClick={() => reset()} src={resetBtn} alt="" />
+                <img onClick={() => lap()} src={lapBtn} alt="" />
 
-            <button onClick={() => start()}>start</button>
 
-            <button onClick={() => pause()}>stop</button>
 
-            <button onClick={() => reset()}>reset</button>
-
-            <button onClick={() => lap()}>lap</button>
-
+            </section>
         </section>
 
     )
